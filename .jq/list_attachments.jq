@@ -1,5 +1,3 @@
-include "bw";
-
 # Format an item for Alfred
 def alfred:
   {

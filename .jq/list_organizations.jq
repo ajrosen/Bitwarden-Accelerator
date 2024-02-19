@@ -1,5 +1,3 @@
-include "bw";
-
 def all:
   {
     title: "All Vaults",

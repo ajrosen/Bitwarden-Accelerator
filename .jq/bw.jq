@@ -27,7 +27,7 @@ def loginFields:
 def itemType:
   . | if .type == 1 then "Login"
       elif .type == 2 then "Secure Note" 
-      elif .type == 3 then  "Card"
+      elif .type == 3 then "Card"
       else "Identity" end
 ;
 
