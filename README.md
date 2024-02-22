@@ -49,7 +49,7 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 
 ### Two-step login method
 
-Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
+Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
 
 ### Downloads Folder
 
