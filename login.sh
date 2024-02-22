@@ -5,10 +5,13 @@
 . lib/env.sh
 . lib/status.sh
 
-OUT='{ "message": "Login failed" }'
+OUT='{ "success": false, "message": "Login failed" }'
 
 # Make sure server is stopped
 ./stop_server.sh
+
+# Configure Bitwarden server
+bw config server "${serverUrl}" >& /dev/null
 
 bwuser=${bwuser:-"user@example.com"}
 
@@ -30,6 +33,11 @@ case "${loginMethod}" in
 	OUT=$(bw --response --nointeraction login --apikey)
 	;;
 esac
+
+if [ "$(jq -r .success <<< "${OUT}")" == "false" ]; then
+    echo "Login failed"
+    exit
+fi
 
 # Start server
 ./start_server.sh
