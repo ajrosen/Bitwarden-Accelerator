@@ -14,7 +14,7 @@ on run u
     end
 
     if (m = "1") then			-- Email
-	set t to "Check yur email for your two-step login verification code"
+	set t to "Check your email for your two-step login verification code"
     end
 
     if (m = "3") then			-- YubiKey OTP
