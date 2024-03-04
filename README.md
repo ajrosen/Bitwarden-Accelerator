@@ -25,10 +25,12 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 	* Logins by username or URL
 	* Cards by brand (eg., search for "Visa")
 	* Identities by any field in the item
+* Automatically searches for the active browser tab's domain name
 * Favorite items are listed first
 * Download an item's attachments
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
 * View an item in a separate window to copy/paste multiple fields easily
+* (Optional) Automatically sync vault using a MacOS Launch Agent
 
 ---
 
@@ -51,6 +53,10 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 
 Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
 
+### Bitwarden server
+
+The Bitwarden server hosting your vault.  The default is *bitwarden.com*, the US server.
+
 ### Downloads Folder
 
 Where to save attachments downloaded from your vault.  The default is your Downloads folder.  If you leave this blank, Bitwarden Accelerator will ask you to choose a folder each time.
@@ -62,6 +68,10 @@ How many seconds Bitwarden Accelerator will keep your password (or other field) 
 ### Sync Interval
 
 Bitwarden Accelerator will sync your vault when you load the worfklow if it has not been synced in this many minutes.
+
+### Auto Sync
+
+Installs a MacOS *Launch Agent* that automatically syncs your vault every *Sync Interval* minutes.
 
 ### Notifications
 

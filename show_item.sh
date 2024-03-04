@@ -22,7 +22,7 @@ case ${TYPE} in
 	;;
     3)
 	JQ="card"
-	BRAND=$(jq -L .jq -r 'include "bw"; icon(.)' <<< "${ITEM}")
+	BRAND=$(jq -L jq -r 'include "bw"; icon(.)' <<< "${ITEM}")
 	ICON="${PWD}/icons/${BRAND}"
 	;;
     4)
@@ -36,7 +36,7 @@ ORG_ID=$(jq -r .data.organizationId <<< "${ITEM}")
 ORG=$(jq -r --arg org "${ORG_ID}" '.data.data[] | select(.id == $org) | .name' "${DATA_DIR}"/organizations)
 
 # Format item
-export DATA=$(jq -L .jq -r --arg org "${ORG}" -f ".jq/show_${JQ}.jq" <<< "${ITEM}")
+export DATA=$(jq -L jq -r --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}")
 
 # Display dialog
 osascript \

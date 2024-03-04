@@ -7,10 +7,10 @@
 echo '{ "items":'
 
 jq \
-    -L .jq \
+    -L jq \
     --arg organizationId "${ORGANIZATION_ID}" \
     --arg search "$*" \
-    -r -f .jq/list_collections.jq \
+    -r -f jq/list_collections.jq \
     "${DATA_DIR}"/collections
 
 echo '}'

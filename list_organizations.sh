@@ -5,9 +5,9 @@
 echo '{ "items":'
 
 jq \
-    -L .jq \
+    -L jq \
     --arg search "$*" \
-    -r -f .jq/list_organizations.jq \
+    -r -f jq/list_organizations.jq \
     "${DATA_DIR}"/organizations
 
 echo '}'

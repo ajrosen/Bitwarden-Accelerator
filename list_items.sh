@@ -25,7 +25,7 @@ if [ $# == 0 ] && [ "${browserURL}" != "" ]; then
     URL=$(echo "${browserURL}" | awk 'BEGIN { FS="/" } { h = $3 } END { FS="." ;  $0 = h ; print $(NF-1) "." $NF }')
 
     jq \
-	-L .jq \
+	-L jq \
 	--rawfile {,"${DATA_DIR}/"}organizations \
 	--rawfile {,"${DATA_DIR}"/}collections \
 	--rawfile {,"${DATA_DIR}"/}folders \
@@ -34,13 +34,13 @@ if [ $# == 0 ] && [ "${browserURL}" != "" ]; then
 	--arg collectionId "${COLLECTION_ID}" \
 	--arg search "${URL}" \
 	--arg icon "./icons/${focusedapp}.png" \
-	-r -f .jq/list_items.jq \
+	-r -f jq/list_items.jq \
 	"${DATA_DIR}"/items >> "${RESULTS_DIR}"/1
 fi
 
 # List items
 jq \
-    -L .jq \
+    -L jq \
     --rawfile {,"${DATA_DIR}/"}organizations \
     --rawfile {,"${DATA_DIR}"/}collections \
     --rawfile {,"${DATA_DIR}"/}folders \
@@ -49,7 +49,7 @@ jq \
     --arg collectionId "${COLLECTION_ID}" \
     --arg search "${*}" \
     --arg icon "" \
-    -r -f .jq/list_items.jq \
+    -r -f jq/list_items.jq \
     "${DATA_DIR}"/items >> "${RESULTS_DIR}"/2
 
 jq -s flatten "${RESULTS_DIR}"/?

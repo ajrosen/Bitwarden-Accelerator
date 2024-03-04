@@ -34,12 +34,9 @@ case "${loginMethod}" in
 	;;
 esac
 
-if [ "$(jq -r .success <<< "${OUT}")" == "false" ]; then
-    echo "Login failed"
-    exit
+if [ "$(jq -r .success <<< "${OUT}")" == "true" ] || [[ "$(jq -r .message <<< "${OUT}")" =~ "You are already logged in" ]]; then
+    # Start server
+    ./start_server.sh
 fi
-
-# Start server
-./start_server.sh
 
 jq -r '.message // .data.title' <<< "${OUT}"
