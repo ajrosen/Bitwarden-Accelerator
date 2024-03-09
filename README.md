@@ -119,7 +119,6 @@ If your vault is unlocked, you will see many options.
 
 Copy an item's password (or other field) to the clipboard.  Use these modifiers to copy other fields instead of the password.
 
-
 	Control		Username
 	Shift		TOTP code
 	Command		Notes
@@ -127,7 +126,9 @@ Copy an item's password (or other field) to the clipboard.  Use these modifiers 
 	Option		Opens a new menu with additional actions
 	Fn		Show all fields in a dialog window
 
-If your web browser is the front-most window, items that match the current tab's hostname will be listed first.
+*Secure notes* will always copy the note.  *Cards* and *Identities* will **Show all fields**.
+
+If your web browser is the front-most window, items that match the current tab's domain will be listed first.
 
     Safari
     Firefox (see footnote)
@@ -157,7 +158,11 @@ Filter searches to a specific *Collection*, or *All Collections*.
 
 * **Sync Vault**
 
-Tells the Bitwarden server to synchronize your vault now.
+Tells the workflow to synchronize your vault now.
+
+* **Logout of Bitwarden**
+
+Logs you out of Bitwarden.
 
 * **Configure Workflow**
 
