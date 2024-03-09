@@ -48,6 +48,7 @@ def alfred:
 	favorite: (if .favorite then "Unmark" else "Mark" end),
 	objectName: .name,
 	objectId: .id,
+	type: .type,
       }
   }
 ;
