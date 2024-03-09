@@ -8,19 +8,27 @@
 echo '{ "items": [ {}'
 
 if [ "${STATE}" == "unauthenticated" ]; then
+    log "Unauthenticated"
+
     # Unauthenticated
     item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
 
 elif [ "${BW_SERVER}" == "null" ]; then
+    log "Server not running"
+
     # Server not running
     item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
 
 elif [ "${STATE}" == "locked" ]; then
+    log "Vault locked"
+
     # Locked
     item "Unlock vault" "unlock" "Logged in as ${bwuser}"
     item "Logout of Bitwarden" "logout"
 
 elif [ "${STATE}" != "unlocked" ]; then
+    log "Unknown state: ${STATE}"
+
     # Unknown
     item "Bitwarden Error" "" "Unknown state: ${STATE}"
 

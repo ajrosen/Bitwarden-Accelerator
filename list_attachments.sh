@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "list_attachments"
+
 echo '{ "items":'
 
 ITEM=$(curl -s "${API}"/object/item/"${id}")

@@ -15,13 +15,15 @@ if [ $# == 0 ]; then
     [ "$(find "${SYNC_FILE}" "${DATA_DIR}" -size 0)" != "" ] && LAST_SYNC=0
 
     NOW=$(date +%s)
-    [ $((NOW - LAST_SYNC)) -gt $((SyncTime * 60)) ] && 	saveSync
+    [ $((NOW - LAST_SYNC)) -gt $((SyncTime * 60)) ] && saveSync
 fi
 
 mkdir -p "${RESULTS_DIR}"
 
 # Get browser matches
 if [ $# == 0 ] && [ "${browserURL}" != "" ]; then
+    log "browser ${browserURL}"
+
     URL=$(echo "${browserURL}" | awk 'BEGIN { FS="/" } { h = $3 } END { FS="." ;  $0 = h ; print $(NF-1) "." $NF }')
 
     jq \

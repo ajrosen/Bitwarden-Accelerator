@@ -5,12 +5,15 @@
 . lib/env.sh
 . lib/status.sh
 
+log "login with ${loginMethod}"
+
 OUT='{ "success": false, "message": "Login failed" }'
 
 # Make sure server is stopped
 ./stop_server.sh
 
 # Configure Bitwarden server
+log "config server ${serverUrl}"
 bw config server "${serverUrl}" >& /dev/null
 
 bwuser=${bwuser:-"user@example.com"}

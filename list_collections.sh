@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "list_collections"
+
 echo '{ "items":'
 
 jq \

@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "${API}/object/${field}/${id}"
+
 OBJ=$(curl -s "${API}"/object/"${field}"/"${id}")
 
 if [ "$(jq -r .success <<< "${OBJ}")" == "true" ]; then

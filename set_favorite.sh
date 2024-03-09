@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "set_favorite ${id}"
+
 URL="${API}"/object/item/"${id}"
 
 curl -s "${URL}" \

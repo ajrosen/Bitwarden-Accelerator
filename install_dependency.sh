@@ -13,6 +13,8 @@ PORT=""
 
 # Try installing with a package manager
 install () {
+    log "Could not find ${APP}"
+
     dialog='Could not find '"${APP}"'.  Try installing with '"${1}"'?'
     title="${alfred_workflow_name}"
     buttons='{ "Cancel", "Install" }'
@@ -32,6 +34,8 @@ install () {
 mklink () {
     for D in /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin; do
 	if [ -x "${D}/${EXE}" ]; then
+	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
+
 	    mkdir -p "${alfred_workflow_cache}"
 	    ln -sf "${D}/${EXE}" "${alfred_workflow_cache}"
 	    break

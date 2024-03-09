@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2048,2086
+# shellcheck disable=2068
 
 . lib/env.sh
 . lib/status.sh
@@ -8,6 +8,8 @@
 echo '{ "items": '
 
 if [ "${STATE}" == "unauthenticated" ]; then
+    log "Unauthenticated"
+
     # Unauthenticated
     echo '[ {}'
     item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
@@ -15,6 +17,8 @@ if [ "${STATE}" == "unauthenticated" ]; then
     echo ']'
 
 elif [ "${BW_SERVER}" == "null" ]; then
+    log "Server not running"
+
     # Server not running
     echo '[ {}'
     item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
@@ -22,6 +26,8 @@ elif [ "${BW_SERVER}" == "null" ]; then
     echo ']'
 
 elif [ "${STATE}" == "locked" ]; then
+    log "Vault locked"
+
     # Locked
     echo '[ {}'
     item "Unlock vault" "unlock" "Logged in as ${bwuser}"
@@ -30,6 +36,8 @@ elif [ "${STATE}" == "locked" ]; then
     echo ']'
 
 elif [ "${STATE}" != "unlocked" ]; then
+    log "Unknown state: ${STATE}"
+
     # Unknown
     echo '[ {}'
     item "Bitwarden Error" "" "Unknown state: ${STATE}"
@@ -37,7 +45,7 @@ elif [ "${STATE}" != "unlocked" ]; then
 
 else
     # Unlocked
-    ./list_items.sh $*
+    ./list_items.sh $@
 fi
 
 echo ' }'

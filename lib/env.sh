@@ -6,6 +6,7 @@
 # Workflow
 alfred_workflow_cache=${alfred_workflow_cache:-"."}
 export PATH="${alfred_workflow_cache}":${PATH}
+LOG_FILE="${alfred_workflow_cache}"/"${alfred_workflow_bundleid}".log
 
 SyncTime=${SyncTime:-30}
 
@@ -71,4 +72,8 @@ mods() {
 	echo '"'"${mod}"'": { "valid": "true", "subtitle": "'"${1}"'" }, '
     done
     echo '}'
+}
+
+log() {
+    [ "${DEBUG}" == 1 ] && echo "$(date): ${*}" >> "${LOG_FILE}"
 }

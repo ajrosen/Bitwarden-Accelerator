@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "set_folder ${objectId} ${folderId}"
+
 URL="${API}"/object/item/"${objectId}"
 
 curl -s "${URL}" \

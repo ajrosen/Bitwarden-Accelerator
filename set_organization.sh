@@ -2,6 +2,8 @@
 
 # shellcheck disable=2154
 
+log "set_organization ${organizationId} ${organizationName}"
+
 echo -n "${organizationId}" > "${alfred_workflow_cache}"/organization_id
 echo -n "${organizationName}" > "${alfred_workflow_cache}"/organization_name
 

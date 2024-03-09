@@ -2,6 +2,8 @@
 
 . lib/env.sh
 
+log "list_folders"
+
 echo '{ "items":'
 
 jq \

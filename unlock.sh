@@ -4,4 +4,6 @@
 
 . lib/env.sh
 
+log "unlock"
+
 curl -s -d "password=${*}" "${API}"/unlock | jq -r '.message // .data.title'

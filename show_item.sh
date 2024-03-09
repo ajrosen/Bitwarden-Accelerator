@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "show_item"
+
 # Get item
 export ITEM=$(curl -s "${API}/object/${field}/${id}")
 
@@ -31,9 +33,13 @@ case ${TYPE} in
 	;;
 esac
 
+log "Type = ${JQ}"
+
 # Get item's organization
 ORG_ID=$(jq -r .data.organizationId <<< "${ITEM}")
 ORG=$(jq -r --arg org "${ORG_ID}" '.data.data[] | select(.id == $org) | .name' "${DATA_DIR}"/organizations)
+
+log "Org = ${ORG}"
 
 # Format item
 export DATA=$(jq -L jq -r --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}")
