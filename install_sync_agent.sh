@@ -2,20 +2,22 @@
 
 # shellcheck disable=2154,2181
 
+. lib/env.sh
+
 PLIST="${alfred_workflow_bundleid}".plist
 
 START_INTERVAL=$((SyncTime * 60))
 
-sed "s/BUNDLEID/${alfred_workflow_bundleid}/;s/START_INTERVAL/${START_INTERVAL}/" \
-    sync_agent.plist > ~/Library/LaunchAgents/"${PLIST}"
+sed "s:WORKFLOW:${alfred_preferences}/${alfred_workflow_uid}:;s:START_INTERVAL:${START_INTERVAL}:" \
+    sync_agent.plist.template > ~/Library/LaunchAgents/"${PLIST}"
 
 # Unload launch agent
 launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
 
-# Load and start launch agent
+# Load launch agent
 if [ "${autoSync}" == 1 ]; then
     launchctl load -F ~/Library/LaunchAgents/"${PLIST}"
-    launchctl start "${alfred_workflow_bundleid}"
 
-    osascript -e 'display notification "Started Bitwarden Sync service" with title "'"${alfred_workflow_name}"'"'
+    NOW=$(date +%s)
+    [ $((NOW - LAST_SYNC)) -gt ${START_INTERVAL} ] && launchctl start "${alfred_workflow_bundleid}"
 fi
