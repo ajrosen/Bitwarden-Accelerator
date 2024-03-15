@@ -14,7 +14,6 @@ trap clean EXIT
 if [ $# == 0 ]; then
     [ "$(find "${SYNC_FILE}" "${DATA_DIR}" -size 0)" != "" ] && LAST_SYNC=0
 
-    NOW=$(date +%s)
     [ $((NOW - LAST_SYNC)) -gt $((SyncTime * 60)) ] && saveSync
 fi
 

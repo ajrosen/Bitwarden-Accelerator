@@ -1,3 +1,9 @@
+# 3.0.0
+
+Add "automatic field rotation".  If an item is selected twice within 15 seconds, copy the TOTP code to the clipboard instead of the password.
+
+Important bug fix in the path to *bwa-sync* as defined in the Launch Agent
+
 # 2.1.0
 
 *Secure notes* always copy the note to the clipboard

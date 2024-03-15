@@ -3,6 +3,8 @@
 
 # shellcheck disable=2034,2155
 
+NOW=$(date +%s)
+
 # Workflow
 alfred_workflow_cache=${alfred_workflow_cache:-"."}
 export PATH="${alfred_workflow_cache}":${PATH}
@@ -18,10 +20,11 @@ export API=http://"${bwhost}":"${bwport}"
 export bwuser=${bwuser:-user@example.com}
 
 # Caching
+DATA_DIR="${alfred_workflow_cache}"/data
+FETCH_FILE="${alfred_workflow_cache}"/last_item
+RESULTS_DIR="${alfred_workflow_cache}"/results
 STATUS_FILE="${alfred_workflow_cache}"/status
 SYNC_FILE="${alfred_workflow_cache}"/sync
-DATA_DIR="${alfred_workflow_cache}"/data
-RESULTS_DIR="${alfred_workflow_cache}"/results
 
 touch "${alfred_workflow_cache}"/collection_id
 touch "${alfred_workflow_cache}"/collection_name

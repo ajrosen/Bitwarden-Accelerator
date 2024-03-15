@@ -8,16 +8,26 @@ PLIST="${alfred_workflow_bundleid}".plist
 
 START_INTERVAL=$((SyncTime * 60))
 
-sed "s:WORKFLOW:${alfred_preferences}/${alfred_workflow_uid}:;s:START_INTERVAL:${START_INTERVAL}:" \
-    sync_agent.plist.template > ~/Library/LaunchAgents/"${PLIST}"
+# Check for changes
+sed "s:WORKFLOW:${alfred_preferences}/workflows/${alfred_workflow_uid}:;s:START_INTERVAL:${START_INTERVAL}:" \
+    sync_agent.plist.template > "${PLIST}"
 
-# Unload launch agent
-launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
+cmp -s "${PLIST}" ~/Library/LaunchAgents/"${PLIST}"
 
-# Load launch agent
-if [ "${autoSync}" == 1 ]; then
-    launchctl load -F ~/Library/LaunchAgents/"${PLIST}"
+if [ $? != 0 ]; then
+    # Copy launch agent plist
+    cp -f "${PLIST}" ~/Library/LaunchAgents/
 
-    NOW=$(date +%s)
-    [ $((NOW - LAST_SYNC)) -gt ${START_INTERVAL} ] && launchctl start "${alfred_workflow_bundleid}"
+    # Unload launch agent
+    launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
+
+    # Load launch agent
+    if [ "${autoSync}" == 1 ]; then
+	launchctl load -F ~/Library/LaunchAgents/"${PLIST}"
+	launchctl start "${alfred_workflow_bundleid}"
+
+	# [ $((NOW - LAST_SYNC)) -gt ${START_INTERVAL} ] && launchctl start "${alfred_workflow_bundleid}"
+    fi
+else
+    [ "${autoSync}" == 0 ] && launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"    
 fi

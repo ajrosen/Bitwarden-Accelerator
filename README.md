@@ -1,6 +1,6 @@
 # Bitwarden Accelerator
 
-Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
+Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 
 ---
 
@@ -9,8 +9,9 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 * [Key Features](#features)
 * [Options](#options)
 * [Invoking](#invoking)
-* [Main menu](#mainMenu)
-* [More menu](#moreMenu)
+* [Main Menu](#mainMenu)
+* [Item List](#itemList)
+* [More Menu](#moreMenu)
 
 ---
 
@@ -20,6 +21,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 * Login with username and password or API Key
 * Two-step logins with Authenticator app, YubiKey OTP, or Email
 * Copy username, password, TOTP code, or notes to the clipboard
+* Copy TOTP code instead of password if called shortly after copying an item's password
 * Search different fields of an item
 	* Any item by its name or folder
 	* Logins by username or URL
@@ -43,7 +45,7 @@ Your Bitwarden email address.
 
 ### Login method
 
-Choose whether to prompted for your *Password* or to use an *API Key* to login.  *SSO* is not yet supported.
+Choose whether to be prompted for your *Password* or use an *API Key* to login.  *SSO* is not yet supported.
 
 ### Client ID and Client Secret
 
@@ -101,15 +103,28 @@ The options you see in the main menu depend on the state of your vault.
 If you are completely logged out of Bitwarden, you will see two options.
 
 * **Login to Bitwarden**
+
+Log into Bitwarden, with your vault *locked*.
+
 * **Configure Workflow**
+
+Opens *Alfred Preferences* to the Bitwarden Accelerator configuration screen.
 
 ### Vault is locked
 
 If you are logged in, but your vault is locked, you will see three options.
 
 * **Unlock vault**
+
+Unlocks your vault.
+
 * **Logout of Bitwarden**
+
+Locks your vault and logs out of Bitwarden.
+
 * **Configure Workflow**
+
+Opens *Alfred Preferences* to the Bitwarden Accelerator configuration screen.
 
 ### Vault is unlocked
 
@@ -117,32 +132,11 @@ If your vault is unlocked, you will see many options.
 
 * **Search Vault**
 
-Copy an item's password (or other field) to the clipboard.  Use these modifiers to copy other fields instead of the password.
-
-	Control		Username
-	Shift		TOTP code
-	Command		Notes
-
-	Option		Opens a new menu with additional actions
-	Fn		Show all fields in a dialog window
-
-*Secure notes* will always copy the note.  *Cards* and *Identities* will **Show all fields**.
-
-If your web browser is the front-most window, items that match the current tab's domain will be listed first.
-
-    Safari
-    Firefox (see footnote)
-    Chrome
-    Edge
-    Opera
-    Brave
-    Vivaldi
-
-Favorited items will be listed next, followed by all items that match your search.
+Lists all items in your vault.
 
 * **Search Folders**
 
-Shows a list of all the folders in your vault, then searches your vault for items in that folder.
+Shows a list of all the folders in your vault, then searches your vault for items in the selected folder.
 
 * **Lock Vault**
 
@@ -154,7 +148,7 @@ Filter searches to a specific *Vault* (Organization), *My Vault*, or All Vaults.
 
 * **Set Default Collection**
 
-Filter searches to a specific *Collection*, or *All Collections*.
+Filters searches to a specific *Collection*, or *All Collections*.
 
 * **Sync Vault**
 
@@ -162,11 +156,54 @@ Tells the workflow to synchronize your vault now.
 
 * **Logout of Bitwarden**
 
-Logs you out of Bitwarden.
+Locks your vault and logs out of Bitwarden.
 
 * **Configure Workflow**
 
 Opens *Alfred Preferences* to the Bitwarden Accelerator configuration screen.
+
+---
+
+<a name="itemList"></a>
+## Item List
+
+All items in your vault are shown, sorted by each item's *name*.  If your web browser is the front-most window, items that match the current tab's domain will be listed first.  Favorited items will be listed next, followed by all remaining items.
+
+Supported browsers:
+
+* Safari
+* Firefox<sup>(2)</sup>
+* Chrome
+* Edge
+* Opera
+* Brave
+* Vivaldi
+
+The default behavior when selecting an item depends on its *type*.
+
+* **Logins**
+
+Copy a login item's password to the clipboard.  Use these modifiers to copy other fields instead.
+
+	Control		Username
+	Shift		TOTP code
+	Command		Notes
+
+	Option		Opens a new menu with additional actions
+	Fn		Show all fields in a dialog window
+
+#### *Automatic field rotation*
+
+When selecting the *same* item within 15 seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
+
+* **Secure notes**
+
+The note is copied to the clipboard, as if the *Command* modifier were used.
+
+* **Cards**
+* **Identities**
+
+All fields will be shown in a dialog window, as if the *Fn* modifier were used.
 
 ---
 
@@ -192,5 +229,5 @@ Deletes the item from your vault.
 You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.  However, Bitwarden Accelerator *does not support* recovering items from your vault's Trash.
 
 ---
-* *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
-* *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
+1. *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
+2. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
