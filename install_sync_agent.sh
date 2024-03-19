@@ -16,6 +16,7 @@ cmp -s "${PLIST}" ~/Library/LaunchAgents/"${PLIST}"
 
 if [ $? != 0 ]; then
     # Copy launch agent plist
+    [ -d ~/Library/LaunchAgents/ ] || mkdir -p ~/Library/LaunchAgents/
     cp -f "${PLIST}" ~/Library/LaunchAgents/
 
     # Unload launch agent
