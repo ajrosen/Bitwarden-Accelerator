@@ -1,3 +1,7 @@
+# 3.0.1
+
+Bug fix:  Create ~/Library/LaunchAgents/ if it doesn't exist
+
 # 3.0.0
 
 Add "automatic field rotation".  If an item is selected twice within 15 seconds, copy the TOTP code to the clipboard instead of the password.
