@@ -1,7 +1,7 @@
 ##################################################
 # Initialize workflow environment
 
-# shellcheck disable=2034,2155
+# shellcheck disable=1090,2034,2154,2155
 
 NOW=$(date +%s)
 
@@ -20,6 +20,7 @@ export API=http://"${bwhost}":"${bwport}"
 export bwuser=${bwuser:-user@example.com}
 
 # Caching
+AUTO_ROTATE=${SyncTime}
 DATA_DIR="${alfred_workflow_cache}"/data
 FETCH_FILE="${alfred_workflow_cache}"/last_item
 RESULTS_DIR="${alfred_workflow_cache}"/results
@@ -60,23 +61,25 @@ saveSync() {
     cacheVault
 }
 
-item() {
-    echo ', {'
-    echo '  "title": "'"${1}"'"'
-    echo ', "arg": "'"${2}"'"'
-    echo ', "subtitle": "'"${3}"'"'
-    mods "${3}"
-    echo '}'
-}
+# item() {
+#     echo ', {'
+#     echo '  "title": "'"${1}"'"'
+#     echo ', "arg": "'"${2}"'"'
+#     echo ', "subtitle": "'"${3}"'"'
+#     mods "${3}"
+#     echo '}'
+# }
 
-mods() {
-    echo ', "mods": {'
-    for mod in "cmd" "alt" "control" "shift" "function"; do
-	echo '"'"${mod}"'": { "valid": "true", "subtitle": "'"${1}"'" }, '
-    done
-    echo '}'
-}
+# mods() {
+#     echo ', "mods": { "msbc": {}'
+#     for mod in "cmd" "alt" "control" "shift" "function"; do
+# 	echo ', "'"${mod}"'": { "valid": "true", "subtitle": "'"${1}"'" }'
+#     done
+#     echo '}'
+# }
 
 log() {
-    [ "${DEBUG}" == 1 ] && echo "$(date): ${*}" >> "${LOG_FILE}"
+    [ "${DEBUG}" != 1 ] && return
+
+    echo "$(date): [$(basename ${BASH_SOURCE[1]}):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
 }

@@ -18,21 +18,33 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 <a name="features"></a>
 ## Key Features
 
-* Login with username and password or API Key
+#### Logging in
+
+* Login with username and password, or API Key
 * Two-step logins with Authenticator app, YubiKey OTP, or Email
-* Copy username, password, TOTP code, or notes to the clipboard
-* Copy TOTP code instead of password if called shortly after copying an item's password
+
+#### Selecting items
+
+* Recently selected item is listed first
+* Automatically searches for the active browser tab's domain name
+* Favorite items are indicated with a ❤️
 * Search different fields of an item
 	* Any item by its name or folder
 	* Logins by username or URL
 	* Cards by brand (eg., search for "Visa")
 	* Identities by any field in the item
-* Automatically searches for the active browser tab's domain name
-* Favorite items are listed first
+
+#### Selecting fields
+
+* Copy username, password, TOTP code, or notes to the clipboard
+* Copy TOTP code instead of password if called shortly after copying an item's password
+
+#### Miscellaneous
+
 * Download an item's attachments
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
-* View an item in a separate window to copy/paste multiple fields easily
-* (Optional) Automatically sync vault using a MacOS Launch Agent
+* View any item in a separate window to copy/paste multiple fields easily
+* (Optional) Automatically sync vault in the background using a MacOS Launch Agent
 
 ---
 

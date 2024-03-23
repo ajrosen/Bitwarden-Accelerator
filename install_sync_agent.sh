@@ -24,11 +24,15 @@ if [ $? != 0 ]; then
 
     # Load launch agent
     if [ "${autoSync}" == 1 ]; then
+	log "Loading ~/Library/LaunchAgents/${PLIST} ${alfred_workflow_bundleid}"
+
 	launchctl load -F ~/Library/LaunchAgents/"${PLIST}"
 	launchctl start "${alfred_workflow_bundleid}"
-
-	# [ $((NOW - LAST_SYNC)) -gt ${START_INTERVAL} ] && launchctl start "${alfred_workflow_bundleid}"
     fi
 else
-    [ "${autoSync}" == 0 ] && launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"    
+    if [ "${autoSync}" == 0 ]; then
+	log "Unloading ~/Library/LaunchAgents/${PLIST}"
+
+	launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
+    fi
 fi

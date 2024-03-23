@@ -4,7 +4,7 @@
 
 . lib/env.sh
 
-log "show_item"
+log "${API}/object/${field}/${id}"
 
 # Get item
 export ITEM=$(curl -s "${API}/object/${field}/${id}")

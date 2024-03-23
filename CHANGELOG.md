@@ -1,3 +1,10 @@
+# 3.1.0
+
+Put recently selected item at the top of the list
+
+Use SyncInterval for AUTO_ROTATE
+Include file and line in debug messages
+
 # 3.0.1
 
 Bug fix:  Create ~/Library/LaunchAgents/ if it doesn't exist

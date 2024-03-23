@@ -4,6 +4,7 @@
 
 . lib/env.sh
 . lib/status.sh
+. lib/utils.sh
 
 echo '{ "items": '
 

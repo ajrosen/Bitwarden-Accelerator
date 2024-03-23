@@ -12,13 +12,13 @@ def objectNames(a):
   |
 
 # Convert folderId to folder name
-def folderName(b):
-  if b then "\($folderNames[b])" else "no folder" end
+def folderName(b; fn):
+  if b then "\(fn[b])" else "no folder" end
 ;
 
 # Convert organizationId to organization name
-def orgName(b):
-  if b then "\($organizationNames[b])" else "no organization" end
+def orgName(b; on):
+  if b then "\(on[b])" else "no organization" end
 ;
 
 # URIs if there are any
@@ -27,10 +27,10 @@ def URIs:
  ;
 
 # Format an item for Alfred
-def alfred:
+def alfred(fn; on):
   {
     # uid: .id,
-    title: "\(.name) (\(folderName(.folderId)))",
+    title: "\(.name) (\(folderName(.folderId; fn)))",
     subtitle: "\(if .favorite then "❤️" else "" end)\(.login.username // "")",
     arg: .id,
     autocomplete: .name,
@@ -39,11 +39,11 @@ def alfred:
     variables: {
 	name, id,
 	username: .login.username,
-	folder: folderName(.folderId),
+	folder: folderName(.folderId; fn),
 	url: [ URIs ],
 	collections: [ (select(.collectionIds[] | length > 0) | .collectionIds[]) ],
 	collectionCount: .collectionIds | length,
-	organization: orgName(.organizationId),
+	organization: orgName(.organizationId; on),
 	attachmentCount: .attachments | length,
 	favorite: (if .favorite then "Unmark" else "Mark" end),
 	objectName: .name,
@@ -57,7 +57,8 @@ def alfred:
 def searchFields:
   [
     .name,
-    folderName(.folderId),
+    .id,
+    folderName(.folderId; $folderNames),
     .login.username // "",
     URIs,
     .card.brand // "",
@@ -65,32 +66,39 @@ def searchFields:
   ] | tostring
 ;
 
+def filter:
+. | select($search == "" or (searchFields | test($search; "i")))
+  | select($folderId == "" or $folderId == .folderId)
+  | select($collectionId == "" or (.collectionIds[] | test($collectionId)))
+  | select(($organizationId == "")
+	     or ($organizationId == .organizationId)
+	     or (($organizationId == "0") and (.organizationId == null)))
+;
+
 ##################################################
 # Main
 
-[
-  # Favorites
-  .data.data[] | select(.favorite)
-  | select($search == "" or (searchFields | test($search; "i")))
-  | select($folderId == "" or $folderId == .folderId)
-  | select($collectionId == ""
-			 or (.collectionIds[] | test($collectionId)))
-  | select(($organizationId == "")
-	     or ($organizationId == .organizationId)
-	     or (($organizationId == "0") and (.organizationId == null)))
-  | alfred
-]
-  +
-[
-  # Not favorites
-  .data.data[] | select(.favorite | not)
-  | select($search == "" or (searchFields | test($search; "i")))
-  | select($folderId == ""
-		     or $folderId == .folderId)
-  | select($collectionId == ""
-			 or (.collectionIds[] | test($collectionId)))
-  | select(($organizationId == "")
-	     or ($organizationId == .organizationId)
-	     or (($organizationId == "0") and (.organizationId == null)))
-  | alfred
-]
+if $recent != "" then
+  # Recent
+  [
+    .data.data[] | select(.id == $recent)
+    | filter
+    | alfred($folderNames; $organizationNames)      
+  ]
+else
+  [
+    # Favorites
+    .data.data[] | select(.id != $skip) | select(.favorite)
+    | filter
+    | alfred($folderNames; $organizationNames)
+  ]
+
+    +
+
+  [
+    # Not favorites
+    .data.data[] | select(.id != $skip) | select(.favorite | not)
+    | filter
+    | alfred($folderNames; $organizationNames)
+  ]
+end
