@@ -7,9 +7,6 @@ saveSelection() {
 LAST_FETCH=${NOW}
 old_objectId=${objectId}
 old_field=${field}
-old_type=${type}
-old_title=${objectName}
-old_subtitle=${username}
 EOF
 }
 
