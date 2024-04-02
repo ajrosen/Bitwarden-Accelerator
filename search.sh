@@ -13,8 +13,8 @@ if [ "${STATE}" == "unauthenticated" ]; then
 
     # Unauthenticated
     echo '[ {}'
-    item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
-    item "Configure Workflow" "workflow" "Opens in Alfred Preferences"
+    echo ", $(item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}")"
+    echo ", $(item "Configure Workflow" "workflow" "Opens in Alfred Preferences")"
     echo ']'
 
 elif [ "${BW_SERVER}" == "null" ]; then
@@ -22,8 +22,8 @@ elif [ "${BW_SERVER}" == "null" ]; then
 
     # Server not running
     echo '[ {}'
-    item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}"
-    item "Configure Workflow" "workflow" "Opens in Alfred Preferences"
+    echo ", $(item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}")"
+    echo ", $(item "Configure Workflow" "workflow" "Opens in Alfred Preferences")"
     echo ']'
 
 elif [ "${STATE}" == "locked" ]; then
@@ -31,9 +31,9 @@ elif [ "${STATE}" == "locked" ]; then
 
     # Locked
     echo '[ {}'
-    item "Unlock vault" "unlock" "Logged in as ${bwuser}"
-    item "Logout of Bitwarden" "logout"
-    item "Configure Workflow" "workflow" "Opens in Alfred Preferences"
+    echo ", $(item "Unlock vault" "unlock" "Logged in as ${bwuser}")"
+    echo ", $(item "Logout of Bitwarden" "logout")"
+    echo ", $(item "Configure Workflow" "workflow" "Opens in Alfred Preferences")"
     echo ']'
 
 elif [ "${STATE}" != "unlocked" ]; then
@@ -41,7 +41,7 @@ elif [ "${STATE}" != "unlocked" ]; then
 
     # Unknown
     echo '[ {}'
-    item "Bitwarden Error" "" "Unknown state: ${STATE}"
+    echo ", $(item "Bitwarden Error" "" "Unknown state: ${STATE}")"
     echo ']'
 
 else
