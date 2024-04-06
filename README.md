@@ -190,6 +190,7 @@ Supported browsers:
 * Opera
 * Brave
 * Vivaldi
+* Ghost
 
 The default behavior when selecting an item depends on its *type*.
 
