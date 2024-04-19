@@ -12,6 +12,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 * [Main Menu](#mainMenu)
 * [Item List](#itemList)
 * [More Menu](#moreMenu)
+* [Troubleshooting](#troubleShooting)
 
 ---
 
@@ -240,6 +241,27 @@ If an item has attachments, this will show you a list with their names and sizes
 Deletes the item from your vault.
 
 You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.  However, Bitwarden Accelerator *does not support* recovering items from your vault's Trash.
+
+---
+
+<a name="troubleShooting"></a>
+## Troubleshooting
+
+**Syncing**
+
+Some issues that make it look like Bitwarden Accelerator is not working at all are actually problems retrieving items in your vault.  This often can be solved by logging out of Bitwarden.  This stops the *bw serve* process that Bitwarden Accelerator uses.  It is started when you login to Bitwarden.
+
+**Debug log**
+
+When the workflow's **DEBUG** environment variable is set to **1**, Bitwarden Accelerator writes debugging messages to a file in the workflow's cache directory.  You will find this file in your home directory at `Library/Caches/com.runningwithcrayons.Alfred/Workflow Data/org.mlfs.corp.bw/org.mlfs.corp.bw.log`
+
+**Alfred Preferences debugger**
+
+Alfred's own [Debugger Utility](https://www.alfredapp.com/help/workflows/utilities/debug/) can help identify which part of the workflow is having problems.
+
+**Bug reports**
+
+Bug reports and feature requests are welcome at [GitHub](https://github.com/ajrosen/Bitwarden-Accelerator/issues).
 
 ---
 1. *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
