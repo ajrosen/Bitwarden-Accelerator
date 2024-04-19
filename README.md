@@ -249,7 +249,7 @@ You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not techn
 
 **Syncing**
 
-Some issues that make it look like Bitwarden Accelerator is not working at all are actually problems retrieving items in your vault.  This often can be solved by logging out of Bitwarden.  This stops the *bw serve* process that Bitwarden Accelerator uses.  It is started when you login to Bitwarden.
+Some issues that make it look like Bitwarden Accelerator is not working at all are actually problems retrieving items in your vault.  Sometimes this can be solved by logging out of Bitwarden.  This stops the *bw serve* process that Bitwarden Accelerator uses.  It is started when you login to Bitwarden.  If problems persist, try rebooting.
 
 **Debug log**
 
