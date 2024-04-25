@@ -49,6 +49,8 @@ cacheVault() {
 
     for OBJECT in ${OBJECTS}; do
 	curl -s "${API}"/list/object/"${OBJECT}" \
+	     --connect-timeout 3 \
+	     --max-time 5 \
 	     | jq -L jq -r -f jq/clean.jq \
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
