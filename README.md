@@ -185,14 +185,15 @@ All items in your vault are shown, sorted by each item's *name*.  If your web br
 
 Supported browsers:
 
-* Safari
-* Firefox<sup>(2)</sup>
-* Chrome
-* Edge
-* Opera
-* Brave
-* Vivaldi
-* Ghost
+* [Safari](https://www.apple.com/safari/)
+* [Firefox](https://www.mozilla.org/)<sup>(2)</sup>
+* [Chrome](https://www.google.com/chrome/)
+* [Edge](https://www.microsoft.com/edge)
+* [Opera](https://www.opera.com/)
+* [Brave](https://brave.com/)
+* [Vivaldi](https://vivaldi.com/)
+* [Ghost](https://ghostbrowser.com/)
+* [Arc](https://arc.net/)
 
 The default behavior when selecting an item depends on its *type*.
 
