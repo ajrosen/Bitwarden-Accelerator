@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2154,2181
+# shellcheck disable=2002,2154,2181
 
 . lib/env.sh
 
@@ -9,8 +9,11 @@ PLIST="${alfred_workflow_bundleid}".plist
 START_INTERVAL=$((SyncTime * 60))
 
 # Check for changes
-sed "s:WORKFLOW:${alfred_preferences}/workflows/${alfred_workflow_uid}:;s:START_INTERVAL:${START_INTERVAL}:" \
-    sync_agent.plist.template > "${PLIST}"
+cat sync_agent.plist.template \
+    | sed "s:WORKFLOW:${alfred_preferences}/workflows/${alfred_workflow_uid}:" \
+    | sed "s:START_INTERVAL:${START_INTERVAL}:" \
+    | sed "s:BUNDLEID:${alfred_workflow_bundleid}:" \
+	  > "${PLIST}"
 
 cmp -s "${PLIST}" ~/Library/LaunchAgents/"${PLIST}"
 
