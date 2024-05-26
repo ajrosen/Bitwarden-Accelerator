@@ -6,4 +6,8 @@
 
 log "unlock"
 
-curl -s -d "password=${*}" "${API}"/unlock | jq -r '.message // .data.title'
+p=$(./get_password.applescript "${bwuser}")
+
+[ "${p}" == "" ] && exit
+
+curl -s -d "password=${p}" "${API}"/unlock | jq -r '.message // .data.title'

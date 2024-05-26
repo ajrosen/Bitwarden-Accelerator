@@ -6,6 +6,8 @@
 
 [ "${twoStepMethod}" == "" ] && exit
 
+log "2FA ${twoStepMethod}"
+
 if [ "${twoStepMethod}" == "1" ]; then
     log "Trigger email authentication"
 
@@ -13,7 +15,5 @@ if [ "${twoStepMethod}" == "1" ]; then
 fi
 
 CODE=$(./get_code.applescript "${twoStepMethod}")
-
-log "2FA ${twoStepMethod} ${CODE}"
 
 echo "--method ${twoStepMethod} --code ${CODE}"
