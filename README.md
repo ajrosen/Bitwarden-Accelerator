@@ -187,6 +187,7 @@ Supported browsers:
 
 * [Safari](https://www.apple.com/safari/)
 * [Firefox](https://www.mozilla.org/)<sup>(2)</sup>
+* [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)<sup>(2)</sup>
 * [Chrome](https://www.google.com/chrome/)
 * [Edge](https://www.microsoft.com/edge)
 * [Opera](https://www.opera.com/)
