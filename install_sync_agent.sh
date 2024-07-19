@@ -4,9 +4,20 @@
 
 . lib/env.sh
 
+AGENT_DIR=${HOME}/Library/LaunchAgents
 PLIST="${alfred_workflow_bundleid}".plist
+AGENT=${AGENT_DIR}/"${PLIST}"
 
 START_INTERVAL=$((SyncTime * 60))
+
+function load() {
+    launchctl load -F "${AGENT}"
+    launchctl start "${alfred_workflow_bundleid}"
+}
+
+function unload() {
+    launchctl unload -F "${AGENT}"
+}
 
 # Check for changes
 cat sync_agent.plist.template \
@@ -15,27 +26,29 @@ cat sync_agent.plist.template \
     | sed "s:BUNDLEID:${alfred_workflow_bundleid}:" \
 	  > "${PLIST}"
 
-cmp -s "${PLIST}" ~/Library/LaunchAgents/"${PLIST}"
+cmp -s "${PLIST}" "${AGENT}"
 
 if [ $? != 0 ]; then
+    # Changes made
     # Copy launch agent plist
-    [ -d ~/Library/LaunchAgents/ ] || mkdir -p ~/Library/LaunchAgents/
-    cp -f "${PLIST}" ~/Library/LaunchAgents/
+    [ -d "${AGENT_DIR}"/ ] || mkdir -p "${AGENT_DIR}"/
+    cp -f "${PLIST}" "${AGENT_DIR}"/
 
     # Unload launch agent
-    launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
+    unload
 
     # Load launch agent
     if [ "${autoSync}" == 1 ]; then
-	log "Loading ~/Library/LaunchAgents/${PLIST} ${alfred_workflow_bundleid}"
-
-	launchctl load -F ~/Library/LaunchAgents/"${PLIST}"
-	launchctl start "${alfred_workflow_bundleid}"
+	log "Loading ${AGENT} ${alfred_workflow_bundleid}"
+	load
     fi
 else
+    # No changes made
     if [ "${autoSync}" == 0 ]; then
-	log "Unloading ~/Library/LaunchAgents/${PLIST}"
-
-	launchctl unload -F ~/Library/LaunchAgents/"${PLIST}"
+	log "Unloading ${AGENT}"
+	unload
+    else
+	launchctl list "${alfred_workflow_bundleid}" > /dev/null
+	if [ $? != 0 ]; then load; fi
     fi
 fi
