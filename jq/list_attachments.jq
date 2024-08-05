@@ -22,4 +22,9 @@ def alfred:
   (select(.data.attachments) | .data.attachments[]
   | select(.fileName | tostring | test($search; "i"))
   | alfred) // { title: "No attachments" }
+] +
+[ {
+    title: "👈 Return to More Actions",
+    arg: "👈"
+  }
 ]

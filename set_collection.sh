@@ -2,6 +2,8 @@
 
 # shellcheck disable=2154
 
+. lib/env.sh
+
 log "set_collection ${collectionId} ${collectionName}"
 
 echo -n "${collectionId}" > "${alfred_workflow_cache}"/collection_id

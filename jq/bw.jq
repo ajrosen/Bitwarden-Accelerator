@@ -42,7 +42,7 @@ def icon(a):
 # Prepare a field for display dialog
 # k(ey):s(eperator)v(alue)
 def field(k; v; s):
-  if v then "\(k)\(s)\t\(v)\n" else "" end
+  if v then "\(k)\(s)\(v)\n" else "" end
 ;
 
 # Show custom fields
@@ -61,4 +61,10 @@ def common:
   + if (.fields | length) > 0 then "\([ fields ] | add)" else "" end
   + if (.attachments | length) > 0 then "\([ attachments ] | add)" else "" end
   + field("Notes"; .notes; ":\t\t")
+  + "\n"
+  + if .id then field("ID"; .id; ":\t\t\t") else "" end
+  + if .login then field("Type"; "Login"; ":\t\t") else "" end
+  + if .card then field("Type"; "Card"; ":\t\t") else "" end
+  + if .identity then field("Type"; "Identity"; ":\t\t") else "" end
+  + if .revisionDate then field("Last modified"; .revisionDate; ":\t") else "" end
 ;

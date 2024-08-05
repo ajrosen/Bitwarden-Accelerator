@@ -1,16 +1,22 @@
 include "bw";
 
 # Format an item for Alfred
-def alfred(f; v; a):
+def alfred(f; v; a; r):
   {
     title: "\(f)",
     subtitle: "\(a)",
     arg: v,
     variables: {
-	field: f
+	field: f,
+	return: r
       }
   }
 ;
+
+def alfred(f; v; a):
+  alfred(f; v; a; false)
+;
+
 
 ##################################################
 # Main
@@ -55,4 +61,22 @@ def alfred(f; v; a):
   [
     try (.fields[] | if .type < 2 then alfred(.name; .value; if .type == 1 then "********" else .value end) else empty end)
     catch empty
+  ]
+
+  +
+
+  [
+    # Common
+    if .id then alfred("ID"; .id; .id) else empty end,
+    if .login then alfred("Type"; "Login"; "Login") else empty end,
+    if .card then alfred("Type"; "Card"; "Card") else empty end,
+    if .identity then alfred("Type"; "Identity"; "Identity") else empty end,
+    if .revisionDate then alfred("Last modified"; .revisionDate; .revisionDate) else empty end
+  ]
+
+  +
+
+  [
+    # Return
+    alfred("👈 Return to Search Menu"; .name; ""; true)
   ]

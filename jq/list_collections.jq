@@ -28,4 +28,9 @@ def alfred:
   | select(.name | tostring | test($search; "i"))
   | select(($organizationId == "") or ($organizationId == .organizationId) or (($organizationId == "0") and (.organizationId == null)))
   | alfred
+] +
+[ {
+    title: "👈 Return to Main Menu",
+    arg: "👈"
+  }
 ]

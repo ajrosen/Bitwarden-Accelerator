@@ -66,4 +66,10 @@ fi
 # List items
 q "${*}" "" "" "${old_objectId}" >> "${RESULTS_DIR}"/3
 
-jq -s flatten "${RESULTS_DIR}"/?
+# Check for empty list
+S=$(find "${RESULTS_DIR}"/? -size +10c | wc -l)
+if [[ "${S}" =~ "0" ]]; then
+    echo '[ { "title": "No items found", "arg": "" } ]'
+else
+    jq -s flatten "${RESULTS_DIR}"/?
+fi

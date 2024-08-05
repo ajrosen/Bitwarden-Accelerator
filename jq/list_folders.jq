@@ -20,4 +20,9 @@ def alfred:
   .data.data[]
   | select(.name | tostring | test($search; "i"))
   | alfred
+] +
+[ {
+    title: "👈 Return to More Actions",
+    arg: "👈"
+  }
 ]

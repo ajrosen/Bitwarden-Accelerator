@@ -39,6 +39,10 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)<sup>(1)</sup>.
 * Copy username, password, TOTP code, or notes to the clipboard
 * Copy TOTP code instead of password if called shortly after copying an item's password
 
+#### Editig fields
+
+* Edit an item's username, password, or name without leaving Alfred
+
 #### Miscellaneous
 
 * Download an item's attachments
@@ -92,6 +96,14 @@ Installs a MacOS *Launch Agent* that automatically syncs your vault every *Sync 
 
 Uncheck this to keep Bitwarden Accelerator from displaying a notification when copying your password (or other field) to the clipboard.
 
+### Workflow Keyword
+
+Keyword used to bring up Bitwarden Accelerator's main menu
+
+### Search Keyword
+
+Keyword used to bring up Bitwarden Accelerator's search menu
+
 ---
 
 <a name="invoking"></a>
@@ -99,7 +111,7 @@ Uncheck this to keep Bitwarden Accelerator from displaying a notification when c
 
 There are three ways to invoke Bitwarden Accelerator.
 
-1. Using the keyword ***bw*** will provide a list of operations.  The list depends on whether you are logged into or logged out of Bitwarden, and whether your vault is locked or unlocked.
+1. Using the Workflow Keyword (default: ***bw***) will provide a list of operations.  The list depends on whether you are logged into or logged out of Bitwarden, and whether your vault is locked or unlocked.
 2. Typing the ***hotkey*** will start a search of your vault.  This is the same as choosing the **Search Vault** operation from the main menu.
 3. As a Universal Action, you can view an item's fields directly in Alfred.
 
@@ -209,11 +221,12 @@ Copy a login item's password to the clipboard.  Use these modifiers to copy othe
 	Option			Opens a new menu with additional actions
 	Fn			Show all fields in a dialog window
 
+	Control + Command	Open URL in your default browser
 	Command + Option	View all fields in Alfred
 
-#### *Automatic field rotation*
+*Automatic field rotation*
 
-When selecting the *same* item within 15 seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
+When selecting the *same* login item within *Sync Interval* seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
 
 * **Secure notes**
 
@@ -240,6 +253,10 @@ Marks or unmarks the item as a *Favorite* and syncs your vault.
 **Download Attachments**
 
 If an item has attachments, this will show you a list with their names and sizes.  Select one to save that attachment to the *Downloads Folder*.
+
+**Edit Item**
+
+Lets you edit the username, password, or name of the item.
 
 **Delete Item**
 
