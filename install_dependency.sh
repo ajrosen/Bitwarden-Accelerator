@@ -32,7 +32,7 @@ install () {
 
 # Create local symlink
 mklink () {
-    for D in /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin; do
+    for D in /run/current-system/sw/bin /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin; do
 	if [ -x "${D}/${EXE}" ]; then
 	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
 
