@@ -1,10 +1,14 @@
+## 5.1.0
+
+* Search for dependencies installed with Nix
+
 # 5.0.0
 
 * Edit an item directly in the workflow
 	* Choose *Edit Item* from the *More Actions* menu
 	* You can edit an item's *Username*, *Password*, and *Name*
 * Navigate an item without leaving Alfred
-	* Hightlight an item and invoke Alfred's [Universal Action](https://www.alfredapp.com/universal-actions/)
+	* Highlight an item and invoke Alfred's [Universal Action](https://www.alfredapp.com/universal-actions/)
 * Added "return to" item in all menus to navigate to the previous menu in the workflow
 * Use *Control + Command* from the search menu to open an item's URL in your default browser
 * Include an item's ID, type, and Revision Date in the *Show all fields* window
