@@ -6931,7 +6931,7 @@ self.main</string>
 		<string>--no-deprecation</string>
 	</dict>
 	<key>version</key>
-	<string>5.1.0</string>
+	<string>5.1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Alfred</string>
 </dict>

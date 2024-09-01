@@ -10,4 +10,5 @@ p=$(./get_password.applescript "${bwuser}")
 
 [ "${p}" == "" ] && exit
 
-curl -s -d "password=${p}" "${API}"/unlock | jq -r '.message // .data.title'
+curl -s -H 'Content-Type: application/json' -d '{"password": "'${p}'"}' "${API}"/unlock \
+    | jq -r '.message // .data.title'
