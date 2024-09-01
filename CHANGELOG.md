@@ -1,3 +1,7 @@
+## 5.1.1
+
+* Post unlock payload in JSON format
+
 ## 5.1.0
 
 * Search for dependencies installed with Nix
