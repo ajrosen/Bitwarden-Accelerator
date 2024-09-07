@@ -6,7 +6,7 @@
 . lib/status.sh
 . lib/utils.sh
 
-checkTimeout
+[ $# == 0 ] && checkTimeout
 
 echo '{ "items": [ {}'
 
@@ -42,9 +42,9 @@ else
 
     AUTO=( "" " (auto sync $((SyncTime)) minutes)" )
 
-    echo ", $(item "Search Vault" "search")"
-    echo ", $(item "Search Folders" "folder")"
-    echo ", $(item "Add item" "add" "Add item to your vault")"
+    echo ", $(item "Search Vault" "search" "Search your vault")"
+    echo ", $(item "Search Folders" "folder" "Show your folders")"
+    echo ", $(item "Add item" "add" "Add a new item to your vault")"
     echo ", $(item "Lock Vault" "lock" "Logged in as ${bwuser}")"
     echo ", $(item "Set Default Vault" "organization" "${organization}")"
     echo ", $(item "Set Default Collection" "collection" "${collection}")"

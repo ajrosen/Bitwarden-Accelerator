@@ -3,7 +3,8 @@
 
 # shellcheck disable=2155,2181
 
-curl -s "${API}"/status | jq .data.template > "${STATUS_FILE}"
+# If we have arguments then we've already checked status
+[ $# == 0 ] && curl -s "${API}"/status | jq .data.template > "${STATUS_FILE}"
 
 if [ ! -s "${STATUS_FILE}" ]; then
     export BW_SERVER="null"

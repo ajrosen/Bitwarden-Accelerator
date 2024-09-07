@@ -6,7 +6,7 @@
 . lib/status.sh
 . lib/utils.sh
 
-checkTimeout
+[ $# == 0 ] && checkTimeout
 
 echo '{ "items": '
 

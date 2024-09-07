@@ -1,6 +1,7 @@
 def all:
   {
     title: "All Collections",
+    subtitle: "􀆔 (Cmd) to save as default for future searches",
     arg: "",
   }
 ;

@@ -7,28 +7,34 @@ resetTimer() {
 }
 
 checkTimeout() {
-    [ -f "${TIMER_FILE}" ] || resetTimer
-
-    TIMER=$(cat "${TIMER_FILE}")
-    resetTimer
-
     # Never
     [ ${vaultTimeout} -eq -1 ] && return
 
     # Custom
     [ ${vaultTimeout} -eq -2 ] && vaultTimeout=${customTimeout}
 
+    # Get timer
+    TIMER=0
+    [ -f "${TIMER_FILE}" ] && TIMER=$(cat "${TIMER_FILE}")
 
+    # Check timer
     if [ $((NOW - TIMER)) -gt $((vaultTimeout * 60)) ]; then
+	CMD='tell application id "com.runningwithcrayons.Alfred" to run trigger'
+
 	# Timed out
 	if [ "${vaultTimeoutAction}" == "lock" ]; then
+	    osascript -e "${CMD} \"notifyLocked\" in workflow \"${alfred_workflow_bundleid}\""
 	    . ./lock.sh > /dev/null
 	else
+	    osascript -e "${CMD} \"notifyLoggedOut\" in workflow \"${alfred_workflow_bundleid}\""
 	    . ./logout.sh > /dev/null
 	fi
 
 	. ./lib/status.sh
     fi
+
+    # Reset timer
+    resetTimer
 }
 
 saveSelection() {
@@ -124,7 +130,7 @@ item() {
     [ "${SUBTITLE}" != "" ] && echo -n ', "subtitle": "'"${SUBTITLE}"'"'
     [ "${UUID}" != "" ] && echo -n ', "uid": "'"${UUID}"'"'
     [ "${ICON}" != "" ] && echo -n ", $(icon "${ICON}")"
-    [ "${MODS}" != "" ] && echo -n ", $(mods "${SUBTITLE}")"
+    echo -n ", $(mods "${SUBTITLE}")"
 
     if [ "${COPY}" != "" ] || [ "${LARGE}" != "" ]; then
 	echo -n ", $(text "${COPY}" "${LARGE}")"

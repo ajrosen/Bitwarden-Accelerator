@@ -40,7 +40,8 @@ COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
 ORGANIZATION_ID="$(cat "${alfred_workflow_cache}"/organization_id)"
 ORGANIZATION_NAME="$(cat "${alfred_workflow_cache}"/organization_name)"
 
-LAST_SYNC="$(cat "${SYNC_FILE}")"
+LAST_SYNC=0
+[ -f "${SYNC_FILE}" ] && LAST_SYNC="$(cat "${SYNC_FILE}")"
 
 # Helper functions
 cacheVault() {
@@ -55,6 +56,12 @@ cacheVault() {
 	     | jq -L jq -r -f jq/clean.jq \
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
+
+    # curl -s "${API}"/list/object/items?trash \
+    # 	 --connect-timeout 3 \
+    # 	 --max-time 5 \
+    # 	| jq -L jq -r -f jq/clean.jq \
+    # 	     > "${DATA_DIR}"/trash
 }
 
 saveSync() {
@@ -67,5 +74,5 @@ saveSync() {
 log() {
     [ "${DEBUG}" != 1 ] && return
 
-    echo "$(date): [$(basename ${BASH_SOURCE[1]}):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+    echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
 }

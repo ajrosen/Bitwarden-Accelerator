@@ -4,45 +4,62 @@
 
 . lib/env.sh
 
-# Get name
-URL=$(osascript -e 'return text returned of (display dialog "Enter name of new item" buttons {"OK","Cancel"} with icon stop with title "Add item" default button "OK" default answer "'"${browserURL}"'")')
-
-[ "${URL}" == "" ] && exit
-
-# Get username
+URL=$(echo "${*}" | jq -r .url)
 SITE=$(echo "${URL}" | cut -d/ -f3)
 
-USERNAME=$(osascript -e 'return text returned of (display dialog "Enter username for '"${SITE}"'" buttons {"OK","Cancel"} with icon stop with title "Add item" default button "OK" default answer "'"${bwuser}"'")')
+P='return text returned of (display dialog'
+I='with icon caution'
+T='with title "Add item"'
+
+# Get name
+CMD="${P} \"Enter name of new item\" ${I} ${T} default answer \"${SITE}\")"
+NAME=$(osascript -e "${CMD}")
+
+[ "${NAME}" == "" ] && exit
+
+# Get username
+SITE=$(echo "${NAME}" | cut -d/ -f3)
+
+CMD="${P} \"Enter username for ${SITE}\" ${I} ${T} default answer \"${bwuser}\")"
+USERNAME=$(osascript -e "${CMD}")
 
 [ "${USERNAME}" == "" ] && exit
 
 # Get password
-PASSWORD=$(curl -s 'localhost:8087/generate?length=20&uppercase&lowercase&number&special' | jq -r .data.data)
+GENERATED=$(curl -s "${API}/generate?length=20&uppercase&lowercase&number&special" | jq -r .data.data)
 
-PASSWORD=$(osascript -e 'return text returned of (display dialog "Enter password for '"${USERNAME}"'" buttons {"OK","Cancel"} with icon stop with title "Add item" with hidden answer default button "OK" default answer "'"${PASSWORD}"'")')
+CMD="${P} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer)"
+PASSWORD=$(osascript -e "${CMD}")
+
+[ "${PASSWORD}" == "" ] && exit
+
+if [ "${PASSWORD}" != "${GENERATED}" ]; then
+    CMD="${P} \"Confirm password for ${USERNAME}\" ${I} ${T} default answer \"\" with hidden answer)"
+    CONFIRM=$(osascript -e "${CMD}")
+
+    if [ "${CONFIRM}" != "${PASSWORD}" ]; then
+	echo 'Add item,Passwords do not match'
+	exit
+    fi
+fi
 
 [ "${PASSWORD}" == "" ] && exit
 
 # Build payload
-PAYLOAD='{'
-PAYLOAD+='"type": 1'
-PAYLOAD+=', "name": "'"${SITE}"'"'
-PAYLOAD+=', "organizationId": "'"${ORGANIZATION_ID}"'"'
-# PAYLOAD+=', "collectionIds": ['
-# [ "${COLLECTION_ID}" == "" ] || PAYLOAD+='"'"${COLLECTION_ID}"'"'
-# PAYLOAD+=']'
-# [ "${COLLECTION_ID}" == "" ] || PAYLOAD+=', "collectionIds": [ "'"${COLLECTION_ID}"'" ]'
-PAYLOAD+=', "login": {'
-PAYLOAD+='    "username": "'"${USERNAME}"'"'
-PAYLOAD+=',   "password": "'"${PASSWORD}"'"'
-PAYLOAD+=',   "uris": ['
-PAYLOAD+='        { "match": null, "uri": "'"${URL}"'" }'
-PAYLOAD+='    ]'
-PAYLOAD+='  }'
-PAYLOAD+='}'
-
-echo "${PAYLOAD}" > /tmp/payload.json
+PAYLOAD='{ "type": 1, "name": "'"${SITE}"'"'
+PAYLOAD+=',"organizationId": '
+if [ "${ORGANIZATION_ID}" == "" ]; then
+    PAYLOAD+='null'
+else
+    PAYLOAD+='"'"${ORGANIZATION_ID}"'"'
+fi
+PAYLOAD+=',"login": {'
+PAYLOAD+=' "username": "'"${USERNAME}"'"'
+PAYLOAD+=',"password": "'"${PASSWORD}"'"'
+PAYLOAD+=',"uris": [ { "match": null, "uri": "'"${URL}"'" }'
+PAYLOAD+='] } }'
 
 # Add item
-# curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${API}"/object/item # | jq -r .success
-# saveSync
+S=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${API}"/object/item | jq -r .success)
+
+echo -n "Added ${SITE//,/ },Success: ${S}"
