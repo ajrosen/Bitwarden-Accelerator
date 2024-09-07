@@ -1,3 +1,10 @@
+# 6.0.0
+
+* Add a new login item to your vault
+* Add vault timeout like the desktop app and browser extension
+* Performance improvements
+* Bug fixes
+
 ## 5.1.1
 
 * Post unlock payload in JSON format

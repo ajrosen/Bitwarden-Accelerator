@@ -1,6 +1,35 @@
 #!/bin/bash
 
-# shellcheck disable=1090,2034,2154
+# shellcheck disable=1090,1091,2034,2086,2154
+
+resetTimer() {
+    echo "${NOW}" > "${TIMER_FILE}"
+}
+
+checkTimeout() {
+    [ -f "${TIMER_FILE}" ] || resetTimer
+
+    TIMER=$(cat "${TIMER_FILE}")
+    resetTimer
+
+    # Never
+    [ ${vaultTimeout} -eq -1 ] && return
+
+    # Custom
+    [ ${vaultTimeout} -eq -2 ] && vaultTimeout=${customTimeout}
+
+
+    if [ $((NOW - TIMER)) -gt $((vaultTimeout * 60)) ]; then
+	# Timed out
+	if [ "${vaultTimeoutAction}" == "lock" ]; then
+	    . ./lock.sh > /dev/null
+	else
+	    . ./logout.sh > /dev/null
+	fi
+
+	. ./lib/status.sh
+    fi
+}
 
 saveSelection() {
     cat > "${FETCH_FILE}" << EOF

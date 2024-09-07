@@ -6,6 +6,8 @@
 . lib/status.sh
 . lib/utils.sh
 
+checkTimeout
+
 echo '{ "items": [ {}'
 
 if [ "${STATE}" == "unauthenticated" ]; then
@@ -42,6 +44,7 @@ else
 
     echo ", $(item "Search Vault" "search")"
     echo ", $(item "Search Folders" "folder")"
+    echo ", $(item "Add item" "add" "Add item to your vault")"
     echo ", $(item "Lock Vault" "lock" "Logged in as ${bwuser}")"
     echo ", $(item "Set Default Vault" "organization" "${organization}")"
     echo ", $(item "Set Default Collection" "collection" "${collection}")"

@@ -26,6 +26,7 @@ FETCH_FILE="${alfred_workflow_cache}"/last_item
 RESULTS_DIR="${alfred_workflow_cache}"/results
 STATUS_FILE="${alfred_workflow_cache}"/status
 SYNC_FILE="${alfred_workflow_cache}"/sync
+TIMER_FILE="${alfred_workflow_cache}"/timer
 
 touch "${alfred_workflow_cache}"/collection_id
 touch "${alfred_workflow_cache}"/collection_name
@@ -62,23 +63,6 @@ saveSync() {
 
     cacheVault
 }
-
-# item() {
-#     echo ', {'
-#     echo '  "title": "'"${1}"'"'
-#     echo ', "arg": "'"${2}"'"'
-#     echo ', "subtitle": "'"${3}"'"'
-#     mods "${3}"
-#     echo '}'
-# }
-
-# mods() {
-#     echo ', "mods": { "msbc": {}'
-#     for mod in "cmd" "alt" "control" "shift" "function"; do
-# 	echo ', "'"${mod}"'": { "valid": "true", "subtitle": "'"${1}"'" }'
-#     done
-#     echo '}'
-# }
 
 log() {
     [ "${DEBUG}" != 1 ] && return

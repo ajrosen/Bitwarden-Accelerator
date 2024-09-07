@@ -6,6 +6,8 @@
 . lib/status.sh
 . lib/utils.sh
 
+checkTimeout
+
 echo '{ "items": '
 
 if [ "${STATE}" == "unauthenticated" ]; then
