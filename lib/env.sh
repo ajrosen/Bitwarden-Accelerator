@@ -51,17 +51,15 @@ cacheVault() {
 
     for OBJECT in ${OBJECTS}; do
 	curl -s "${API}"/list/object/"${OBJECT}" \
-	     --connect-timeout 3 \
-	     --max-time 5 \
 	     | jq -L jq -r -f jq/clean.jq \
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
 
-    # curl -s "${API}"/list/object/items?trash \
-    # 	 --connect-timeout 3 \
-    # 	 --max-time 5 \
-    # 	| jq -L jq -r -f jq/clean.jq \
-    # 	     > "${DATA_DIR}"/trash
+    curl -s "${API}"/list/object/items?trash \
+	 --connect-timeout 3 \
+	 --max-time 5 \
+	| jq -L jq -r -f jq/clean.jq \
+	     > "${DATA_DIR}"/trash
 }
 
 saveSync() {
@@ -75,4 +73,8 @@ log() {
     [ "${DEBUG}" != 1 ] && return
 
     echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+}
+
+curl() {
+    /usr/bin/curl --connect-timeout 3 --max-time 5 "${@}"
 }

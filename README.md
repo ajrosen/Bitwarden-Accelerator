@@ -120,6 +120,10 @@ Keyword used to bring up Bitwarden Accelerator's main menu
 
 Keyword used to bring up Bitwarden Accelerator's search menu
 
+### Trash Keyword
+
+Keyword used to search deleted items
+
 ---
 
 <a name="invoking"></a>
@@ -132,6 +136,10 @@ There are three ways to invoke Bitwarden Accelerator.
 3. As a Universal Action, you can view an item's fields directly in Alfred.
 
 The default hotkey is ***Control-Command-L***, because the Bitwarden browser extension uses *Shift-Command-L*.  If you wish to change or disable the hotkey, open the workflow in *Alfred Preferences*.  The hotkey trigger is in the top-left corner.
+
+### Trash
+
+Use the Trash Keyword (default: ***.bwtrash***) will list any deleted items.  Select an item to restore it.
 
 ---
 
@@ -233,6 +241,7 @@ Supported browsers:
 * [Vivaldi](https://vivaldi.com/)
 * [Ghost](https://ghostbrowser.com/)
 * [Arc](https://arc.net/)
+* [Zen](https://zen-browser.app/)<sup>(2)</sup>
 
 The default behavior when selecting an item depends on its *type*.
 
@@ -288,7 +297,7 @@ Lets you edit the username, password, or name of the item.
 
 Deletes the item from your vault.
 
-You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.  However, Bitwarden Accelerator *does not support* recovering items from your vault's Trash.
+You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.
 
 ---
 1. *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh), [MacPorts](https://ports.macports.org/), or [Nix](https://nixos.org/) must already be installed.*

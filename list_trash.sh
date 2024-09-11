@@ -5,10 +5,8 @@
 . lib/env.sh
 . lib/utils.sh
 
-TRASH="${RESULTS_DIR}/trash"
-
 function clean() {
-    rm -f "${TRASH}"
+    find "${RESULTS_DIR}" -type f -delete
 }
 
 trap clean EXIT
@@ -47,14 +45,15 @@ fi
 mkdir -p "${RESULTS_DIR}"
 
 # List items
-q "${*}" > "${TRASH}"
+q "${*}" > "${RESULTS_DIR}"/1
 echo '{ "items": '
 
 # Check for empty list
-# S=$(find "${TRASH}" -size +10c | wc -l)
-# if [[ "${S}" =~ "0" ]]; then
-#     echo '[ { "title": "No items found", "arg": "" } ]'
-# else
-    jq -s flatten "${TRASH}"
-# fi
+if [ -s "${RESULTS_DIR}"/1 ]; then
+    echo '[ { "title": "Select an item to restore from trash", "arg": "" } ]' \
+	 > "${RESULTS_DIR}"/0
+    jq -s flatten "${RESULTS_DIR}"/?
+else    
+    echo '[ { "title": "No items in trash", "arg": "" } ]'
+fi
 echo '}'

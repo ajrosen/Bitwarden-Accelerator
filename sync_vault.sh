@@ -10,4 +10,4 @@ saveSync
 . lib/status.sh
 
 # YYYY-MM-DDTHH:MM:SS.mmmZ
-echo "${SYNC}"
+echo -n "${SYNC}"

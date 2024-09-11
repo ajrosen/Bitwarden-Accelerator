@@ -11,9 +11,9 @@ URL="${API}"/object/item
 FIELDS="type, name, organizationId, login, notes, favorite, fields, reprompt"
 
 # Get existing item
-ITEM=$(curl -s "${URL}/${objectId}" | jq -r '.data | { '"${FIELDS}"' }')
+ITEM=$(curl -s "${URL}/${objectId}" | jq -j '.data | { '"${FIELDS}"' }')
 
-oldId=$(jq -r '.organizationId // ""' <<< "${ITEM}")
+oldId=$(jq -j '.organizationId // ""' <<< "${ITEM}")
 
 if [ "${oldId}" == "${organizationId}" ]; then
     echo -n "Cannot move item to same vault"
@@ -22,15 +22,15 @@ fi
 
 # Add new item
 if [ "${organizationId}" == "" ]; then
-    PAYLOAD=$(jq -r '.ogranizationId |= null' <<< "${ITEM}")
+    PAYLOAD=$(jq -j '.ogranizationId |= null' <<< "${ITEM}")
 else
-    PAYLOAD=$(jq -r '.organizationId |= "'"${organizationId}"'"' <<< "${ITEM}")
+    PAYLOAD=$(jq -j '.organizationId |= "'"${organizationId}"'"' <<< "${ITEM}")
 fi
 
 log "${PAYLOAD}"
 
 ITEM=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${URL}")
-S=$(jq -r '.success' <<< "${ITEM}")
+S=$(jq -j '.success' <<< "${ITEM}")
 
 if [ "${S}" != "true" ]; then
     echo -n "Failed to copy ${name}"
@@ -44,12 +44,12 @@ saveSync
 exit
 
 # Replace ".collectionIds: null" with ".collectionIds: []"
-newId=$(jq -r '.data.id' <<< "${ITEM}")
+newId=$(jq -j '.data.id' <<< "${ITEM}")
 
 S=$(curl -s "${URL}/${newId}" \
 	| jq '.data | . + { .collectionIds: [] }' \
 	| curl -s -H 'Content-Type: application/json' -T - "${URL}/${newId}")
-S=$(jq -r '.success' <<< "${ITEM}")
+S=$(jq -j '.success' <<< "${ITEM}")
 
 if [ "${S}" != "true" ]; then
     echo -n "Failed to set collections for ${name}"

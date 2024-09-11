@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "get_new_field"
+
 function mkscript() {
     script='return text returned of (display dialog "'"${1}"'"'
     script="${script} buttons { \"OK\", \"Cancel\" }"
@@ -21,7 +23,7 @@ jqItem=".login.username"
 
 # Prompt for new value
 mkscript "Enter new value:"
-new=$(osascript -e "${script}")
+new=$(2>&- osascript -e "${script}")
 
 # Exit if canceled
 [ "${new}" == "" ] && exit 0
@@ -29,7 +31,7 @@ new=$(osascript -e "${script}")
 # Confirm value if password
 if [ "${editField}" == "Password" ]; then
     mkscript "Confirm new password"
-    again=$(osascript -e "${script}")
+    again=$(2>&- osascript -e "${script}")
 
     if [ "${new}" != "${again}" ]; then
 	osascript -e 'display notification "Passwords do not match"'

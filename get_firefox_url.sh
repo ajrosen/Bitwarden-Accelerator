@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# shellcheck disable=2154
-
-. lib/env.sh
+# shellcheck disable=2059
 
 # Look for workflow
 AF=$(echo ../*/alfred-firefox)
-[ "${AF}" == "../*/alfred-firefox" ] && exit 0
+[ "${AF}" == "2>&- ../*/alfred-firefox" ] && exit 0
 
 TAB_INFO=$(${AF} tab-info)
 
-log "Firefox ${TAB_INFO}"
-
-jq -r .alfredworkflow.variables.FF_URL <<< "${TAB_INFO}"
+jq -j .alfredworkflow.variables.FF_URL <<< "${TAB_INFO}"

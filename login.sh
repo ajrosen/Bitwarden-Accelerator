@@ -20,10 +20,10 @@ bwuser=${bwuser:-"user@example.com"}
 
 case "${loginMethod}" in
     "password")
-	USER=$(./get_username.applescript "${bwuser}")
+	USER=$(2>&- ./get_username.applescript "${bwuser}")
 	[ "${USER}" == "" ] && exit
 
-	export PASS=$(./get_password.applescript "${bwuser}")
+	export PASS=$(2>&- ./get_password.applescript "${bwuser}")
 	[ "${PASS}" == "" ] && exit
 
 	CODE=$(./get_code.sh)
@@ -37,9 +37,9 @@ case "${loginMethod}" in
 	;;
 esac
 
-if [ "$(jq -r .success <<< "${OUT}")" == "true" ] || [[ "$(jq -r .message <<< "${OUT}")" =~ "You are already logged in" ]]; then
+if [ "$(jq -j .success <<< "${OUT}")" == "true" ] || [[ "$(jq -j .message <<< "${OUT}")" =~ "You are already logged in" ]]; then
     # Start server
     ./start_server.sh
 fi
 
-jq -r '.message // .data.title' <<< "${OUT}"
+jq -j '.message // .data.title' <<< "${OUT}"

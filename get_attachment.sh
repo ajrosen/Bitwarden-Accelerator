@@ -12,4 +12,4 @@ fi
 log curl -s --output-dir "${downloadFolder}" -o "${attachmentName}" "${API}/object/attachment/${attachmentId}?itemid=${id}"
 curl -s --output-dir "${downloadFolder}" -o "${attachmentName}" "${API}/object/attachment/${attachmentId}?itemid=${id}"
 
-echo "${downloadFolder}"
+echo -n "${downloadFolder}"

@@ -14,4 +14,4 @@ curl -s "${URL}" \
 
 saveSync
 
-echo "${name}"
+echo -n "${name}"

@@ -19,10 +19,10 @@ install () {
     title="${alfred_workflow_name}"
     buttons='{ "Cancel", "Install" }'
 
-    osascript -e 'display dialog "'"${dialog}"'" with icon stop with title "'"${title}"'" buttons '"${buttons}"' default button "Cancel"' > /dev/null
+    2>&- osascript -e 'display dialog "'"${dialog}"'" with icon stop with title "'"${title}"'" buttons '"${buttons}"' default button "Cancel"' > /dev/null
 
     if [ $? == 0 ]; then
-	echo "install"
+	echo -n "install"
 
 	osascript -e 'display notification "Installing '"${APP}"'"'
 	osascript -e 'tell application "Terminal" to activate'
@@ -66,5 +66,5 @@ if [ ! -x "${alfred_workflow_cache}/${EXE}" ]; then
     fi
 
     # Once more, with feeling
-    [ -x "${alfred_workflow_cache}/${EXE}" ] || echo "cancel"
+    [ -x "${alfred_workflow_cache}/${EXE}" ] || echo -n "cancel"
 fi

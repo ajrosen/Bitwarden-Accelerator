@@ -22,4 +22,4 @@ fi
 # Save new settings
 saveSelection
 
-echo "${field}"
+echo -n "${field}"

@@ -14,6 +14,6 @@ if [ "${twoStepMethod}" == "1" ]; then
     bw --nointeraction login "${bwuser}" --method "${twoStepMethod}" --passwordenv PASS
 fi
 
-CODE=$(./get_code.applescript "${twoStepMethod}")
+CODE=$(2>&- ./get_code.applescript "${twoStepMethod}")
 
 echo "--method ${twoStepMethod} --code ${CODE}"

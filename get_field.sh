@@ -12,9 +12,9 @@ log "${API}/object/${field}/${id}"
 
 OBJ=$(curl -s "${API}"/object/"${field}"/"${id}")
 
-if [ "$(jq -r .success <<< "${OBJ}")" == "true" ]; then
-    jq -r .data.data <<< "${OBJ}"
+if [ "$(jq -j .success <<< "${OBJ}")" == "true" ]; then
+    jq -j .data.data <<< "${OBJ}"
 else
-    jq -r .message <<< "${OBJ}"
+    jq -j .message <<< "${OBJ}"
     exit 1
 fi

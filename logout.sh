@@ -6,5 +6,5 @@ log "logout"
 
 ./stop_server.sh
 
-bw --response logout | jq -r '.message // .data.title'
+bw --response logout | jq -j '.message // .data.title'
 rm -f "${DATA_DIR}"/*

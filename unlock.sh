@@ -6,9 +6,14 @@
 
 log "unlock"
 
-p=$(./get_password.applescript "${bwuser}")
+p=$(2>&- ./get_password.applescript "${bwuser}")
 
 [ "${p}" == "" ] && exit
 
-curl -s -H 'Content-Type: application/json' -d '{"password": "'${p}'"}' "${API}"/unlock \
-    | jq -r '.message // .data.title'
+RESPONSE=$(curl -s -H 'Content-Type: application/json' -d '{"password": "'"${p}"'"}' "${API}"/unlock)
+
+if [ "$(jq -j '.success' <<< "${RESPONSE}")" != "true" ]; then
+    RESPONSE=$(curl -s -d "password=${p}" "${API}"/unlock)
+fi
+
+jq -j '.message // .data.title' <<< "${RESPONSE}"

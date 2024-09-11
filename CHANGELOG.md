@@ -1,3 +1,12 @@
+## 6.1.0
+
+* Search deleted items and restore them
+* Add support for Zen browser
+* Use --connect-timeout 3 --max-time 5 on all calls to curl
+* Clean up some outputs and log messages
+* Bug fixes
+	* Unlock vault with two different payload formats
+
 # 6.0.0
 
 * Add a new login item to your vault
