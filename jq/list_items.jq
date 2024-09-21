@@ -70,9 +70,9 @@ def filter:
 . | select($search == "" or (searchFields | test($search; "i")))
   | select($folderId == "" or $folderId == .folderId)
   | select($collectionId == "" or (.collectionIds[] | test($collectionId)))
-  | select(($organizationId == "")
+  | select(($organizationId == "0")
 	     or ($organizationId == .organizationId)
-	     or (($organizationId == "0") and (.organizationId == null)))
+	     or (($organizationId == "1") and (.organizationId == null)))
 ;
 
 ##################################################

@@ -1,3 +1,8 @@
+## 6.1.1
+
+* Fix setting default organization or collection
+* Performance improvements
+
 ## 6.1.0
 
 * Search deleted items and restore them

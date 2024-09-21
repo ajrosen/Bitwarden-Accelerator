@@ -2,14 +2,14 @@ def all:
   {
     title: "All Vaults",
     subtitle: "􀆔 (Cmd) to save as default for future searches",
-    arg: "",
+    arg: 0,
   }
 ;
 
 def myVault:
   {
     title: "My Vault",
-    arg: "My Vault",
+    arg: 1,
     variables: {
 	organizationName: "My Vault",
 	organizationId: null,

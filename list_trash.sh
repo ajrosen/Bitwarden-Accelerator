@@ -1,9 +1,17 @@
 #!/bin/bash
 
-# shellcheck disable=2154
+# shellcheck disable=2012,2154
 
 . lib/env.sh
+. lib/status.sh
 . lib/utils.sh
+
+[ $# == 0 ] && checkTimeout
+
+if [ "${STATE}" != "unlocked" ]; then
+    . main.sh
+    exit
+fi
 
 function clean() {
     find "${RESULTS_DIR}" -type f -delete
@@ -49,11 +57,13 @@ q "${*}" > "${RESULTS_DIR}"/1
 echo '{ "items": '
 
 # Check for empty list
-if [ -s "${RESULTS_DIR}"/1 ]; then
+S=$(ls -n "${RESULTS_DIR}/1" | awk '{ print $5 }')
+if [ "${S}" -lt 10  ]; then
+    echo '[ { "title": "No items in trash", "arg": "" } ]'
+else
     echo '[ { "title": "Select an item to restore from trash", "arg": "" } ]' \
 	 > "${RESULTS_DIR}"/0
     jq -s flatten "${RESULTS_DIR}"/?
-else    
-    echo '[ { "title": "No items in trash", "arg": "" } ]'
 fi
+
 echo '}'

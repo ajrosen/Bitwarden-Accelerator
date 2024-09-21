@@ -4,6 +4,9 @@
 
 . lib/env.sh
 
+[ "${organizationId}" == 0 ] && organizationName="All Vaults"
+[ "${organizationId}" == 1 ] && organizationName="My Vault"
+
 log "set_organization ${organizationId} ${organizationName}"
 
 echo -n "${organizationId}" > "${alfred_workflow_cache}"/organization_id

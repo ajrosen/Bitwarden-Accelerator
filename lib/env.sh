@@ -34,10 +34,10 @@ touch "${alfred_workflow_cache}"/collection_name
 touch "${alfred_workflow_cache}"/organization_id
 touch "${alfred_workflow_cache}"/organization_name
 
-COLLECTION_ID="$(cat "${alfred_workflow_cache}"/collection_id)"
+COLLECTION_ID="${collection:-$(cat "${alfred_workflow_cache}"/collection_id)}"
 COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
 
-ORGANIZATION_ID="$(cat "${alfred_workflow_cache}"/organization_id)"
+ORGANIZATION_ID="${organization:-$(cat "${alfred_workflow_cache}"/organization_id)}"
 ORGANIZATION_NAME="$(cat "${alfred_workflow_cache}"/organization_name)"
 
 LAST_SYNC=0

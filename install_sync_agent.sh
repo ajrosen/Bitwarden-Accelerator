@@ -48,6 +48,7 @@ else
 	log "Unloading ${AGENT}"
 	unload
     else
+	# Make sure it's running
 	launchctl list "${alfred_workflow_bundleid}" > /dev/null
 	if [ $? != 0 ]; then load; fi
     fi

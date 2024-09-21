@@ -2,9 +2,6 @@
 
 # shellcheck disable=1090,2154
 
-. lib/env.sh
-. lib/utils.sh
-
 function clean() {
     find "${RESULTS_DIR}" -type f -delete
 }
