@@ -1,4 +1,6 @@
-def all:
+include "bw";
+
+def allVaults:
   {
     title: "All Vaults",
     subtitle: "􀆔 (Cmd) to save as default for future searches",
@@ -34,10 +36,13 @@ def alfred:
 ##################################################
 # Main
 
-[ all ] + [ myVault ] +
+log(input_filename) |
+
+[ allVaults ] + [ myVault ] +
 [
   .data.data[]
   | select(.name | tostring | test($search; "i"))
+  | log([ .id, .name ])
   | alfred
 ] +
 [ {

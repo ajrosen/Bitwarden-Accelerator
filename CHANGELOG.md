@@ -1,6 +1,12 @@
+## 6.1.2
+
+* Fix setting default collection
+* Add logging to jq scripts
+* Check for workflow version changes
+
 ## 6.1.1
 
-* Fix setting default organization or collection
+* Fix setting default organization
 * Performance improvements
 
 ## 6.1.0
@@ -62,25 +68,25 @@
 	* Use the command+option modifier when selecting an item
 	* Invoke a Universal Action
 
-# 3.2.0
+## 3.2.0
 
 * Add support for Ghost Browser
 
-# 3.1.2
+## 3.1.2
 
 * Fix JSON output for non-unlocked states
 
-# 3.1.1
+## 3.1.1
 
 * Bug fix in "last item" processing
 
-# 3.1.0
+## 3.1.0
 
 * Put recently selected item at the top of the list
 * Use SyncInterval for AUTO_ROTATE
 * Include file and line in debug messages
 
-# 3.0.1
+## 3.0.1
 
 * Bug fix:  Create ~/Library/LaunchAgents/ if it doesn't exist
 
@@ -90,7 +96,7 @@
 	* If an item is selected twice within 15 seconds, copy the TOTP code to the clipboard instead of the password.
 * Important bug fix in the path to *bwa-sync* as defined in the Launch Agent
 
-# 2.1.0
+## 2.1.0
 
 * *Secure notes* always copy the note to the clipboard
 * *Cards* and *Identities* will always **Show all fields**

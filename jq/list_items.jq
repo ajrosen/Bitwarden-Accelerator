@@ -69,14 +69,16 @@ def searchFields:
 def filter:
 . | select($search == "" or (searchFields | test($search; "i")))
   | select($folderId == "" or $folderId == .folderId)
-  | select($collectionId == "" or (.collectionIds[] | test($collectionId)))
-  | select(($organizationId == "0")
-	     or ($organizationId == .organizationId)
+  | select($collectionId == "0" or ($collectionId == "")
+			 or (.collectionIds[] | test($collectionId)))
+  | select(($organizationId == "0") or ($organizationId == .organizationId)
 	     or (($organizationId == "1") and (.organizationId == null)))
 ;
 
 ##################################################
 # Main
+
+log(input_filename) |
 
 if $recent != "" then
   # Recent
@@ -102,3 +104,5 @@ else
     | alfred($folderNames; $organizationNames)
   ]
 end
+
+  | log("\(length) items")

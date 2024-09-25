@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# shellcheck disable=2154
-
 . lib/env.sh
 
 log "list_collections"
@@ -13,6 +11,6 @@ jq \
     --arg organizationId "${ORGANIZATION_ID}" \
     --arg search "$*" \
     -r -f jq/list_collections.jq \
-    "${DATA_DIR}"/collections
+    "${DATA_DIR}"/collections 2>>"${LOG_FILE}"
 
 echo '}'

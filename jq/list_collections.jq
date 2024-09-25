@@ -1,8 +1,10 @@
-def all:
+include "bw";
+
+def allCollections:
   {
     title: "All Collections",
     subtitle: "􀆔 (Cmd) to save as default for future searches",
-    arg: "",
+    arg: 0,
   }
 ;
 
@@ -23,11 +25,14 @@ def alfred:
 ##################################################
 # Main
 
-[ all ] +
+log(input_filename) |
+
+[ allCollections ] +
 [
   .data.data[]
   | select(.name | tostring | test($search; "i"))
-  | select(($organizationId == "") or ($organizationId == .organizationId) or (($organizationId == "0") and (.organizationId == null)))
+  | log([ .id, .name ])
+  | select(($organizationId == "0") or ($organizationId == .organizationId))
   | alfred
 ] +
 [ {

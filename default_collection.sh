@@ -4,7 +4,7 @@
 
 . lib/env.sh
 
-log "set_collection ${collectionId} ${collectionName}"
+log "set_collection ${COLLECTION_ID} ${collectionName}"
 
-echo -n "${collectionId}" > "${alfred_workflow_cache}"/collection_id
+echo -n "${COLLECTION_ID}" > "${alfred_workflow_cache}"/collection_id
 echo -n "${collectionName}" > "${alfred_workflow_cache}"/collection_name

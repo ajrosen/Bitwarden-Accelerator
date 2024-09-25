@@ -1,3 +1,5 @@
+include "bw";
+
 # Format an item for Alfred
 def alfred:
   {
@@ -16,9 +18,12 @@ def alfred:
 ##################################################
 # Main
 
+log(input_filename) |
+
 [
   .data.data[]
   | select(.name | tostring | test($search; "i"))
+  | log([ .id, .name ])
   | alfred
 ] +
 [ {

@@ -204,11 +204,13 @@ Locks your Bitwarden vault.
 
 * **Set Default Vault**
 
-Filter searches to a specific *Vault* (Organization), *My Vault*, or All Vaults.  Note that changing this setting will revert *Default Collection* to *All Collections*.
+Filter searches to a specific *Vault* (Organization), *My Vault*, or All Vaults.  Set the default Organization for future searches with the Command modifier.
+
+Note that changing this setting with the Command modifier will also revert *Default Collection* to *All Collections*.
 
 * **Set Default Collection**
 
-Filters searches to a specific *Collection*, or *All Collections*.
+Filters searches to a specific *Collection*, or *All Collections*.  Set the default Collection for future searches with the Command modifier.
 
 * **Sync Vault**
 
@@ -301,4 +303,4 @@ You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not techn
 
 ---
 1. *Bitwarden Accelerator makes extensive use of [jq](https://jqlang.github.io/jq/).  If the [Bitwarden CLI](https://bitwarden.com/help/cli/) or [jq](https://jqlang.github.io/jq/) package is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh), [MacPorts](https://ports.macports.org/), or [Nix](https://nixos.org/) must already be installed.*
-2. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration) and [alfred-firefox workflow](https://github.com/deanishe/alfred-firefox/releases/latest).*
+2. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration).*

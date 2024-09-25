@@ -4,12 +4,12 @@
 
 . lib/env.sh
 
-[ "${organizationId}" == 0 ] && organizationName="All Vaults"
-[ "${organizationId}" == 1 ] && organizationName="My Vault"
+[ "${ORGANIZATION_ID}" == 0 ] && organizationName="All Vaults"
+[ "${ORGANIZATION_ID}" == 1 ] && organizationName="My Vault"
 
-log "set_organization ${organizationId} ${organizationName}"
+log "set_organization ${ORGANIZATION_ID} ${organizationName}"
 
-echo -n "${organizationId}" > "${alfred_workflow_cache}"/organization_id
+echo -n "${ORGANIZATION_ID}" > "${alfred_workflow_cache}"/organization_id
 echo -n "${organizationName}" > "${alfred_workflow_cache}"/organization_name
 
 # Reset collection

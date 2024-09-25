@@ -28,17 +28,25 @@ STATUS_FILE="${alfred_workflow_cache}"/status
 SYNC_FILE="${alfred_workflow_cache}"/sync
 TIMER_FILE="${alfred_workflow_cache}"/timer
 
-touch "${alfred_workflow_cache}"/collection_id
-touch "${alfred_workflow_cache}"/collection_name
+# Check workflow version
+touch "${alfred_workflow_cache}"/version
+VERSION=$(cat "${alfred_workflow_cache}"/version)
+if [ "${VERSION}" != "${alfred_workflow_version}" ]; then
+    echo "${alfred_workflow_version}" > "${alfred_workflow_cache}"/version
 
-touch "${alfred_workflow_cache}"/organization_id
-touch "${alfred_workflow_cache}"/organization_name
+    # Set default organization and collection
+    echo '' > "${alfred_workflow_cache}"/collection_id
+    echo '' > "${alfred_workflow_cache}"/collection_name
 
-COLLECTION_ID="${collection:-$(cat "${alfred_workflow_cache}"/collection_id)}"
-COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
+    echo '0' > "${alfred_workflow_cache}"/organization_id
+    echo 'All Vaults' > "${alfred_workflow_cache}"/organization_name
+fi
 
-ORGANIZATION_ID="${organization:-$(cat "${alfred_workflow_cache}"/organization_id)}"
+ORGANIZATION_ID="${ORGANIZATION_ID:-$(cat "${alfred_workflow_cache}"/organization_id)}"
 ORGANIZATION_NAME="$(cat "${alfred_workflow_cache}"/organization_name)"
+
+COLLECTION_ID="${COLLECTION_ID:-$(cat "${alfred_workflow_cache}"/collection_id)}"
+COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
 
 LAST_SYNC=0
 [ -f "${SYNC_FILE}" ] && LAST_SYNC="$(cat "${SYNC_FILE}")"

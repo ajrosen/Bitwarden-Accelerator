@@ -15,6 +15,7 @@ function q() {
     SKIP="${4}"
 
     log "SEARCH = ${1}, ICON = ${2}, SKIP = ${3}"
+    log "folderId = ${folderId}, organizationId = ${ORGANIZATION_ID}, collectionId = ${COLLECTION_ID}"
 
     jq \
 	-L jq \
@@ -29,7 +30,7 @@ function q() {
 	--arg recent "${RECENT}" \
 	--arg skip "${SKIP}" \
 	-r -f jq/list_items.jq \
-	"${DATA_DIR}"/items
+	"${DATA_DIR}"/items 2>>"${LOG_FILE}"
 }
 
 # Refresh lists

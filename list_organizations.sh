@@ -10,6 +10,6 @@ jq \
     -L jq \
     --arg search "$*" \
     -r -f jq/list_organizations.jq \
-    "${DATA_DIR}"/organizations
+    "${DATA_DIR}"/organizations 2>>"${LOG_FILE}"
 
 echo '}'
