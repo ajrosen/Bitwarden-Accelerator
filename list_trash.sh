@@ -61,7 +61,7 @@ S=$(ls -n "${RESULTS_DIR}/1" | awk '{ print $5 }')
 if [ "${S}" -lt 10  ]; then
     echo '[ { "title": "No items in trash", "arg": "" } ]'
 else
-    echo '[ { "title": "Select an item to restore from trash", "arg": "" } ]' \
+    echo '[ { "title": "Select an item to restore from trash", "arg": "return" } ]' \
 	 > "${RESULTS_DIR}"/0
     jq -s flatten "${RESULTS_DIR}"/?
 fi

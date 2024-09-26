@@ -36,7 +36,6 @@ mklink () {
 	if [ -x "${D}/${EXE}" ]; then
 	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
 
-	    mkdir -p "${alfred_workflow_cache}"
 	    ln -sf "${D}/${EXE}" "${alfred_workflow_cache}"
 	    break
 	fi

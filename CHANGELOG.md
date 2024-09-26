@@ -1,3 +1,8 @@
+## 6.1.3
+
+* Create alfred_workflow_cache directory every time, not just when checking dependencies
+* Don't display notification when not restoring an item from trash
+
 ## 6.1.2
 
 * Fix setting default collection

@@ -12,8 +12,9 @@ export GITHUB_REPO = Bitwarden-Accelerator
 GH_TAG = bwa
 
 # Workflow
-WF_NAME := $(shell /usr/libexec/PlistBuddy -c 'print name' info.plist)
-WF_VERSION := $(shell /usr/libexec/PlistBuddy -c 'print version' info.plist)
+WF_NAME := $(shell plutil -extract name raw info.plist)
+WF_VERSION := $(shell plutil -extract version raw info.plist)
+VERSION := $(WF_VERSION)
 
 
 ##################################################
@@ -34,8 +35,13 @@ exec:
 checkin: exec
 	rsync -av --include=info.plist --exclude=.git --exclude=*.plist . ${SRC_DIR}/${GITHUB_REPO}
 
+# Update version
+version:			# make version VERSION=1.2.3
+	plutil -replace version -string $(VERSION) info.plist
+	sed -I '' "s:^\*Version $(WF_VERSION)\*</string>:\*Version $(VERSION)\*</string>:" info.plist
+
 # Export workflow
-export: exec
+export: exec version
 	rm -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
 	zip -qr9 ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow . -x prefs.plist -x '.git/*'
 

@@ -5250,6 +5250,20 @@ end run</string>
 						<key>uid</key>
 						<string>25C18BD0-B9A7-4226-99AD-9CF4C45691A4</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>return</string>
+						<key>outputlabel</key>
+						<string>return</string>
+						<key>uid</key>
+						<string>D8B3282E-7BC1-4B97-B141-C876F0B237DE</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
@@ -6186,7 +6200,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a MacOS Launch Agent
 
 ---
-*Version 6.1.2*</string>
+*Version 6.1.3*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -6422,7 +6436,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>30</real>
 			<key>ypos</key>
-			<real>2720</real>
+			<real>2705</real>
 		</dict>
 		<key>371A6552-E038-4A67-8910-9280DE5DF585</key>
 		<dict>
@@ -7241,6 +7255,8 @@ self.notifyLoggedOut</string>
 		</dict>
 		<key>C1851AAA-C263-447D-BBCA-74C07DDDA4A7</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
 			<key>xpos</key>
 			<real>695</real>
 			<key>ypos</key>
@@ -7549,7 +7565,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>235</real>
 			<key>ypos</key>
-			<real>2695</real>
+			<real>2665</real>
 		</dict>
 		<key>FF376FFB-7523-46A8-83BB-B426E766F7F4</key>
 		<dict>
@@ -7989,7 +8005,7 @@ add_item.sh</string>
 		<string>--no-deprecation</string>
 	</dict>
 	<key>version</key>
-	<string>6.1.2</string>
+	<string>6.1.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

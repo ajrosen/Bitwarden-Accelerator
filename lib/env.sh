@@ -28,6 +28,8 @@ STATUS_FILE="${alfred_workflow_cache}"/status
 SYNC_FILE="${alfred_workflow_cache}"/sync
 TIMER_FILE="${alfred_workflow_cache}"/timer
 
+mkdir -p "${alfred_workflow_cache}"
+
 # Check workflow version
 touch "${alfred_workflow_cache}"/version
 VERSION=$(cat "${alfred_workflow_cache}"/version)
