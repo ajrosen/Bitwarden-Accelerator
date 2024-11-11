@@ -44,7 +44,7 @@ else
 
     echo ", $(item "Search Vault" "search" "Search your vault")"
     echo ", $(item "Search Folders" "folder" "Show your folders")"
-    echo ", $(item "Add item" "add" "Add a new item to your vault")"
+    # echo ", $(item "Add item" "add" "Add a new item to your vault")"
     echo ", $(item "Lock Vault" "lock" "Logged in as ${bwuser}")"
     echo ", $(item "Set Default Vault" "organization" "${organization}")"
     echo ", $(item "Set Default Collection" "collection" "${collection}")"
