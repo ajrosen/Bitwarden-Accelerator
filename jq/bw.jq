@@ -2,7 +2,7 @@ module { name: "Bitwarden Accelerator", version: "1.0" };
 
 def log(s):
   if $ENV.DEBUG == "1" then
-      debug(s)
+      debug
   end
   | .
  ;
