@@ -19,7 +19,7 @@ function q() {
 
     jq \
 	-L jq \
-	--rawfile {,"${DATA_DIR}/"}organizations \
+	--rawfile {,"${DATA_DIR}"/}organizations \
 	--rawfile {,"${DATA_DIR}"/}collections \
 	--rawfile {,"${DATA_DIR}"/}folders \
 	--arg folderId "${folderId}" \
@@ -67,7 +67,9 @@ q "${*}" "" "" "${old_objectId}" >> "${RESULTS_DIR}"/3
 # Check for empty list
 S=$(find "${RESULTS_DIR}"/? -size +10c | wc -l)
 if [[ "${S}" =~ "0" ]]; then
-    echo '[ { "title": "No items found", "arg": "" } ]'
+    echo '[ { "title": "No items found", "arg": "", "valid": false,'
+    mods "" false
+    echo '} ]'
 else
     jq -s flatten "${RESULTS_DIR}"/?
 fi
