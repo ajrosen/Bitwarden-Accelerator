@@ -22,10 +22,13 @@ VERSION := $(WF_VERSION)
 
 # Benign default
 diff:
-	diff --color -r -x '*.plist' -x '.*' ${SRC_DIR}/${GITHUB_REPO} .
+	@diff --color -r -x '*.plist' -x '.*' ${SRC_DIR}/${GITHUB_REPO} . || true
 
 diffall:
-	diff --color -r ${SRC_DIR}/${GITHUB_REPO} .
+	@diff --color -r ${SRC_DIR}/${GITHUB_REPO} . || true
+
+diffq:
+	@diff --color -qr ${SRC_DIR}/${GITHUB_REPO} . || true
 
 # Make sure executables are executable
 exec:
@@ -38,7 +41,7 @@ checkin: exec
 # Update version
 version:			# make version VERSION=1.2.3
 	plutil -replace version -string $(VERSION) info.plist
-	sed -I '' "s:^\*Version $(WF_VERSION)\*</string>:\*Version $(VERSION)\*</string>:" info.plist
+	sed -i "s:^\*Version $(WF_VERSION)\*</string>:\*Version $(VERSION)\*</string>:" info.plist
 
 # Export workflow
 export: exec version
