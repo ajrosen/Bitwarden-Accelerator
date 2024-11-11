@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2154
+# shellcheck disable=2154,2181
 
 alfred_workflow_cache=${alfred_workflow_cache:-"."}
 
@@ -32,7 +32,7 @@ install () {
 
 # Create local symlink
 mklink () {
-    for D in /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin /run/current-system/sw/bin; do
+    for D in /usr/bin /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin /run/current-system/sw/bin; do
 	if [ -x "${D}/${EXE}" ]; then
 	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
 
@@ -51,19 +51,20 @@ mklink () {
 # Main
 
 # Check symlink
-if [ ! -x "${alfred_workflow_cache}/${EXE}" ]; then
-    mklink
+[ -x "${alfred_workflow_cache}/${EXE}" ] && exit
 
-    # Check again
-    [ -x "${alfred_workflow_cache}/${EXE}" ] && exit
+# Make symlink
+mklink
 
-    # Offer to install
-    if [ "${BREW}" != "" ]; then
-	install "Homebrew" "${BREW} install ${PKG}"
-    elif [ "${PORT}" != "" ]; then
-	install "MacPorts" "sudo ${PORT} -N install ${PKG}"
-    fi
+# Check again
+[ -x "${alfred_workflow_cache}/${EXE}" ] && exit
 
-    # Once more, with feeling
-    [ -x "${alfred_workflow_cache}/${EXE}" ] || echo -n "cancel"
+# Offer to install
+if [ "${BREW}" != "" ]; then
+    install "Homebrew" "${BREW} install ${PKG}"
+elif [ "${PORT}" != "" ]; then
+    install "MacPorts" "sudo ${PORT} -N install ${PKG}"
 fi
+
+# Once more, with feeling
+[ -x "${alfred_workflow_cache}/${EXE}" ] || echo -n "cancel"

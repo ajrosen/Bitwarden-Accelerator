@@ -6,7 +6,7 @@
 
 # Check dependencies
 [ -x "${alfred_workflow_cache}/bw" ] || ./install_dependency.sh "Bitwarden CLI" "bitwarden-cli" "bw"
-[ -x "${alfred_workflow_cache}/jq" ] || ./install_dependency.sh "JQ" "jq" "jq"
+[ -x "${alfred_workflow_cache}/jq" ] || [ -x "/usr/bin/jq" ] || ./install_dependency.sh "JQ" "jq" "jq"
 
 # Check sync agent
 . ./install_sync_agent.sh
