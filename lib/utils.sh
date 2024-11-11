@@ -7,6 +7,8 @@ resetTimer() {
 }
 
 checkTimeout() {
+    vaultTimeout=${vaultTimeout:=-1}
+
     # Never
     [ ${vaultTimeout} -eq -1 ] && return
 
@@ -70,7 +72,7 @@ mod() {
 
     echo '"'"${MOD}"'": {'
     echo '"valid":' "${VALID}"
-    [ "${SUBTITLE}" != "" ] && echo ', "subtitle": "'"${SUBTITLE}"'"'
+    echo ', "subtitle": "'"${SUBTITLE}"'"'
     echo '}'
 }
 
@@ -82,7 +84,7 @@ mods() {
     echo '"mods": {'
 
     mod "cmd" "${SUBTITLE}" "${VALID}"
-    for modifier in "alt" "control" "shift" "function"; do
+    for modifier in "alt" "control" "shift" "function" "cmd+control" "cmd+alt"; do
 	echo ", $(mod "${modifier}" "${SUBTITLE}" "${VALID}")"
     done
 
