@@ -1999,25 +1999,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>main</string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<false/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>F7BE8BB5-6184-4BDC-B402-15CEEF529D42</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -2047,6 +2028,25 @@
 			<string>58C21CCB-AE65-4CC7-9EF2-D025E20E87CF</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>main</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>F7BE8BB5-6184-4BDC-B402-15CEEF529D42</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -6148,7 +6148,7 @@ end run</string>
 
 Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/)
 
-Full documentation on [GitHub](https://github.com/ajrosen/Bitwarden-Accelerator/blob/main/README.md)
+Full documentation on [GitHub](https://github.com/ajrosen/Bitwarden-Accelerator/blob/main/README.md).  Please report bugs there.
 
 ## Invoking
 
@@ -6156,7 +6156,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 
 ## Modifiers
 
-* None - Copy password or TOTP code (see Selecting fields below)
+* None - Copy password or TOTP code (see *Selecting fields* below)
 * Control - Copy username
 * Shift - Copy TOTP code
 * Command - Copy notes
@@ -6197,10 +6197,10 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
 * View any item in a separate window to copy/paste multiple fields easily
 * View any item's fields within Alfred when using a [Universal Action](https://www.alfredapp.com/universal-actions/)
-* (Optional) Automatically sync vault in the background using a MacOS Launch Agent
+* (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.1.3*</string>
+*Version 6.2.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -8005,7 +8005,7 @@ add_item.sh</string>
 		<string>--no-deprecation</string>
 	</dict>
 	<key>version</key>
-	<string>6.1.3</string>
+	<string>6.2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>
