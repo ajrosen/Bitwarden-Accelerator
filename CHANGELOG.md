@@ -1,3 +1,11 @@
+## 6.2.0
+
+* Cleanup subtitles for inactive modifiers
+* Add cmd+control and cmd+alt modifiers
+* Comment out Add item (currently broken, probably a bug in the Bitwarden CLI)
+* Look for jq in /usr/bin (for Sequoia 15.1+)
+* Expanded README
+
 ## 6.1.3
 
 * Create alfred_workflow_cache directory every time, not just when checking dependencies
