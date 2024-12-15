@@ -41,6 +41,7 @@ def alfred(fn; on):
 	username: .login.username,
 	folder: folderName(.folderId; fn),
 	url: [ URIs ],
+	default_url: .login.uris[0].uri,
 	collections: [ (select(.collectionIds + [] | length > 0) | .collectionIds[]) ],
 	collectionCount: .collectionIds | length,
 	organization: orgName(.organizationId; on),

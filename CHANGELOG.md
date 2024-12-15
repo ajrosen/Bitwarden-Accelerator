@@ -1,3 +1,7 @@
+## 6.2.1
+
+* Fix opening an item's URL when there is more than one
+
 ## 6.2.0
 
 * Cleanup subtitles for inactive modifiers
