@@ -54,9 +54,14 @@ all: checkin export
 ##################################################
 # Targets to run in repository directory
 
+# View changes
+changelog:
+	@sed -n '1,/^#/p' CHANGELOG.md | grep -v '^##' | grep . | uniq
+
 # Create new release
 release:
-	sed -n '1,/^\#/p' CHANGELOG.md | grep -v '^\#\#' | grep . | uniq | github-release release -t ${GH_TAG}-${WF_VERSION} -n "${WF_NAME} ${WF_VERSION}" -d -
+	sed -n '1,/^#/p' CHANGELOG.md | grep -v '^##' | grep . | uniq | github-release release -t ${GH_TAG}-${WF_VERSION} -n "${WF_NAME} ${WF_VERSION}" -d -
 
+# Upload exported workflow
 upload:
 	github-release upload -t ${GH_TAG}-${WF_VERSION} -n Bitwarden.Accelerator.alfredworkflow -R -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
