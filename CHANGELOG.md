@@ -1,3 +1,7 @@
+## 6.2.2
+
+* Fix server URL for bitwarden.eu
+
 ## 6.2.1
 
 * Fix opening an item's URL when there is more than one
