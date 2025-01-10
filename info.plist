@@ -6200,7 +6200,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.2.2*</string>
+*Version 6.3.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -8005,7 +8005,7 @@ add_item.sh</string>
 		<string>--no-deprecation</string>
 	</dict>
 	<key>version</key>
-	<string>6.2.2</string>
+	<string>6.3.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

@@ -14,13 +14,13 @@ if [ "${STATE}" == "unauthenticated" ]; then
     log "Unauthenticated"
 
     # Unauthenticated
-    echo ", $(item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}")"
+    echo ", $(item "Login to Bitwarden (${bwhost})" "login" "Default ${1:-${bwuser}}")"
 
 elif [ "${BW_SERVER}" == "null" ]; then
     log "Server not running"
 
     # Server not running
-    echo ", $(item "Login to Bitwarden" "login" "Default ${1:-${bwuser}}")"
+    echo ", $(item "Login to Bitwarden (${serverUrl})" "login" "Default ${1:-${bwuser}}")"
 
 elif [ "${STATE}" == "locked" ]; then
     log "Vault locked"
@@ -44,7 +44,7 @@ else
 
     echo ", $(item "Search Vault" "search" "Search your vault")"
     echo ", $(item "Search Folders" "folder" "Show your folders")"
-    # echo ", $(item "Add item" "add" "Add a new item to your vault")"
+    echo ", $(item "Add item" "add" "Add a new item to your vault")"
     echo ", $(item "Lock Vault" "lock" "Logged in as ${bwuser}")"
     echo ", $(item "Set Default Vault" "organization" "${organization}")"
     echo ", $(item "Set Default Collection" "collection" "${collection}")"

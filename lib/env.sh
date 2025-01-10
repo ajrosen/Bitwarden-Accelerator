@@ -15,6 +15,7 @@ SyncTime=${SyncTime:-30}
 # Bitwarden server
 bwhost=${bwhost:-localhost}
 bwport=${bwport:-8087}
+[ "${serverUrl}" == "bitwarden.eu" ] && serverUrl="vault.bitwarden.eu"
 
 export API=http://"${bwhost}":"${bwport}"
 export bwuser=${bwuser:-user@example.com}

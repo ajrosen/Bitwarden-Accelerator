@@ -48,7 +48,7 @@ export: exec version
 	rm -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
 	zip -qr9 ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow . -x prefs.plist -x '.git/*'
 
-all: checkin export
+all: export checkin
 
 
 ##################################################

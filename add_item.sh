@@ -21,7 +21,6 @@ NAME=$(2>&- osascript -e "${CMD}")
 
 # Get username
 SITE=$(cut -d/ -f3 <<< "${NAME}")
-
 CMD="${P} \"Enter username for ${SITE}\" ${I} ${T} default answer \"${bwuser}\")"
 USERNAME=$(2>&- osascript -e "${CMD}")
 
@@ -29,7 +28,6 @@ USERNAME=$(2>&- osascript -e "${CMD}")
 
 # Get password
 GENERATED=$(curl -s "${API}/generate?length=20&uppercase&lowercase&number&special" | jq -j .data.data)
-
 CMD="${P} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer)"
 PASSWORD=$(2>&- osascript -e "${CMD}")
 
@@ -49,17 +47,12 @@ fi
 
 # Build payload
 PAYLOAD='{ "type": 1, "name": "'"${SITE}"'"'
-PAYLOAD+=',"organizationId": '
-if [ "${ORGANIZATION_ID}" == "" ]; then
-    PAYLOAD+='null'
-else
-    PAYLOAD+='"'"${ORGANIZATION_ID}"'"'
-fi
+[ "${#ORGANIZATION_ID}" -gt 1 ] && PAYLOAD+=',"organizationId": "'"${ORGANIZATION_ID}"'"'
 PAYLOAD+=',"login": {'
 PAYLOAD+=' "username": "'"${USERNAME}"'"'
 PAYLOAD+=',"password": "'"${PASSWORD}"'"'
-PAYLOAD+=',"uris": [ { "match": null, "uri": "'"${URL}"'" }'
-PAYLOAD+='] } }'
+PAYLOAD+=',"uris": [ { "match": null, "uri": "'"${URL}"'" } ]'
+PAYLOAD+='} }'
 
 # Add item
 S=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${API}"/object/item | jq -j .success)

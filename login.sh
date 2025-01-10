@@ -13,7 +13,6 @@ OUT='{ "success": false, "message": "Login failed" }'
 ./stop_server.sh
 
 # Configure Bitwarden server
-serverUrl=${serverUrl/bitwarden.eu/vault.bitwarden.eu}
 log "config server ${serverUrl}"
 bw config server "${serverUrl}" >& /dev/null
 
