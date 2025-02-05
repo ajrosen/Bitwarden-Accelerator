@@ -1,3 +1,7 @@
+## 6.4.0
+
+* Add support for SSH Keys
+
 ## 6.3.0
 
 * Fix and reintroduce Add item

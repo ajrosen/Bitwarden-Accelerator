@@ -53,7 +53,12 @@ def alfred(f; v; a):
     if .identity.ssn then alfred("SSN"; .identity.ssn; "***-**-****") else empty end,
     if .identity.username then alfred("Username"; .identity.username; .identity.username) else empty end,
     if .identity.licenseNumber then alfred("License"; .identity.licenseNumber; "********") else empty end,
-    if .identity.passportNumber then alfred("Passport"; .identity.passportNumber; .identity.passportNumber) else empty end
+    if .identity.passportNumber then alfred("Passport"; .identity.passportNumber; .identity.passportNumber) else empty end,
+
+    # SSH Key
+    if .sshKey.privateKey then alfred("Private Key"; .sshKey.privateKey; "********") else empty end,
+    if .sshKey.publicKey then alfred("Private Key"; .sshKey.publicKey; .sshKey.publicKey) else empty end,
+    if .sshKey.keyFingerprint then alfred("Fingerprint"; .sshKey.keyFingerprint; .sshKey.keyFingerprint) else empty end
   ]
 
   +

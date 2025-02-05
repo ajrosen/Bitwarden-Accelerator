@@ -43,6 +43,8 @@ def icon(a):
   if a.type == 1 then "login.png"
   elif a.type == 2 then "sn.png"
   elif a.type == 3 then a.card.brand + ".png"
+  elif a.type == 4 then "identity.png"
+  elif a.type == 5 then "sshkey.png"
   else "identity.png" end
 ;
 
@@ -73,5 +75,6 @@ def common:
   + if .login then field("Type"; "Login"; ":\t\t") else "" end
   + if .card then field("Type"; "Card"; ":\t\t") else "" end
   + if .identity then field("Type"; "Identity"; ":\t\t") else "" end
+  + if .sshKey then field("Type"; "SSH Key"; ":\t\t") else "" end
   + if .revisionDate then field("Last modified"; .revisionDate; ":\t") else "" end
 ;

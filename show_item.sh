@@ -31,6 +31,10 @@ case ${TYPE} in
 	JQ="identity"
 	ICON="${PWD}/icons/identity.png"
 	;;
+    5)
+	JQ="sshkey"
+	ICON="${PWD}/icons/sshkey.png"
+	;;
 esac
 
 log "Type = ${JQ}"

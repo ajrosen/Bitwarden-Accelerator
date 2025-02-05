@@ -34,14 +34,14 @@ diffq:
 exec:
 	find . \( -name '*.sh' -o -name '*.applescript' -o -name '*.rb' \) -exec chmod -c 755 {} \;
 
-# Copy changed files to repository
-checkin: exec
-	rsync -av --include=info.plist --exclude=.git --exclude=*.plist . ${SRC_DIR}/${GITHUB_REPO}
-
 # Update version
 version:			# make version VERSION=1.2.3
 	plutil -replace version -string $(VERSION) info.plist
 	sed -i "s:^\*Version $(WF_VERSION)\*</string>:\*Version $(VERSION)\*</string>:" info.plist
+
+# Copy changed files to repository
+checkin: exec
+	rsync -av --include=info.plist --exclude=.git --exclude=*.plist . ${SRC_DIR}/${GITHUB_REPO}
 
 # Export workflow
 export: exec version

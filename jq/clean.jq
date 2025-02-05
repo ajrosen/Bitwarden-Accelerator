@@ -4,3 +4,4 @@
   | del(.data.data[].passwordHistory)
   | del(.data.data[].card.number)
   | del(.data.data[].card.code)
+  | del(.data.data[].sshKey.privateKey)
