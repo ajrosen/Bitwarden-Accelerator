@@ -26,15 +26,38 @@ def URIs:
   .login.uris // [] | .[] | .uri
  ;
 
+
+# Set subtitle based on fields present in the item
+def subtitle:
+  if .login.username then
+    .login.username
+  elif .sshKey then
+    "Copy private key to clipboard"
+  elif .card.cardholderName then
+    .card.cardholderName
+  elif .type == 2 then
+    "Copy note to clipboard"
+  else ""
+    end
+ ;
+
+def favicon:
+  if env.favicons != "None" and .login.uris[0].uri then
+    .login.uris[0].uri | "\(env.FAVICONS_DIR)/\(split("/")[2])"
+  else
+    "./icons/\(icon(.))"
+  end
+ ;
+
 # Format an item for Alfred
 def alfred(fn; on):
   {
     # uid: .id,
     title: "\(.name) (\(folderName(.folderId; fn)))",
-    subtitle: "\(if .favorite then "❤️" else "" end)\(.login.username // "")",
+    subtitle: "\(if .favorite then "❤️ " else "" end)\(subtitle)",
     arg: .id,
     autocomplete: .name,
-    icon: { path: (if $icon == "" then "./icons/\(icon(.))" else $icon end) },
+    icon: { path: (if $icon == "" then favicon else $icon end) },
 
     variables: {
 	name, id,
@@ -49,6 +72,7 @@ def alfred(fn; on):
 	favorite: (if .favorite then "Unmark" else "Mark" end),
 	objectName: .name,
 	objectId: .id,
+	revisionDate: .revisionDate,
 	type: .type,
       }
   }

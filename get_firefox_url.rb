@@ -39,10 +39,10 @@ socket.send(payload, 0)
 response = socket.recvfrom(3000)
 
 # Going backwards, get the characters between the second and third SOH
-url = ""
+url = ''
 soh = 0
 
-response[0].split("").reverse.each do |c|
+response[0].split('').reverse.each do |c|
   if c == 1.chr
     soh += 1
   elsif soh == 2

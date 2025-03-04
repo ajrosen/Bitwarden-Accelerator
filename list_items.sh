@@ -38,6 +38,12 @@ if [ $# == 0 ]; then
     [ "$(find "${SYNC_FILE}" "${DATA_DIR}" -size 0)" != "" ] && LAST_SYNC=0
 
     [ $((NOW - LAST_SYNC)) -gt $((SyncTime * 60)) ] && saveSync
+
+    # Maybe fetch favicons
+    if [ "${favicons}" != "None" ] && [ ! -d "${FAVICONS_DIR}" ]; then
+	log "Fetching icons"
+	./get_favicons.rb fetch &>/dev/null & disown
+    fi
 fi
 
 mkdir -p "${RESULTS_DIR}"
@@ -58,11 +64,16 @@ if [ $# == 0 ] && [ "${browserURL}" != "" ]; then
 
     URL=$(echo "${browserURL}" | awk 'BEGIN { FS="/" } { h = $3 } END { FS="." ;  $0 = h ; print $(NF-1) "." $NF }')
 
-    q "${URL}" "./icons/${focusedapp}.png" "" "${old_objectId}">> "${RESULTS_DIR}"/2
+    q "${URL}" "./icons/${focusedapp}.png" "" "${old_objectId}" >> "${RESULTS_DIR}"/2
 fi
 
 # List items
 q "${*}" "" "" "${old_objectId}" >> "${RESULTS_DIR}"/3
+
+# Make sure missing icons use the default
+if [ $# == 0 ] && [ "${favicons}" != "None" ]; then
+    ./get_favicons.rb symlink
+fi
 
 # Check for empty list
 S=$(find "${RESULTS_DIR}"/? -size +10c | wc -l)

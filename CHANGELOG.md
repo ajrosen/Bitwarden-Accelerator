@@ -1,3 +1,12 @@
+## 6.5.0
+
+* Favorites icons for login items
+* Default action for SSH keys is to copy the private key to the clipboard
+* Put more information in subtitles
+  * *Copy private key to clipboard* for SSH keys
+  * *Copy note to clipboard* for secure notes
+  * Cardholder name for cards
+
 ## 6.4.0
 
 * Add support for SSH Keys
@@ -119,7 +128,7 @@
 
 ## 3.0.1
 
-* Bug fix:  Create ~/Library/LaunchAgents/ if it doesn't exist
+* Bug fix: Create ~/Library/LaunchAgents/ if it doesn't exist
 
 # 3.0.0
 

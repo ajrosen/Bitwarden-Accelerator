@@ -1,3 +1,4 @@
 #!/usr/bin/osascript
+# *-*- apples -*-*
 
 tell application id "com.runningwithcrayons.Alfred" to run trigger "syncAgent" in workflow "org.mlfs.corp.bw"

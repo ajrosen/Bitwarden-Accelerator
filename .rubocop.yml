@@ -1,0 +1,8 @@
+Metric/MethodLength:
+  Max: 12
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/StderrPuts:
+  Enabled: false

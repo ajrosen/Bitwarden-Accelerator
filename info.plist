@@ -4,10 +4,21 @@
 <dict>
 	<key>bundleid</key>
 	<string>org.mlfs.corp.bw</string>
-	<key>category</key>
-	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
+		<key>024E2D29-3367-47B8-A315-4B1EE51ECCF2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3E91811C-1365-4857-8AFC-20FEFF7A869D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>04346068-2816-4F2B-8660-DB7F047437E0</key>
 		<array>
 			<dict>
@@ -32,6 +43,57 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>0836A579-2AD9-4A17-8D5C-5C6A95210CD5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>73EF45C9-02F6-4548-B3E9-5315391E28B8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>03C336D6-7179-47FF-A647-B2A28D066243</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>73EF45C9-02F6-4548-B3E9-5315391E28B8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>04B0B95F-F9F1-499B-852D-22621848832F</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>56E77F91-00A3-4EFA-B481-647EF0317C71</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>53F756FB-4F7C-40AD-878A-508D39EA80CE</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6883C6BF-84A6-4FD1-8080-3DB59357962F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>391D7280-35DC-46D7-B5BD-84CDE9A8F4CE</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -81,6 +143,19 @@
 		</array>
 		<key>19B9247D-5DFC-4D10-999E-38C804C57695</key>
 		<array/>
+		<key>1C89DF18-E32A-4382-9384-CA3E07DC0999</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8377138A-5F46-493D-B5C4-6974E2DE0684</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>20150755-AAFF-4347-A04D-45FA30118A80</key>
 		<array>
 			<dict>
@@ -801,6 +876,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>707E2E4A-B2EA-40F4-8B3D-B93D9407EC8D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0836A579-2AD9-4A17-8D5C-5C6A95210CD5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>716DDA99-7E3E-40B0-BB5C-0CCDD46F9894</key>
 		<array>
 			<dict>
@@ -832,6 +920,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>6B5BF70B-23AC-4301-8FDD-E529B1E5F698</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>73EF45C9-02F6-4548-B3E9-5315391E28B8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>024E2D29-3367-47B8-A315-4B1EE51ECCF2</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1176,6 +1277,18 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>AC90154C-A5A3-47D6-AB6C-112609A9BDF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>3AC65591-E184-4923-A991-6FA03E04B82D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>9C4EB896-E81D-4BB1-84EB-434FA6F6ED63</key>
 		<array>
@@ -1493,6 +1606,18 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>566AE532-B1D2-492B-ABF8-01C33D22904E</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1C89DF18-E32A-4382-9384-CA3E07DC0999</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>86917DA6-9601-4B76-B752-5F1E46E5A326</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -1981,18 +2106,18 @@
 			<key>config</key>
 			<dict>
 				<key>externaltriggerid</key>
-				<string>bw</string>
+				<string>main</string>
 				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
 				<true/>
+				<key>passvariables</key>
+				<false/>
 				<key>workflowbundleid</key>
 				<string>self</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
-			<string>FC450A4F-8F46-492B-A15D-766D7AABFD1D</string>
+			<string>F7BE8BB5-6184-4BDC-B402-15CEEF529D42</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -2033,18 +2158,18 @@
 			<key>config</key>
 			<dict>
 				<key>externaltriggerid</key>
-				<string>main</string>
+				<string>bw</string>
 				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
 				<false/>
+				<key>passvariables</key>
+				<true/>
 				<key>workflowbundleid</key>
 				<string>self</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
-			<string>F7BE8BB5-6184-4BDC-B402-15CEEF529D42</string>
+			<string>FC450A4F-8F46-492B-A15D-766D7AABFD1D</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -2298,6 +2423,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>search</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>CF76E527-8EF6-4B31-B380-9BBBD868C766</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -2346,25 +2490,6 @@
 			<string>D9652CF7-6A6E-44C1-90A4-6EA32FED21D0</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>externaltriggerid</key>
-				<string>search</string>
-				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>CF76E527-8EF6-4B31-B380-9BBBD868C766</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2431,6 +2556,69 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>logout</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>CF0F97D5-5C7F-4F85-8674-4CBE34A5BE49</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>default_collection.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B9895FE0-3430-4976-8E38-AA5579C51712</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Default collection set</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E5229519-C571-49D5-ADAD-9419C0951291</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -2481,69 +2669,6 @@
 			<string>BDB2B08E-ACB9-403E-9B3E-14C959AD3C45</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>default_collection.sh</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>B9895FE0-3430-4976-8E38-AA5579C51712</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Default collection set</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E5229519-C571-49D5-ADAD-9419C0951291</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>externaltriggerid</key>
-				<string>logout</string>
-				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
-				<false/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>CF0F97D5-5C7F-4F85-8674-4CBE34A5BE49</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2702,9 +2827,9 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>workflow</string>
+						<string>configure</string>
 						<key>outputlabel</key>
-						<string>workflow</string>
+						<string>configure</string>
 						<key>uid</key>
 						<string>25C18BD0-B9A7-4226-99AD-9CF4C45691A4</string>
 					</dict>
@@ -3080,72 +3205,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>organization</string>
-						<key>outputlabel</key>
-						<string>organization</string>
-						<key>uid</key>
-						<string>C3FE951B-17A5-4932-B4E4-2EEA2B6E3776</string>
-					</dict>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>collection</string>
-						<key>outputlabel</key>
-						<string>collection</string>
-						<key>uid</key>
-						<string>76CB7E8B-B50C-434F-8DBC-15B48A4C4828</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>item</string>
-				<key>hideelse</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>9B3ADDF8-FFDE-4342-9B77-7D155DA25579</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>{query}</string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict>
-					<key>save</key>
-					<string>true</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A85E1421-94D1-46DB-AFF2-08DCF2953326</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3190,19 +3249,80 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>syncAgent</string>
-				<key>passinputasargument</key>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>organization</string>
+						<key>outputlabel</key>
+						<string>organization</string>
+						<key>uid</key>
+						<string>C3FE951B-17A5-4932-B4E4-2EEA2B6E3776</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>collection</string>
+						<key>outputlabel</key>
+						<string>collection</string>
+						<key>uid</key>
+						<string>76CB7E8B-B50C-434F-8DBC-15B48A4C4828</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>favicons</string>
+						<key>outputlabel</key>
+						<string>favicons</string>
+						<key>uid</key>
+						<string>3AC65591-E184-4923-A991-6FA03E04B82D</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>item</string>
+				<key>hideelse</key>
 				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
+			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
-			<string>C520F809-BEAF-4021-9C22-923FA86A7D12</string>
+			<string>9B3ADDF8-FFDE-4342-9B77-7D155DA25579</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>save</key>
+					<string>true</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>A85E1421-94D1-46DB-AFF2-08DCF2953326</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3224,6 +3344,25 @@ end run</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>473F7AAC-4331-42F9-B47C-702EBE2C690D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>syncAgent</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>C520F809-BEAF-4021-9C22-923FA86A7D12</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3339,6 +3478,25 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>favicons</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>AC90154C-A5A3-47D6-AB6C-112609A9BDF9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3386,26 +3544,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<true/>
-				<key>variables</key>
-				<dict>
-					<key>addItem</key>
-					<string>1</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>4B16C488-DF3E-4F45-9FE5-A964F8489382</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -3421,6 +3559,26 @@ end run</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>280C5896-834E-4044-B7E5-A2387AC6FD98</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>addItem</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>4B16C488-DF3E-4F45-9FE5-A964F8489382</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3727,6 +3885,26 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>focusedapp</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>8F6443FF-1E88-4720-BBF8-EEFE27B97F68</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -3742,26 +3920,6 @@ end run</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>DEA76168-02E7-4EEF-9695-23E9FF19EB49</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict>
-					<key>focusedapp</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>8F6443FF-1E88-4720-BBF8-EEFE27B97F68</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3842,25 +4000,6 @@ end run</string>
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
-				<string>{var:clip1}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>5E1D9B34-D081-4A79-AD76-F624F1B6A85F</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
 				<string>{var:clip3}</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
@@ -3871,6 +4010,25 @@ end run</string>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>B30340B6-C06A-4DA5-92D3-E553674D64C3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{var:clip1}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>5E1D9B34-D081-4A79-AD76-F624F1B6A85F</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -4556,27 +4714,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Success: {query}</string>
-				<key>title</key>
-				<string>Updated {var:editField.lowercase}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4628,6 +4765,27 @@ end run</string>
 			<string>alfred.workflow.input.listfilter</string>
 			<key>uid</key>
 			<string>9DFB6E37-A3ED-433F-9814-595486D3C64D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Success: {query}</string>
+				<key>title</key>
+				<string>Updated {var:editField.lowercase}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -4784,25 +4942,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>clipboard</string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>904292E2-0156-4888-BDF2-9C968F3AB4E7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4822,6 +4961,25 @@ end run</string>
 			<string>8377138A-5F46-493D-B5C4-6974E2DE0684</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>clipboard</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>904292E2-0156-4888-BDF2-9C968F3AB4E7</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4875,6 +5033,20 @@ end run</string>
 						<key>uid</key>
 						<string>566AE532-B1D2-492B-ABF8-01C33D22904E</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:type}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>5</string>
+						<key>outputlabel</key>
+						<string>ssh</string>
+						<key>uid</key>
+						<string>86917DA6-9601-4B76-B752-5F1E46E5A326</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
@@ -4885,6 +5057,26 @@ end run</string>
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>B8DC57D6-5F70-47E8-B795-7F81205EA0E5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>field</key>
+					<string>Notes</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>DD031BFF-3301-43FF-A6D9-57BAE2218EFB</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -4918,13 +5110,13 @@ end run</string>
 				<key>variables</key>
 				<dict>
 					<key>field</key>
-					<string>Notes</string>
+					<string>SSH Private Key</string>
 				</dict>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
-			<string>DD031BFF-3301-43FF-A6D9-57BAE2218EFB</string>
+			<string>1C89DF18-E32A-4382-9384-CA3E07DC0999</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -5032,26 +5224,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string>{query}</string>
-				<key>passthroughargument</key>
-				<true/>
-				<key>variables</key>
-				<dict>
-					<key>field</key>
-					<string>More</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>728BDB2E-BFE9-4FE9-8ED2-314910FFBA74</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -5095,6 +5267,26 @@ end run</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>E1F62AB1-3C36-420B-A3F7-8C9C69AE2608</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>field</key>
+					<string>More</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>728BDB2E-BFE9-4FE9-8ED2-314910FFBA74</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -5336,6 +5528,27 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Restored {query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>346069D0-5BEE-470B-880B-67259197EF49</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -5355,27 +5568,6 @@ end run</string>
 			<string>C3164338-39A6-4562-AC69-9CD635102311</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Restored {query}</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>346069D0-5BEE-470B-880B-67259197EF49</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -5476,27 +5668,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{var:objectName}</string>
-				<key>title</key>
-				<string>Item moved to {var:folderName}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>412356DC-91E6-46F6-9F8C-FAF1E2B22DC3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -5565,6 +5736,27 @@ end run</string>
 			<string>DBBBEDD7-3C84-43E4-8E4F-720ED519ECAB</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:objectName}</string>
+				<key>title</key>
+				<string>Item moved to {var:folderName}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>412356DC-91E6-46F6-9F8C-FAF1E2B22DC3</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -5975,27 +6167,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{var:attachmentName} saved to {query}</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>858295CC-1472-473A-A9D8-061F8418BA6E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -6017,10 +6188,224 @@ end run</string>
 			<integer>2</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:attachmentName} saved to {query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>858295CC-1472-473A-A9D8-061F8418BA6E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
 			<string>7698C78F-A049-48DB-A959-C56264811CD0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>get_favicons.rb</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>024E2D29-3367-47B8-A315-4B1EE51ECCF2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Using {var:favicons}</string>
+				<key>title</key>
+				<string>{var:command} icons complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>3E91811C-1365-4857-8AFC-20FEFF7A869D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>clean</string>
+						<key>outputlabel</key>
+						<string>clean</string>
+						<key>uid</key>
+						<string>03C336D6-7179-47FF-A647-B2A28D066243</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>fetch</string>
+						<key>outputlabel</key>
+						<string>fetch</string>
+						<key>uid</key>
+						<string>04B0B95F-F9F1-499B-852D-22621848832F</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>configure</string>
+						<key>outputlabel</key>
+						<string>configure</string>
+						<key>uid</key>
+						<string>53F756FB-4F7C-40AD-878A-508D39EA80CE</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>👈</string>
+						<key>outputlabel</key>
+						<string>return</string>
+						<key>uid</key>
+						<string>391D7280-35DC-46D7-B5BD-84CDE9A8F4CE</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>0836A579-2AD9-4A17-8D5C-5C6A95210CD5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>command</key>
+					<string>{query.capitals}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>73EF45C9-02F6-4548-B3E9-5315391E28B8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>fixedorder</key>
+				<true/>
+				<key>items</key>
+				<string>[{"title":"Delete cache","arg":"clean","subtitle":""},{"title":"Fetch icons","arg":"fetch","subtitle":"Using {var:favicons}"},{"title":"Choose icon service","arg":"configure","subtitle":"Opens in Alfred Preferences"},{"title":"👈 Return to Main Menu","arg":"👈","subtitle":""}]</string>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>inboundconfig</key>
+			<dict>
+				<key>externalid</key>
+				<string>favicons</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>707E2E4A-B2EA-40F4-8B3D-B93D9407EC8D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Deleted {query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>3B4DE5D1-A65A-4F5E-8109-DB181621C316</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -6046,27 +6431,6 @@ end run</string>
 			<string>2B1408B2-2E8F-42EB-A0C1-4BD213F319B4</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Deleted {query}</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>3B4DE5D1-A65A-4F5E-8109-DB181621C316</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -6107,6 +6471,31 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>56E77F91-00A3-4EFA-B481-647EF0317C71</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>externaltriggerid</key>
 				<string>edit</string>
 				<key>passinputasargument</key>
@@ -6120,6 +6509,25 @@ end run</string>
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
 			<string>A58092DE-AAF1-4E14-94EA-2C23C8E0A28A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>bw</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>6883C6BF-84A6-4FD1-8080-3DB59357962F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -6200,7 +6608,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.4.0*</string>
+*Version 6.5.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -6211,6 +6619,17 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<real>695</real>
 			<key>ypos</key>
 			<real>1110</real>
+		</dict>
+		<key>024E2D29-3367-47B8-A315-4B1EE51ECCF2</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>get_favicons.rb</string>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>3460</real>
 		</dict>
 		<key>04346068-2816-4F2B-8660-DB7F047437E0</key>
 		<dict>
@@ -6231,6 +6650,15 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<real>1455</real>
 			<key>ypos</key>
 			<real>440</real>
+		</dict>
+		<key>0836A579-2AD9-4A17-8D5C-5C6A95210CD5</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>1460</real>
+			<key>ypos</key>
+			<real>3480</real>
 		</dict>
 		<key>09A15ACD-34C4-4808-A620-DF9D44EF8CB5</key>
 		<dict>
@@ -6290,6 +6718,17 @@ self.notifyLocked</string>
 			<real>1275</real>
 			<key>ypos</key>
 			<real>2795</real>
+		</dict>
+		<key>1C89DF18-E32A-4382-9384-CA3E07DC0999</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>note</key>
+			<string>Notes</string>
+			<key>xpos</key>
+			<real>535</real>
+			<key>ypos</key>
+			<real>2340</real>
 		</dict>
 		<key>20150755-AAFF-4347-A04D-45FA30118A80</key>
 		<dict>
@@ -6485,6 +6924,15 @@ self.notifyLocked</string>
 			<key>ypos</key>
 			<real>660</real>
 		</dict>
+		<key>3E91811C-1365-4857-8AFC-20FEFF7A869D</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>1840</real>
+			<key>ypos</key>
+			<real>3460</real>
+		</dict>
 		<key>412356DC-91E6-46F6-9F8C-FAF1E2B22DC3</key>
 		<dict>
 			<key>colorindex</key>
@@ -6588,6 +7036,15 @@ self.notifyLocked</string>
 			<key>ypos</key>
 			<real>1305</real>
 		</dict>
+		<key>56E77F91-00A3-4EFA-B481-647EF0317C71</key>
+		<dict>
+			<key>note</key>
+			<string>Configure workflow</string>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>3595</real>
+		</dict>
 		<key>58C21CCB-AE65-4CC7-9EF2-D025E20E87CF</key>
 		<dict>
 			<key>colorindex</key>
@@ -6615,7 +7072,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>335</real>
 			<key>ypos</key>
-			<real>2370</real>
+			<real>2390</real>
 		</dict>
 		<key>5D2A6F01-F0FB-4433-8E65-DA16CFD02A21</key>
 		<dict>
@@ -6671,6 +7128,13 @@ self.notifyLocked</string>
 			<key>ypos</key>
 			<real>2525</real>
 		</dict>
+		<key>6883C6BF-84A6-4FD1-8080-3DB59357962F</key>
+		<dict>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>3725</real>
+		</dict>
 		<key>6B5BF70B-23AC-4301-8FDD-E529B1E5F698</key>
 		<dict>
 			<key>colorindex</key>
@@ -6705,6 +7169,17 @@ self.notifyLocked</string>
 			<key>ypos</key>
 			<real>1350</real>
 		</dict>
+		<key>707E2E4A-B2EA-40F4-8B3D-B93D9407EC8D</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>self.favicons</string>
+			<key>xpos</key>
+			<real>1275</real>
+			<key>ypos</key>
+			<real>3490</real>
+		</dict>
 		<key>716DDA99-7E3E-40B0-BB5C-0CCDD46F9894</key>
 		<dict>
 			<key>note</key>
@@ -6724,7 +7199,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>305</real>
 			<key>ypos</key>
-			<real>2500</real>
+			<real>2520</real>
 		</dict>
 		<key>738AB3B7-0BA1-41E6-A18B-5D1AC1CBB674</key>
 		<dict>
@@ -6743,6 +7218,15 @@ self.main</string>
 			<real>520</real>
 			<key>ypos</key>
 			<real>3025</real>
+		</dict>
+		<key>73EF45C9-02F6-4548-B3E9-5315391E28B8</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>1570</real>
+			<key>ypos</key>
+			<real>3490</real>
 		</dict>
 		<key>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</key>
 		<dict>
@@ -6941,7 +7425,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>635</real>
 			<key>ypos</key>
-			<real>2470</real>
+			<real>2490</real>
 		</dict>
 		<key>93600CB5-8F4B-421B-8E82-F60E60541E40</key>
 		<dict>
@@ -6968,7 +7452,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>335</real>
 			<key>ypos</key>
-			<real>2445</real>
+			<real>2465</real>
 		</dict>
 		<key>99ED8808-F69D-4F1E-9AB1-DC9DCD6187FD</key>
 		<dict>
@@ -6986,7 +7470,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>290</real>
 			<key>ypos</key>
-			<real>860</real>
+			<real>905</real>
 		</dict>
 		<key>9C4EB896-E81D-4BB1-84EB-434FA6F6ED63</key>
 		<dict>
@@ -7068,7 +7552,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>215</real>
 			<key>ypos</key>
-			<real>870</real>
+			<real>930</real>
 		</dict>
 		<key>A8F1BC11-C38D-4DBC-B046-CE660D07412B</key>
 		<dict>
@@ -7080,6 +7564,13 @@ self.notifyLoggedOut</string>
 			<real>635</real>
 			<key>ypos</key>
 			<real>1865</real>
+		</dict>
+		<key>AC90154C-A5A3-47D6-AB6C-112609A9BDF9</key>
+		<dict>
+			<key>xpos</key>
+			<real>425</real>
+			<key>ypos</key>
+			<real>1015</real>
 		</dict>
 		<key>AD821E66-0A4B-4291-8271-182CAD080D61</key>
 		<dict>
@@ -7240,7 +7731,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>635</real>
 			<key>ypos</key>
-			<real>2340</real>
+			<real>2360</real>
 		</dict>
 		<key>C0AF2526-662B-4540-AF0D-10608DD46EED</key>
 		<dict>
@@ -7354,7 +7845,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>460</real>
 			<key>ypos</key>
-			<real>2415</real>
+			<real>2435</real>
 		</dict>
 		<key>D9652CF7-6A6E-44C1-90A4-6EA32FED21D0</key>
 		<dict>
@@ -7737,6 +8228,48 @@ add_item.sh</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string>None</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>None</string>
+						<string>None</string>
+					</array>
+					<array>
+						<string>Bitwarden</string>
+						<string>Bitwarden</string>
+					</array>
+					<array>
+						<string>DuckDuckGo</string>
+						<string>DuckDuckGo</string>
+					</array>
+					<array>
+						<string>Favicone</string>
+						<string>Favicone</string>
+					</array>
+					<array>
+						<string>Google</string>
+						<string>Google</string>
+					</array>
+					<array>
+						<string>Icon Horse</string>
+						<string>Icon Horse</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Service to download favorites icons.  Favorites icons will not be shown if set to None.</string>
+			<key>label</key>
+			<string>Favorites icons service</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>favicons</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>-1</string>
 				<key>pairs</key>
 				<array>
@@ -8004,8 +8537,12 @@ add_item.sh</string>
 		<key>NODE_OPTIONS</key>
 		<string>--no-deprecation</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>DEBUG</string>
+	</array>
 	<key>version</key>
-	<string>6.4.0</string>
+	<string>6.5.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

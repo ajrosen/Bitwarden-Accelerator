@@ -13,6 +13,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 * [Main Menu](#mainMenu)
 * [Item List](#itemList)
 * [More Menu](#moreMenu)
+* [Managing favorites icons](#faviconsMenu)
 * [Reporting Bugs](#bugs)
 
 ---
@@ -58,6 +59,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 * View any item in a separate window to copy/paste multiple fields easily
 * View any item's fields within Alfred when using a [Universal Action](https://www.alfredapp.com/universal-actions/)
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
+* (Optional) Display each item's favorites icon
 
 ---
 
@@ -67,7 +69,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 1. Download the workflow <a href="https://github.com/ajrosen/Bitwarden-Accelerator/releases/latest/download/Bitwarden.Accelerator.alfredworkflow">here</a>
 2. Open the downloaded file to add it to Alfred
 3. Install the *Bitwarden CLI*<sup>(1)</sup> from the [Bitwarden website](https://bitwarden.com/help/cli/), with `brew install bitwarden-cli`, or with `port -N install bitwarden-cli`.
-4. Install *jq*<sup>(2)</sup> from from the [website](https://jqlang.github.io/jq/download/), with `brew install jq`, or `port -N install jq`.
+4. Install *jq*<sup>(2)</sup> from from the [website](https://jqlang.github.io/jq/download/), with `brew install jq`, or with `port -N install jq`.
 
 ---
 
@@ -93,6 +95,14 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 ### Two-step login method
 
 Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
+
+### Favorites icon service
+
+Choose a service to download favorites icons.  The default is ***None***; Bitwarden Accelerator will continue to show the default icon for all login items.
+
+If you choose a service, icons will be downloaded in the background.  You can continue to use Bitwarden Accelerator while the icon cache is being populated.
+
+N.B. The icon cache is removed when Bitwarden Accelerator's version changes.  Icons will be redownloaded the next time you list items in your vault.
 
 ### Vault timeout
 
@@ -235,6 +245,10 @@ Tells the workflow to synchronize your vault now.
 
 Locks your vault and logs out of Bitwarden.
 
+* **Manage favorites icons**
+
+Opens a [new menu](#faviconsMenu) to manage the favorites icons cache.
+
 * **Configure Workflow**
 
 Opens *Alfred Preferences* to the Bitwarden Accelerator configuration screen.
@@ -286,9 +300,12 @@ The note is copied to the clipboard, as if the *Command* modifier were used.
 
 * **Cards**
 * **Identities**
-* **SSH Keys**
 
 All fields will be shown in a dialog window, as if the *Fn* modifier were used.
+
+* **SSH Keys**
+
+The private key is copied to the clipboard.
 
 ---
 
@@ -316,6 +333,33 @@ Lets you edit the username, password, or name of the item.
 Deletes the item from your vault.
 
 You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.
+
+---
+
+<a name="faviconsMenu"></a>
+## Managing favorites icons
+
+The *Managing favorites icons* menu has three options.
+
+* Delete cache
+
+This completely removes the icons cache.  Icons will be redownloaded the next time you list items in your vault.
+
+* Fetch icons
+
+If there is no icons cache, Bitwarden Accelerator will automatically try to download icons using your chosen service.
+
+You can use this menu option to refresh the icons at any time.  It will (attempt to) download any favorites icons that are missing.  Any vault item that has been modified since its icon was last downloaded will also have its redownloaded.  I.e., if a vault item is newer than the icon, fetch its icon.
+
+* Choose icon service
+
+This will open *Alfred Preferences* to the configuration screen.  Bitwarden Accelerator supports five services that you can use to download favorites icons.
+
+1. Bitwarden
+1. DuckDuckGo
+1. Favicone
+1. Google
+1. Icon Horse
 
 ---
 

@@ -1,7 +1,7 @@
 ##################################################
 # Initialize workflow environment
 
-# shellcheck disable=1090,2034,2154,2155
+# shellcheck disable=2034,2154
 
 NOW=$(date +%s)
 
@@ -21,13 +21,15 @@ export API=http://"${bwhost}":"${bwport}"
 export bwuser=${bwuser:-user@example.com}
 
 # Caching
-AUTO_ROTATE=${SyncTime}
-DATA_DIR="${alfred_workflow_cache}"/data
-FETCH_FILE="${alfred_workflow_cache}"/last_item
-RESULTS_DIR="${alfred_workflow_cache}"/results
-STATUS_FILE="${alfred_workflow_cache}"/status
-SYNC_FILE="${alfred_workflow_cache}"/sync
-TIMER_FILE="${alfred_workflow_cache}"/timer
+export AUTO_ROTATE=${SyncTime}
+export DATA_DIR="${alfred_workflow_cache}"/data
+export FAVICONS_DIR="${alfred_workflow_cache}"/favicons
+export FETCH_FILE="${alfred_workflow_cache}"/last_item
+export RESULTS_DIR="${alfred_workflow_cache}"/results
+export STATUS_FILE="${alfred_workflow_cache}"/status
+export SYNC_FILE="${alfred_workflow_cache}"/sync
+export TIMER_FILE="${alfred_workflow_cache}"/timer
+export WORKFLOW_DIR="${alfred_preferences}/workflows/${alfred_workflow_uid}"
 
 mkdir -p "${alfred_workflow_cache}"
 
@@ -43,6 +45,10 @@ if [ "${VERSION}" != "${alfred_workflow_version}" ]; then
 
     echo '0' > "${alfred_workflow_cache}"/organization_id
     echo 'All Vaults' > "${alfred_workflow_cache}"/organization_name
+
+    # Refresh favicons
+    log "Cleaning favorites icons"
+    ./get_favicons.rb clean
 fi
 
 ORGANIZATION_ID="${ORGANIZATION_ID:-$(cat "${alfred_workflow_cache}"/organization_id)}"
@@ -51,7 +57,7 @@ ORGANIZATION_NAME="$(cat "${alfred_workflow_cache}"/organization_name)"
 COLLECTION_ID="${COLLECTION_ID:-$(cat "${alfred_workflow_cache}"/collection_id)}"
 COLLECTION_NAME="$(cat "${alfred_workflow_cache}"/collection_name)"
 
-LAST_SYNC=0
+export LAST_SYNC=0
 [ -f "${SYNC_FILE}" ] && LAST_SYNC="$(cat "${SYNC_FILE}")"
 
 # Helper functions

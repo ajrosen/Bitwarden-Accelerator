@@ -35,6 +35,7 @@ def itemType:
   . | if .type == 1 then "Login"
       elif .type == 2 then "Secure Note" 
       elif .type == 3 then "Card"
+      elif .type == 5 then "SSH key"
       else "Identity" end
 ;
 

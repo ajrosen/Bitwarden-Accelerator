@@ -50,9 +50,10 @@ else
     echo ", $(item "Set Default Collection" "collection" "${collection}")"
     echo ", $(item "Sync Vault" "sync" "${SYNC}${AUTO[${autoSync}]}")"
     echo ", $(item "Logout of Bitwarden" "logout" "${serverUrl}")"
+    echo ", $(item "Manage favorites icons" "favicons")"
 fi
 
 # Actions available regardless of state
-echo ", $(item "Configure Workflow" "workflow" "Opens in Alfred Preferences (${alfred_workflow_version})")"
+echo ", $(item "Configure Workflow" "configure" "Opens in Alfred Preferences (${alfred_workflow_version})")"
 
 echo '] }'
