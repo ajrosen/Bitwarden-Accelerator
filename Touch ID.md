@@ -12,6 +12,8 @@ When using Touch ID, Bitwarden Accelerator stores your master password in a file
 
 By default, macOS does not use Touch ID for sudo.  Bitwarden Accelerator must make two changes to enable it.  It will do this automatically after you enable the option in the workflow, the next time you unlock your vault.
 
+<img width="372" alt="configure-sudo" src="https://github.com/user-attachments/assets/b74880ce-337c-46cd-954f-625c55366034" />
+
 ### pam_tid.so
 
 *pam_tid.so* is the [Pluggable Authentication Module](https://en.wikipedia.org/wiki/Pluggable_Authentication_Module) that allows you to authenticate with Touch ID instead of your system password.  It is enabled in **/etc/pam.d/sudo_local**.
