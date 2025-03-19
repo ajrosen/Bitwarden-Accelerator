@@ -103,6 +103,8 @@ You can unlock your vault with Touch ID instead of entering your master password
 
 You will see a window that says `sudo is trying to execute a command as administrator`.  If you select Cancel you will be prompted for your system password instead.
 
+<img width="372" alt="sudo" src="https://github.com/user-attachments/assets/ec32c44f-8bcd-4299-ab62-c2b3f3aa18df" />
+
 If you select Cancel from the password entry window, you will be prompted for your Bitwarden master password.
 
 ### Favorites icon service
