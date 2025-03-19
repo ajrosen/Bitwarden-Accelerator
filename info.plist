@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>org.mlfs.corp.bw</string>
+	<key>category</key>
+	<string>MLFS</string>
 	<key>connections</key>
 	<dict>
 		<key>024E2D29-3367-47B8-A315-4B1EE51ECCF2</key>
@@ -82,6 +84,18 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>53F756FB-4F7C-40AD-878A-508D39EA80CE</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>B5018D0D-78F5-4479-AB47-71DABCFBEDD3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2E7A099E-998E-4376-A71A-05E9A21A8062</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -6150,6 +6164,50 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>get_favicons.rb</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>024E2D29-3367-47B8-A315-4B1EE51ECCF2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Using {var:favicons}</string>
+				<key>title</key>
+				<string>{var:command} icons complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>3E91811C-1365-4857-8AFC-20FEFF7A869D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string></string>
 				<key>passthroughargument</key>
@@ -6219,50 +6277,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<true/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>get_favicons.rb</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>024E2D29-3367-47B8-A315-4B1EE51ECCF2</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Using {var:favicons}</string>
-				<key>title</key>
-				<string>{var:command} icons complete</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>3E91811C-1365-4857-8AFC-20FEFF7A869D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -6315,6 +6329,20 @@ end run</string>
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
+						<string>finder</string>
+						<key>outputlabel</key>
+						<string>finder</string>
+						<key>uid</key>
+						<string>2E7A099E-998E-4376-A71A-05E9A21A8062</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
 						<string>👈</string>
 						<key>outputlabel</key>
 						<string>return</string>
@@ -6357,6 +6385,31 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>56E77F91-00A3-4EFA-B481-647EF0317C71</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -6364,7 +6417,7 @@ end run</string>
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Delete cache","arg":"clean","subtitle":""},{"title":"Fetch icons","arg":"fetch","subtitle":"Using {var:favicons}"},{"title":"Choose icon service","arg":"configure","subtitle":"Opens in Alfred Preferences"},{"title":"👈 Return to Main Menu","arg":"👈","subtitle":""}]</string>
+				<string>[{"title":"Delete cache","arg":"clean","subtitle":""},{"title":"Fetch icons","arg":"fetch","subtitle":"Using {var:favicons}"},{"title":"Choose icon service","arg":"configure","subtitle":"Opens in Alfred Preferences"},{"title":"Open cache in Finder","arg":"finder"},{"title":"👈 Return to Main Menu","arg":"👈","subtitle":""}]</string>
 				<key>matchmode</key>
 				<integer>0</integer>
 				<key>runningsubtext</key>
@@ -6471,27 +6524,17 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>on run argv
-	tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration
-end run</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
+				<key>openwith</key>
 				<string></string>
-				<key>type</key>
-				<integer>6</integer>
+				<key>sourcefile</key>
+				<string>{const:alfred_workflow_cache}/favicons</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
-			<string>56E77F91-00A3-4EFA-B481-647EF0317C71</string>
+			<string>B5018D0D-78F5-4479-AB47-71DABCFBEDD3</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -6579,6 +6622,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 
 * Login with username and password, or API Key
 * Two-step logins with Authenticator app, YubiKey OTP, or Email
+* Unlock your vault with Touch ID
 
 #### Selecting items
 
@@ -6629,7 +6673,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<key>xpos</key>
 			<real>1660</real>
 			<key>ypos</key>
-			<real>3460</real>
+			<real>3355</real>
 		</dict>
 		<key>04346068-2816-4F2B-8660-DB7F047437E0</key>
 		<dict>
@@ -6658,7 +6702,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<key>xpos</key>
 			<real>1460</real>
 			<key>ypos</key>
-			<real>3480</real>
+			<real>3465</real>
 		</dict>
 		<key>09A15ACD-34C4-4808-A620-DF9D44EF8CB5</key>
 		<dict>
@@ -6931,7 +6975,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>1840</real>
 			<key>ypos</key>
-			<real>3460</real>
+			<real>3355</real>
 		</dict>
 		<key>412356DC-91E6-46F6-9F8C-FAF1E2B22DC3</key>
 		<dict>
@@ -7043,7 +7087,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>1660</real>
 			<key>ypos</key>
-			<real>3595</real>
+			<real>3490</real>
 		</dict>
 		<key>58C21CCB-AE65-4CC7-9EF2-D025E20E87CF</key>
 		<dict>
@@ -7133,7 +7177,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>1660</real>
 			<key>ypos</key>
-			<real>3725</real>
+			<real>3730</real>
 		</dict>
 		<key>6B5BF70B-23AC-4301-8FDD-E529B1E5F698</key>
 		<dict>
@@ -7226,7 +7270,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>1570</real>
 			<key>ypos</key>
-			<real>3490</real>
+			<real>3475</real>
 		</dict>
 		<key>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</key>
 		<dict>
@@ -7634,6 +7678,15 @@ self.notifyLoggedOut</string>
 			<real>30</real>
 			<key>ypos</key>
 			<real>540</real>
+		</dict>
+		<key>B5018D0D-78F5-4479-AB47-71DABCFBEDD3</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>3620</real>
 		</dict>
 		<key>B56E0A01-7641-44E5-A708-77CD2D10B69E</key>
 		<dict>
@@ -8228,6 +8281,25 @@ add_item.sh</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Unlock your vault with Touch ID</string>
+			</dict>
+			<key>description</key>
+			<string>Used only when unlocking your vault.  Password or API Key must be used to login.</string>
+			<key>label</key>
+			<string>Touch ID</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>pam_tid</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>None</string>
 				<key>pairs</key>
 				<array>
@@ -8542,7 +8614,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>6.5.0</string>
+	<string>6.6.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

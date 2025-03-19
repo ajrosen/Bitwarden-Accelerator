@@ -8,3 +8,4 @@ log "logout"
 
 bw --response logout | jq -j '.message // .data.title'
 rm -f "${DATA_DIR}"/*
+sudo -k

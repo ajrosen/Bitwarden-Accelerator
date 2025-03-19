@@ -25,6 +25,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 
 * Login with username and password, or API Key
 * Two-step logins with Authenticator app, YubiKey OTP, or Email
+* Unlock your vault with Touch ID
 * Activity timeout to logout or lock your vault
 
 #### Selecting items
@@ -95,6 +96,14 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 ### Two-step login method
 
 Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
+
+### Touch ID
+
+You can unlock your vault with Touch ID instead of entering your master password.  It does this by using *sudo* to store and retrieve your password in a secure location.  See [Using Touch ID](https://github.com/ajrosen/Bitwarden-Accelerator/blob/main/Touch%20ID.md) for details.
+
+You will see a window that says `sudo is trying to execute a command as administrator`.  If you select Cancel you will be prompted for your system password instead.
+
+If you select Cancel from the password entry window, you will be prompted for your Bitwarden master password.
 
 ### Favorites icon service
 

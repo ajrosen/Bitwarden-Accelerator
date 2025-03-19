@@ -23,7 +23,7 @@ case "${loginMethod}" in
 	USER=$(2>&- ./get_username.applescript "${bwuser}")
 	[ "${USER}" == "" ] && exit
 
-	export PASS=$(2>&- ./get_password.applescript "${bwuser}")
+	export PASS=$(2>&- ./get_password.applescript "Enter Master password for ${bwuser}")
 	[ "${PASS}" == "" ] && exit
 
 	CODE=$(./get_code.sh)

@@ -1,3 +1,7 @@
+## 6.6.0
+
+* Unlock vault with Touch ID
+
 ## 6.5.0
 
 * Favorites icons for login items

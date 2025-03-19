@@ -3,12 +3,12 @@
 
 -- Main
 on run u
-    set t to "Enter Master password"
+    set t to "Enter password"
     set b to {"OK", "Cancel"}
     set myName to "Bitwarden Accelerator"
 
     if (length of u) > 0 then
-	set t to t & " for " & u
+	set t to u
     end
 
     -- password

@@ -19,7 +19,7 @@ require 'uri'.freeze
 #
 # @param message [String] The message
 def slog(message)
-  $stderr.puts(message) #if ENV['DEBUG'] == '1'
+  $stderr.puts(message) if ENV['DEBUG'] == '1'
 end
 
 ##################################################
