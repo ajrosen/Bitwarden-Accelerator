@@ -33,6 +33,34 @@ case "${loginMethod}" in
 	;;
 
     "api_key")
+	if [[ "${BW_CLIENTID} ${BW_CLIENTSECRET}" = *[![:print:]]* ]]; then
+	    log "Unprintable in API key"
+
+	    title="${alfred_workflow_name}"
+	    buttons='{ "Fix", "Login", "Cancel" }'
+
+	    dialog="API key has non-printable characters. Login will probably fail."
+	    dialog+="\n\n"
+	    dialog+="Select Fix to open workflow configuration or Login to try anyway."
+
+	    A=$(osascript -e 'display dialog "'"${dialog}"'" with icon caution with title "'"${title}"'" buttons '"${buttons}"' default button "Fix"')
+
+	    case "${A}" in
+		"button returned:Fix")
+		    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration'
+		    exit
+		;;
+
+		"button returned:Login")
+		    next
+		    ;;
+
+		*)
+		    exit
+		    ;;
+	    esac
+	fi
+
 	OUT=$(bw --response --nointeraction login --apikey)
 	;;
 esac

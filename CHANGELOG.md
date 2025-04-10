@@ -1,3 +1,8 @@
+## 6.6.1
+
+* Check API key for non-printable characters (see https://github.com/ajrosen/Bitwarden-Accelerator/issues/28)
+* Fix loading main menu from search when logged out or vault is locked
+
 ## 6.6.0
 
 * Unlock vault with Touch ID

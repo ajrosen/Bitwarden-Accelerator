@@ -13,5 +13,5 @@ if [ "${STATE}" == "unlocked" ]; then
     . list_items.sh $@
     echo '}'
 else
-    . main.sh
+    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to run trigger "bw" in workflow "org.mlfs.corp.bw"'
 fi
