@@ -3,7 +3,7 @@
 * Add TOTP to Edit Item menu
 * Remove fields from Edit Item
 * Disable Touch ID if user is not in the sudoers file
-* Allow for errors from grep when checking sudo configuratin
+* Allow for errors from grep when checking sudo configuration
 
 ## 6.6.1
 
