@@ -1,3 +1,10 @@
+## 6.7.0
+
+* Add TOTP to Edit Item menu
+* Remove fields from Edit Item
+* Disable Touch ID if user is not in the sudoers file
+* Allow for errors from grep when checking sudo configuratin
+
 ## 6.6.1
 
 * Check API key for non-printable characters (see https://github.com/ajrosen/Bitwarden-Accelerator/issues/28)

@@ -51,7 +51,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 
 #### Editig fields
 
-* Edit an item's username, password, or name without leaving Alfred
+* Edit or remove an item's username, password, TOTP or name without leaving Alfred
 
 #### Miscellaneous
 
@@ -172,6 +172,7 @@ There are three ways to invoke Bitwarden Accelerator.
 
 The default hotkey is ***Control-Command-L***, because the Bitwarden browser extension uses *Shift-Command-L*.  If you wish to change or disable the hotkey, open the workflow in *Alfred Preferences*.  The hotkey trigger is in the top-left corner.
 
+<a name="trash"</a>
 ### Trash
 
 Using the Trash Keyword (default: ***.bwtrash***) will list any deleted items.  Select an item to restore it.
@@ -337,13 +338,13 @@ If an item has attachments, this will show you a list with their names and sizes
 
 **Edit Item**
 
-Lets you edit the username, password, or name of the item.
+Lets you edit or remove the username, password, TOTP or name of the item.
 
 **Delete Item**
 
 Deletes the item from your vault.
 
-You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not technically true; the item is moved to your vault's ***Trash***.
+You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not actually true; the item is moved to your vault's [***Trash***](#trash).
 
 ---
 

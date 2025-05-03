@@ -866,6 +866,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>8FEF756B-F53F-4325-9F65-2BFEC3C3FB55</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>1E48E3AD-72F3-4A93-BCA0-372D7AD740D0</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>D050AE94-D66F-424F-B01D-E2B9405F7BF1</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -4534,6 +4546,25 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>edit</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>FC63031D-BDD4-4410-9172-081E3A7D65E2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4578,25 +4609,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>edit</string>
-				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>FC63031D-BDD4-4410-9172-081E3A7D65E2</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -4616,26 +4628,6 @@ end run</string>
 			<string>78A0B846-E460-42C4-8DB1-50B35DE6051D</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict>
-					<key>field</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>504AA6FF-757E-484E-A2C2-F9558FDFC3F8</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4706,6 +4698,20 @@ end run</string>
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
+						<string>totp</string>
+						<key>outputlabel</key>
+						<string>totp</string>
+						<key>uid</key>
+						<string>1E48E3AD-72F3-4A93-BCA0-372D7AD740D0</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
 						<string>👈</string>
 						<key>outputlabel</key>
 						<string>return</string>
@@ -4722,6 +4728,26 @@ end run</string>
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>6E163E49-E2C7-44BF-8444-51052EA1CF9F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>field</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>504AA6FF-757E-484E-A2C2-F9558FDFC3F8</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -4758,7 +4784,7 @@ end run</string>
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Choose field below to edit","arg":"choose","subtitle":""},{"title":"Username","arg":"Username","subtitle":"{var:username}"},{"title":"Password","arg":"Password","subtitle":"********"},{"title":"Name","arg":"Name","subtitle":"{var:objectName}"},{"title":"👈 Return to More Actions","arg":"👈","subtitle":""}]</string>
+				<string>[{"title":"Choose field below to edit or delete","arg":"choose","subtitle":""},{"title":"Username","arg":"username","subtitle":"{var:username}"},{"title":"Password","arg":"password","subtitle":"********"},{"title":"TOTP","arg":"TOTP","subtitle":"Used for \"Authenticator app\" 2FA only"},{"title":"Name","arg":"name","subtitle":"{var:objectName}"},{"title":"👈 Return to More Actions menu","arg":"👈","subtitle":""}]</string>
 				<key>matchmode</key>
 				<integer>0</integer>
 				<key>runningsubtext</key>
@@ -4998,25 +5024,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>more</string>
-				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>D050AE94-D66F-424F-B01D-E2B9405F7BF1</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -5071,6 +5078,25 @@ end run</string>
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>B8DC57D6-5F70-47E8-B795-7F81205EA0E5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>more</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>D050AE94-D66F-424F-B01D-E2B9405F7BF1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -6105,7 +6131,7 @@ end run</string>
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Move item to a different Folder","arg":"moveFolder","subtitle":"{var:folder}"},{"title":"{var:favorite} Favorite","arg":"favorite","subtitle":""},{"title":"Download Attachments","arg":"download","subtitle":"{var:attachmentCount} attachments"},{"title":"Edit Item","arg":"edit","subtitle":"Username, password or item name"},{"title":"Delete Item","arg":"delete"},{"title":"👈 Return to Search Menu","arg":"👈","subtitle":""}]</string>
+				<string>[{"title":"Move item to a different Folder","arg":"moveFolder","subtitle":"{var:folder}"},{"title":"{var:favorite} Favorite","arg":"favorite","subtitle":""},{"title":"Download Attachments","arg":"download","subtitle":"{var:attachmentCount} attachments"},{"title":"Edit Item","arg":"edit","subtitle":"Username, password, TOTP or item name"},{"title":"Delete Item","arg":"delete"},{"title":"👈 Return to Search Menu","arg":"👈","subtitle":""}]</string>
 				<key>matchmode</key>
 				<integer>0</integer>
 				<key>runningsubtext</key>
@@ -6642,6 +6668,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 
 #### Miscellaneous
 
+* Edit items in your vault
 * Add new login items to your vault
 * Set an idle timer to lock your vault or logout of Bitwarden
 * Download an item's attachments
@@ -6652,7 +6679,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.6.1*</string>
+*Version 6.7.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -7202,7 +7229,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>1485</real>
 			<key>ypos</key>
-			<real>2095</real>
+			<real>2080</real>
 		</dict>
 		<key>6E8B8607-6D01-43D3-93F0-B895D5145036</key>
 		<dict>
@@ -7428,6 +7455,8 @@ self.main</string>
 		</dict>
 		<key>8FEF756B-F53F-4325-9F65-2BFEC3C3FB55</key>
 		<dict>
+			<key>note</key>
+			<string>get_new_field.sh</string>
 			<key>xpos</key>
 			<real>1605</real>
 			<key>ypos</key>
@@ -7880,7 +7909,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>1610</real>
 			<key>ypos</key>
-			<real>2230</real>
+			<real>2250</real>
 		</dict>
 		<key>D216312C-377E-402F-BBC4-4C91C6D62E37</key>
 		<dict>
@@ -8080,7 +8109,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>1605</real>
 			<key>ypos</key>
-			<real>2010</real>
+			<real>1990</real>
 		</dict>
 		<key>FD160350-60B4-4CAE-8C29-9E165A47851B</key>
 		<dict>
@@ -8614,7 +8643,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>6.6.1</string>
+	<string>6.7.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

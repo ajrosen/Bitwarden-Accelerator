@@ -10,6 +10,23 @@ export SUDO_ASKPASS=./get_password.applescript
 
 
 ##################################################
+# Disable Touch ID in the workflow
+
+disable_tid() {
+    # Set pam_tid to false
+    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to set configuration "pam_tid" to value false in workflow "'"${alfred_workflow_bundleid}"'"'
+
+    # Notify the user
+    MSG="Bitwarden Accelerator requires an Admin account to enable Touch ID"
+    MSG+="\n\nTouch ID has been disabled in the workflow"
+
+    osascript -e 'display alert "'"${MSG}"'" as critical'
+
+    exit
+}
+
+
+##################################################
 # pam_tid.so must be "sufficient"
 
 check_sudo_local() {
@@ -57,6 +74,12 @@ check_sudo_local && check_sudoers && exit 0
 
 
 ##################################################
+# Check sudo permissions
+
+sudo -ln || disable_tid
+
+
+##################################################
 # Get confirmation
 
 read -r MSG<<EOF
@@ -76,16 +99,16 @@ log "Changing sudo configuration"
 sudo -K
 
 check_sudo_local
-if [ $? == 1 ]; then update_sudo_local; fi
+if [ $? != 0 ]; then update_sudo_local; fi
 
 check_sudo_local
-if [ $? == 1 ]; then exit 1; fi
+if [ $? != 0 ]; then exit 1; fi
 
 check_sudoers
-if [ $? == 1 ]; then update_sudoers; fi
+if [ $? != 0 ]; then update_sudoers; fi
 
 check_sudoers
-if [ $? == 1 ]; then exit 1; fi
+if [ $? != 0 ]; then exit 1; fi
 
 sudo -K
 
