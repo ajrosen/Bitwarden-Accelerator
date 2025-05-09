@@ -172,7 +172,7 @@ There are three ways to invoke Bitwarden Accelerator.
 
 The default hotkey is ***Control-Command-L***, because the Bitwarden browser extension uses *Shift-Command-L*.  If you wish to change or disable the hotkey, open the workflow in *Alfred Preferences*.  The hotkey trigger is in the top-left corner.
 
-<a name="trash"</a>
+<a name="trash"></a>
 ### Trash
 
 Using the Trash Keyword (default: ***.bwtrash***) will list any deleted items.  Select an item to restore it.
@@ -361,7 +361,7 @@ This completely removes the icons cache.  Icons will be redownloaded the next ti
 
 If there is no icons cache, Bitwarden Accelerator will automatically try to download icons using your chosen service.
 
-You can use this menu option to refresh the icons at any time.  It will (attempt to) download any favorites icons that are missing.  Any vault item that has been modified since its icon was last downloaded will also have its redownloaded.  I.e., if a vault item is newer than the icon, fetch its icon.
+You can use this menu option to refresh the icons at any time.  It will (attempt to) download any favorites icons that are missing.  Any vault item that has been modified since its icon was last downloaded will also have its icon redownloaded.  I.e., if a vault item is newer than the icon, fetch its icon.
 
 * Choose icon service
 
