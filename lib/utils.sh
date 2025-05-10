@@ -7,7 +7,13 @@ resetTimer() {
 }
 
 checkTimeout() {
+    lockScreen=${lockScreen:-1}
     vaultTimeout=${vaultTimeout:=-1}
+
+    # When screen is locked
+    if [ ${lockScreen} == "1" ]; then
+	lockf -w -t 0 "${alfred_workflow_cache}/lockScreen" ./wait_lock.sh &>/dev/null & disown
+    fi
 
     # Never
     [ ${vaultTimeout} -eq -1 ] && return

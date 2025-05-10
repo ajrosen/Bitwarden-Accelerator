@@ -35,7 +35,7 @@ fi
 
 
 ##################################################
-# Login
+# Unlock
 
 # Try JSON payload
 RESPONSE=$(curl -s -H 'Content-Type: application/json' -d '{"password": "'"${p}"'"}' "${API}"/unlock)

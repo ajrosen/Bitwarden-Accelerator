@@ -1,3 +1,7 @@
+## 6.8.0
+
+* Lock your vault or logout of Bitwarden when your screen is locked
+
 ## 6.7.0
 
 * Add TOTP to Edit Item menu
