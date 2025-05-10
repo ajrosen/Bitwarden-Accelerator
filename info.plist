@@ -6679,7 +6679,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.7.0*</string>
+*Version 6.8.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -8430,7 +8430,7 @@ add_item.sh</string>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Vault timeout in minutes.  Used only when vault timeout is "Custom".</string>
+			<string>Timeout (in minutes) if "Vault timeout" is "Custom".</string>
 			<key>label</key>
 			<string>Custom timeout</string>
 			<key>type</key>
@@ -8442,21 +8442,40 @@ add_item.sh</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>When screen is locked</string>
+			</dict>
+			<key>description</key>
+			<string>Also when the screen is locked</string>
+			<key>label</key>
+			<string></string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>lockScreen</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>lock</string>
 				<key>pairs</key>
 				<array>
 					<array>
-						<string>Lock</string>
+						<string>Lock Vault</string>
 						<string>lock</string>
 					</array>
 					<array>
-						<string>Logout</string>
+						<string>Logout of Bitwarden</string>
 						<string>logout</string>
 					</array>
 				</array>
 			</dict>
 			<key>description</key>
-			<string></string>
+			<string>What to do when timeout expires or screen is locked</string>
 			<key>label</key>
 			<string>Vault timeout action</string>
 			<key>type</key>
@@ -8643,7 +8662,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>6.7.0</string>
+	<string>6.8.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

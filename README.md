@@ -123,6 +123,10 @@ How long Bitwarden can be inactive before timing out. *Inactivity* is determined
 
 Sets the timeout value when *Vault timeout* is *Custom*.
 
+### When screen is locked
+
+Perform the *Vault timeout action* when the screen is locked.  The default is **true**.
+
 ### Vault timeout action
 
 What Bitwarden will do once the vault timeout is reached.  Choices are **Lock vault** and **Logout**.
