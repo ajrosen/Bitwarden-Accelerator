@@ -1,3 +1,7 @@
+## 6.8.1
+
+* Update README and configuration dialog.  Lock screen option only locks your vault.
+
 ## 6.8.0
 
 * Lock your vault or logout of Bitwarden when your screen is locked
