@@ -6679,7 +6679,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.8.0*</string>
+*Version 6.8.1*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -8442,25 +8442,6 @@ add_item.sh</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<true/>
-				<key>required</key>
-				<false/>
-				<key>text</key>
-				<string>When screen is locked</string>
-			</dict>
-			<key>description</key>
-			<string>Also when the screen is locked</string>
-			<key>label</key>
-			<string></string>
-			<key>type</key>
-			<string>checkbox</string>
-			<key>variable</key>
-			<string>lockScreen</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>default</key>
 				<string>lock</string>
 				<key>pairs</key>
 				<array>
@@ -8482,6 +8463,25 @@ add_item.sh</string>
 			<string>popupbutton</string>
 			<key>variable</key>
 			<string>vaultTimeoutAction</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Lock vault when the screen is locked</string>
+			</dict>
+			<key>description</key>
+			<string>Also when the computer sleeps</string>
+			<key>label</key>
+			<string>Lock screen</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>lockScreen</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -8662,7 +8662,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>6.8.0</string>
+	<string>6.8.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

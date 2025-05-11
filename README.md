@@ -125,7 +125,7 @@ Sets the timeout value when *Vault timeout* is *Custom*.
 
 ### When screen is locked
 
-Perform the *Vault timeout action* when the screen is locked.  The default is **true**.
+Lock your vault when the screen is locked.  The default is **true**.
 
 ### Vault timeout action
 
