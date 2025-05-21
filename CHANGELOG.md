@@ -1,3 +1,8 @@
+## 6.9.0
+
+* Option to use a randomly generated password when editing an item
+* Fix deleting favicon cache when service is *None*
+
 ## 6.8.1
 
 * Update README and configuration dialog.  Lock screen option only locks your vault.

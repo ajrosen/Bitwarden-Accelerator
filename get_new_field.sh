@@ -6,6 +6,27 @@
 
 log "get_new_field"
 
+# Perform operation and sync vault
+function mkchange() {
+    URL="${API}"/object/item/"${objectId}"
+
+    if [ "${op}" == "remove" ]; then
+	# Remove item
+	curl -s "${URL}" \
+	    | jq ".data | del(${jqItem})" \
+	    | curl -s -H 'Content-Type: application/json' -T - "${URL}" \
+	    | jq .success
+    else
+	# Update item
+	curl -s "${URL}" \
+	    | jq ".data | ${jqItem} |= \"$(cut -d: -f3 <<< "${new}")\"" \
+	    | curl -s -H 'Content-Type: application/json' -T - "${URL}" \
+	    | jq .success
+    fi
+
+    saveSync
+}
+
 # First dialog to get action
 function mkscript1() {
     script='display dialog "'"${1}"'"'
@@ -13,7 +34,7 @@ function mkscript1() {
     script="${script} default button \"OK\""
     script="${script} default answer \"\""
     script="${script} with title \"Change ${editField}\""
-    [ "${editField}" == "Password" ] && script="${script} with hidden answer"
+    [ "${editField}" == "password" ] && script="${script} with hidden answer"
 }
 
 # Second dialog to confirm removal
@@ -32,7 +53,7 @@ function mkscript3() {
     script="${script} default button \"OK\""
     script="${script} default answer \"\""
     script="${script} with title \"Change ${editField}\""
-    [ "${editField}" == "Password" ] && script="${script} with hidden answer"
+    [ "${editField}" == "password" ] && script="${script} with hidden answer"
 }
 
 # Get item path to edit
@@ -42,6 +63,12 @@ case "${editField}" in
 	;;
     "password")
 	jqItem=".login.password"
+	;;
+    "generate")
+	jqItem=".login.password"
+	new="$(./generate_password.sh)"
+	mkchange
+	exit 0
 	;;
     "TOTP")
 	jqItem=".login.totp"
@@ -55,7 +82,7 @@ case "${editField}" in
 esac
 
 # Prompt for new value
-mkscript1 "Enter new value:"
+mkscript1 "Enter new ${editField}:"
 new=$(2>&- osascript -e "${script}")
 
 # Exit if canceled or no entry
@@ -87,21 +114,5 @@ if [ "${editField}" == "Password" ] && [ "${op}" != "remove" ]; then
     fi
 fi
 
-# Perform operation
-URL="${API}"/object/item/"${objectId}"
-
-if [ "${op}" == "remove" ]; then
-    # Remove item
-    curl -s "${URL}" \
-	| jq ".data | del(${jqItem})" \
-	| curl -s -H 'Content-Type: application/json' -T - "${URL}" \
-	| jq .success
-else
-    # Update item
-    curl -s "${URL}" \
-	| jq ".data | ${jqItem} |= \"$(cut -d: -f3 <<< "${new}")\"" \
-	| curl -s -H 'Content-Type: application/json' -T - "${URL}" \
-	| jq .success
-fi
-
-saveSync
+# Make the change
+mkchange

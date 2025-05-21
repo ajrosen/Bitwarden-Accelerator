@@ -47,7 +47,7 @@ case "${loginMethod}" in
 
 	    case "${A}" in
 		"button returned:Fix")
-		    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration'
+		    ./configure_workflow.applescript
 		    exit
 		;;
 

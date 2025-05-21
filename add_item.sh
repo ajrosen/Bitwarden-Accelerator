@@ -27,7 +27,7 @@ USERNAME=$(2>&- osascript -e "${CMD}")
 [ "${USERNAME}" == "" ] && exit
 
 # Get password
-GENERATED=$(curl -s "${API}/generate?length=20&uppercase&lowercase&number&special" | jq -j .data.data)
+GENERATED="$(./generate_password.sh)"
 CMD="${P} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer)"
 PASSWORD=$(2>&- osascript -e "${CMD}")
 

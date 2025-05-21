@@ -8,5 +8,5 @@
     -e 'RunLoop.main.run()'
 
 if [ $? == 0 ]; then
-    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to run trigger "lock" in workflow "org.mlfs.corp.bw"'
+    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to run trigger "lock" in workflow "'"${alfred_workflow_bundleid}"'"'
 fi

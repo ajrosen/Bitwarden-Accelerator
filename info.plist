@@ -560,6 +560,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>4C133555-9514-4CE8-AC0B-836A75FABCD3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BF391B34-C253-4F13-AB06-63E9B4698961</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4D3583A9-A3F4-4D4B-AA58-8F19D7270BAB</key>
 		<array>
 			<dict>
@@ -873,6 +886,18 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>1E48E3AD-72F3-4A93-BCA0-372D7AD740D0</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>4C133555-9514-4CE8-AC0B-836A75FABCD3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>1373F64A-BDFB-4638-AF2A-E93611EFA232</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -3236,15 +3261,13 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>on run argv
-	tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration
-end run</string>
+				<string></string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>configure_workflow.applescript</string>
 				<key>type</key>
-				<integer>6</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -4609,29 +4632,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>next_field.sh</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>78A0B846-E460-42C4-8DB1-50B35DE6051D</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -4712,6 +4712,20 @@ end run</string>
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
+						<string>generate</string>
+						<key>outputlabel</key>
+						<string>generate</string>
+						<key>uid</key>
+						<string>1373F64A-BDFB-4638-AF2A-E93611EFA232</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
 						<string>👈</string>
 						<key>outputlabel</key>
 						<string>return</string>
@@ -4734,22 +4748,25 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
+				<key>concurrently</key>
 				<false/>
-				<key>variables</key>
-				<dict>
-					<key>field</key>
-					<string>{query}</string>
-				</dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>next_field.sh</string>
+				<key>type</key>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>504AA6FF-757E-484E-A2C2-F9558FDFC3F8</string>
+			<string>78A0B846-E460-42C4-8DB1-50B35DE6051D</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4784,7 +4801,7 @@ end run</string>
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Choose field below to edit or delete","arg":"choose","subtitle":""},{"title":"Username","arg":"username","subtitle":"{var:username}"},{"title":"Password","arg":"password","subtitle":"********"},{"title":"TOTP","arg":"TOTP","subtitle":"Used for \"Authenticator app\" 2FA only"},{"title":"Name","arg":"name","subtitle":"{var:objectName}"},{"title":"👈 Return to More Actions menu","arg":"👈","subtitle":""}]</string>
+				<string>[{"title":"Choose field below to edit or delete","arg":"choose","subtitle":""},{"title":"Username","arg":"username","subtitle":"{var:username}"},{"title":"Password","arg":"password","subtitle":"********"},{"title":"Random password","arg":"generate","subtitle":"Use a randomly generated password"},{"title":"TOTP","arg":"TOTP","subtitle":"Used for \"Authenticator app\" 2FA only"},{"title":"Name","arg":"name","subtitle":"{var:objectName}"},{"title":"👈 Return to More Actions menu","arg":"👈","subtitle":""}]</string>
 				<key>matchmode</key>
 				<integer>0</integer>
 				<key>runningsubtext</key>
@@ -4811,21 +4828,40 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Success: {query}</string>
-				<key>title</key>
-				<string>Updated {var:editField.lowercase}</string>
+				<key>variables</key>
+				<dict>
+					<key>field</key>
+					<string>{query}</string>
+				</dict>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
-			<string>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</string>
+			<string>504AA6FF-757E-484E-A2C2-F9558FDFC3F8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query.lowercase}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>editField</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>AD821E66-0A4B-4291-8271-182CAD080D61</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -4846,6 +4882,27 @@ end run</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>DCBE58AA-F8AD-483D-B572-68CACE8D7AC3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Success: {query}</string>
+				<key>title</key>
+				<string>Updated {var:editField.lowercase}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -4878,26 +4935,6 @@ end run</string>
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>BF391B34-C253-4F13-AB06-63E9B4698961</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>{query.lowercase}</string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict>
-					<key>editField</key>
-					<string>{query}</string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>AD821E66-0A4B-4291-8271-182CAD080D61</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -5024,6 +5061,29 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>generate_password.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>4C133555-9514-4CE8-AC0B-836A75FABCD3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -5084,25 +5144,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>more</string>
-				<key>passinputasargument</key>
-				<false/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>D050AE94-D66F-424F-B01D-E2B9405F7BF1</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string>{query}</string>
 				<key>passthroughargument</key>
@@ -5157,6 +5198,25 @@ end run</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>1C89DF18-E32A-4382-9384-CA3E07DC0999</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>more</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>D050AE94-D66F-424F-B01D-E2B9405F7BF1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -6416,15 +6476,13 @@ end run</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>on run argv
-	tell application id "com.runningwithcrayons.Alfred" to reveal workflow (system attribute "alfred_workflow_bundleid") with configuration
-end run</string>
+				<string></string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string></string>
+				<string>configure_workflow.applescript</string>
 				<key>type</key>
-				<integer>6</integer>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -6679,7 +6737,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 6.8.1*</string>
+*Version 6.9.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -7076,6 +7134,15 @@ self.notifyLocked</string>
 			<key>ypos</key>
 			<real>1140</real>
 		</dict>
+		<key>4C133555-9514-4CE8-AC0B-836A75FABCD3</key>
+		<dict>
+			<key>note</key>
+			<string>generate_password.sh</string>
+			<key>xpos</key>
+			<real>1625</real>
+			<key>ypos</key>
+			<real>2215</real>
+		</dict>
 		<key>4D3583A9-A3F4-4D4B-AA58-8F19D7270BAB</key>
 		<dict>
 			<key>colorindex</key>
@@ -7229,7 +7296,7 @@ self.notifyLocked</string>
 			<key>xpos</key>
 			<real>1485</real>
 			<key>ypos</key>
-			<real>2080</real>
+			<real>2040</real>
 		</dict>
 		<key>6E8B8607-6D01-43D3-93F0-B895D5145036</key>
 		<dict>
@@ -7302,9 +7369,9 @@ self.main</string>
 		<key>74939A3A-C17E-4B5A-B0FE-4F84D3A0EB1F</key>
 		<dict>
 			<key>xpos</key>
-			<real>1855</real>
+			<real>1875</real>
 			<key>ypos</key>
-			<real>2120</real>
+			<real>2155</real>
 		</dict>
 		<key>75DD9A27-6A13-4A17-A9A9-AAAE0DCA99A9</key>
 		<dict>
@@ -7458,9 +7525,9 @@ self.main</string>
 			<key>note</key>
 			<string>get_new_field.sh</string>
 			<key>xpos</key>
-			<real>1605</real>
+			<real>1625</real>
 			<key>ypos</key>
-			<real>2120</real>
+			<real>2080</real>
 		</dict>
 		<key>8FF587C4-21B1-4C88-BBEF-5A5892954CEC</key>
 		<dict>
@@ -7561,7 +7628,7 @@ self.main</string>
 			<key>xpos</key>
 			<real>1270</real>
 			<key>ypos</key>
-			<real>2120</real>
+			<real>2095</real>
 		</dict>
 		<key>9F9795B7-5B7C-4AF5-8F2E-A7E41FC28B33</key>
 		<dict>
@@ -7650,7 +7717,7 @@ self.notifyLoggedOut</string>
 			<key>xpos</key>
 			<real>1425</real>
 			<key>ypos</key>
-			<real>2150</real>
+			<real>2125</real>
 		</dict>
 		<key>B0B64AE9-51B1-4C11-BE70-0FA81BBADE43</key>
 		<dict>
@@ -7800,9 +7867,9 @@ self.notifyLoggedOut</string>
 		<key>BF391B34-C253-4F13-AB06-63E9B4698961</key>
 		<dict>
 			<key>xpos</key>
-			<real>1770</real>
+			<real>1790</real>
 			<key>ypos</key>
-			<real>2150</real>
+			<real>2185</real>
 		</dict>
 		<key>BFBE7394-EAB0-4244-BA58-B3746AF5B50F</key>
 		<dict>
@@ -7907,9 +7974,9 @@ self.notifyLoggedOut</string>
 			<key>colorindex</key>
 			<integer>1</integer>
 			<key>xpos</key>
-			<real>1610</real>
+			<real>1625</real>
 			<key>ypos</key>
-			<real>2250</real>
+			<real>2350</real>
 		</dict>
 		<key>D216312C-377E-402F-BBC4-4C91C6D62E37</key>
 		<dict>
@@ -8107,9 +8174,9 @@ self.notifyLoggedOut</string>
 		<key>FC63031D-BDD4-4410-9172-081E3A7D65E2</key>
 		<dict>
 			<key>xpos</key>
-			<real>1605</real>
+			<real>1625</real>
 			<key>ypos</key>
-			<real>1990</real>
+			<real>1950</real>
 		</dict>
 		<key>FD160350-60B4-4CAE-8C29-9E165A47851B</key>
 		<dict>
@@ -8662,7 +8729,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>6.8.1</string>
+	<string>6.9.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

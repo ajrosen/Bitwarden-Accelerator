@@ -18,11 +18,9 @@ require 'uri'.freeze
 # Write a message to $stderr if ENV['DEBUG'] is '1'
 #
 # @param message [String] The message
-# rubocop: disable Style/StderrPuts
 def slog(message)
   $stderr.puts(message) if ENV['DEBUG'] == '1'
 end
-# rubocop: enable Style/StderrPuts
 
 ##################################################
 # Write a warning if ENV['DEBUG'] is '1'
@@ -75,7 +73,7 @@ end
 #
 # @param host [String] The hostname of an item's URI
 # @param rdate [String] The item's revision date
-# rubocop: disable Metrics/MethodLength, Metrics/AbcSize
+# rubocop: disable Metrics/AbcSize
 def fetch(host, rdate)
   # Check if item has been modified since the file/symlink was created
   if File.exist? host
@@ -96,7 +94,7 @@ def fetch(host, rdate)
     symlink(host)
   end
 end
-# rubocop: enable Metrics/MethodLength, Metrics/AbcSize
+# rubocop: enable Metrics/AbcSize
 
 ##################################################
 # Variables
@@ -107,7 +105,8 @@ services = {
   DuckDuckGo: 'https://icons.duckduckgo.com/ip3/%s.ico',
   Favicone: 'https://favicone.com/%s?s=64',
   Google: 'https://www.google.com/s2/favicons?domain=%s&sz=64',
-  'Icon Horse': 'https://icon.horse/icon/%s'
+  'Icon Horse': 'https://icon.horse/icon/%s',
+  None: ''
 }.freeze
 
 begin
