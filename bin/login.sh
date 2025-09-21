@@ -10,7 +10,7 @@ log "login with ${loginMethod}"
 OUT='{ "success": false, "message": "Login failed" }'
 
 # Make sure server is stopped
-./stop_server.sh
+./bin/stop_server.sh
 
 # Configure Bitwarden server
 log "config server ${serverUrl}"
@@ -20,13 +20,13 @@ bwuser=${bwuser:-"user@example.com"}
 
 case "${loginMethod}" in
     "password")
-	USER=$(2>&- ./get_username.applescript "${bwuser}")
+	USER=$(2>&- ./bin/get_username.applescript "${bwuser}")
 	[ "${USER}" == "" ] && exit
 
-	export PASS=$(2>&- ./get_password.applescript "Enter Master password for ${bwuser}")
+	export PASS=$(2>&- ./bin/get_password.applescript "Enter Master password for ${bwuser}")
 	[ "${PASS}" == "" ] && exit
 
-	CODE=$(./get_code.sh)
+	CODE=$(./bin/get_code.sh)
 
 	# shellcheck disable=2086
 	OUT=$(bw --response --nointeraction login "${USER}" --passwordenv PASS ${CODE})
@@ -47,7 +47,7 @@ case "${loginMethod}" in
 
 	    case "${A}" in
 		"button returned:Fix")
-		    ./configure_workflow.applescript
+		    ./bin/configure_workflow.applescript
 		    exit
 		;;
 
@@ -67,7 +67,7 @@ esac
 
 if [ "$(jq -j .success <<< "${OUT}")" == "true" ] || [[ "$(jq -j .message <<< "${OUT}")" =~ "You are already logged in" ]]; then
     # Start server
-    ./start_server.sh
+    ./bin/start_server.sh
 fi
 
 jq -j '.message // .data.title' <<< "${OUT}"

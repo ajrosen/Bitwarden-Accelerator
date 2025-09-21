@@ -5,7 +5,7 @@
 on run u
     set t to "Enter code"
     set b to {"OK", "Cancel"}
-    set myName to "Bitwarden Accelerator"
+    set myName to (system attribute "alfred_workflow_name")
 
     set m to first item of u
 
@@ -14,7 +14,7 @@ on run u
     end
 
     if (m = "1") then			-- Email
-	set t to "Check your email for your two-step login verification code"
+	set t to "Check your email for your two-step login verification code and enter it here"
     end
 
     if (m = "3") then			-- YubiKey OTP

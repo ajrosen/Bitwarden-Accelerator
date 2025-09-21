@@ -12,7 +12,7 @@ checkTimeout() {
 
     # When screen is locked
     if [ ${lockScreen} == "1" ]; then
-	lockf -w -t 0 "${alfred_workflow_cache}/lockScreen" ./wait_lock.sh &>/dev/null & disown
+	lockf -w -t 0 "${alfred_workflow_cache}/lockScreen" ./bin/wait_lock.sh &>/dev/null & disown
     fi
 
     # Never
@@ -32,10 +32,10 @@ checkTimeout() {
 	# Timed out
 	if [ "${vaultTimeoutAction}" == "lock" ]; then
 	    osascript -e "${CMD} \"notifyLocked\" in workflow \"${alfred_workflow_bundleid}\""
-	    . ./lock.sh > /dev/null
+	    . ./bin/lock.sh > /dev/null
 	else
 	    osascript -e "${CMD} \"notifyLoggedOut\" in workflow \"${alfred_workflow_bundleid}\""
-	    . ./logout.sh > /dev/null
+	    . ./bin/logout.sh > /dev/null
 	fi
 
 	. ./lib/status.sh

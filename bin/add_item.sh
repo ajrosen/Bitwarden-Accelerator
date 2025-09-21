@@ -27,7 +27,7 @@ USERNAME=$(2>&- osascript -e "${CMD}")
 [ "${USERNAME}" == "" ] && exit
 
 # Get password
-GENERATED="$(./generate_password.sh)"
+GENERATED="$(./bin/generate_password.sh)"
 CMD="${P} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer)"
 PASSWORD=$(2>&- osascript -e "${CMD}")
 

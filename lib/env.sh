@@ -48,7 +48,7 @@ if [ "${VERSION}" != "${alfred_workflow_version}" ]; then
 
     # Refresh favicons
     log "Cleaning favorites icons"
-    ./get_favicons.rb clean
+    ./bin/get_favicons.rb clean
 fi
 
 ORGANIZATION_ID="${ORGANIZATION_ID:-$(cat "${alfred_workflow_cache}"/organization_id)}"

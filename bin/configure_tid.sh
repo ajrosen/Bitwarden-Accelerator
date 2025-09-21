@@ -6,7 +6,7 @@
 
 SUDO_LOCAL=/etc/pam.d/sudo_local
 SUDOERS=/etc/sudoers.d/sudoers
-export SUDO_ASKPASS=./get_password.applescript
+export SUDO_ASKPASS=./bin/get_password.applescript
 
 
 ##################################################
@@ -76,7 +76,7 @@ check_sudo_local && check_sudoers && exit 0
 ##################################################
 # Check sudo permissions
 
-sudo -ln || disable_tid
+sudo -ln > /dev/null || disable_tid
 
 
 ##################################################
@@ -98,17 +98,11 @@ log "Changing sudo configuration"
 
 sudo -K
 
-check_sudo_local
-if [ $? != 0 ]; then update_sudo_local; fi
+check_sudo_local || update_sudo_local
+check_sudo_local || exit 1
 
-check_sudo_local
-if [ $? != 0 ]; then exit 1; fi
-
-check_sudoers
-if [ $? != 0 ]; then update_sudoers; fi
-
-check_sudoers
-if [ $? != 0 ]; then exit 1; fi
+check_sudoers || update_sudoers
+check_sudoers || exit 1
 
 sudo -K
 

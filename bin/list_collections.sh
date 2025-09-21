@@ -10,6 +10,7 @@ jq \
     -L jq \
     --arg organizationId "${ORGANIZATION_ID}" \
     --arg search "$*" \
+    --arg previousMenu "Main" \
     -r -f jq/list_collections.jq \
     "${DATA_DIR}"/collections 2>>"${LOG_FILE}"
 

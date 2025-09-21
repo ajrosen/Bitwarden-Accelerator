@@ -42,7 +42,7 @@ if [ $# == 0 ]; then
     # Maybe fetch favicons
     if [ "${favicons}" != "None" ] && [ ! -d "${FAVICONS_DIR}" ]; then
 	log "Fetching icons"
-	./get_favicons.rb fetch &>/dev/null & disown
+	./bin/get_favicons.rb fetch &>/dev/null & disown
     fi
 fi
 
@@ -72,7 +72,7 @@ q "${*}" "" "" "${old_objectId}" >> "${RESULTS_DIR}"/3
 
 # Make sure missing icons use the default
 if [ $# == 0 ] && [ "${favicons}" != "None" ]; then
-    ./get_favicons.rb symlink
+    ./bin/get_favicons.rb symlink
 fi
 
 # Check for empty list

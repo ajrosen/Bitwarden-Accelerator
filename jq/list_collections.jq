@@ -36,7 +36,7 @@ log(input_filename) |
   | alfred
 ] +
 [ {
-    title: "👈 Return to Main Menu",
+    title: "👈 Return to \($previousMenu) Menu",
     arg: "👈"
   }
 ]

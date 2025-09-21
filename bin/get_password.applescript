@@ -5,7 +5,7 @@
 on run u
     set t to "Enter password"
     set b to {"OK", "Cancel"}
-    set myName to "Bitwarden Accelerator"
+    set myName to (system attribute "alfred_workflow_name")
 
     if (length of u) > 0 then
 	set t to u

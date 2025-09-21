@@ -7,7 +7,7 @@
 [ "${ORGANIZATION_ID}" == 0 ] && organizationName="All Vaults"
 [ "${ORGANIZATION_ID}" == 1 ] && organizationName="My Vault"
 
-log "set_organization ${ORGANIZATION_ID} ${organizationName}"
+log "default_organization ${ORGANIZATION_ID} ${organizationName}"
 
 echo -n "${ORGANIZATION_ID}" > "${alfred_workflow_cache}"/organization_id
 echo -n "${organizationName}" > "${alfred_workflow_cache}"/organization_name

@@ -18,7 +18,7 @@ def folderName(b; fn):
 
 # Convert organizationId to organization name
 def orgName(b; on):
-  if b then "\(on[b])" else "no organization" end
+  if b then "\(on[b])" else "My Vault" end
 ;
 
 # URIs if there are any
@@ -63,8 +63,8 @@ def alfred(fn; on):
 	name, id,
 	username: .login.username,
 	folder: folderName(.folderId; fn),
-	url: [ URIs ],
-	default_url: .login.uris[0].uri,
+	uris: [ URIs ],
+	default_uri: .login.uris[0].uri,
 	collections: [ (select(.collectionIds + [] | length > 0) | .collectionIds[]) ],
 	collectionCount: .collectionIds | length,
 	organization: orgName(.organizationId; on),

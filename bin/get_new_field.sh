@@ -66,7 +66,7 @@ case "${editField}" in
 	;;
     "generate")
 	jqItem=".login.password"
-	new="$(./generate_password.sh)"
+	new="$(./bin/generate_password.sh)"
 	mkchange
 	exit 0
 	;;

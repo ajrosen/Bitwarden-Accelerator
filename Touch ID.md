@@ -1,8 +1,8 @@
 # Using Touch ID with Bitwarden Accelerator
 
-Bitwarden Accelerator can use Touch ID to unlock your vault, instead of asking for your master password.  It uses the *sudo* command to authenticate with Touch ID, and stores your master password in a secure location.
+Bitwarden Accelerator can use Touch ID to unlock your vault instead of asking for your master password.  It uses the *sudo* command to authenticate with Touch ID, and stores your master password in a secure location.
 
-The next time you unlock your vault the workflow will use *sudo* to read your master password from that secure location.
+The next time you unlock your vault, the workflow will use *sudo* to read your master password from that secure location.
 
 ## The secure location
 
@@ -10,7 +10,7 @@ When using Touch ID, Bitwarden Accelerator stores your master password in a file
 
 ## Configuring sudo
 
-By default, macOS does not use Touch ID for sudo.  Bitwarden Accelerator must make two changes to enable it.  It will do this automatically after you enable the option in the workflow, the next time you unlock your vault.
+By default, macOS does not use Touch ID for sudo.  Bitwarden Accelerator must make two changes to enable it.  It will do this automatically after you enable the Touch ID option in the workflow, the next time you unlock your vault.
 
 <img width="372" alt="configure-sudo" src="https://github.com/user-attachments/assets/b74880ce-337c-46cd-954f-625c55366034" />
 

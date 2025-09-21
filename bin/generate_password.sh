@@ -4,6 +4,8 @@
 
 . lib/env.sh
 
+log "generate_password"
+
 # Bitwarden's default settings for its password generator are:
 #
 # Passwords of 14 characters, using uppercase letters, lowercase
@@ -15,38 +17,40 @@
 # The settings below generate more complex passwords than the
 # defaults.  Make any desired changes to the settings here.
 #
-# Passwords are generated if PASSPHRASE is "false".  All boolean
+# Passwords are generated if PHRASE is "false".  All boolean
 # settings are enabled unless the value is "false".  Numeric settings
 # use the default if their value is not numeric.
 
 # Passwords
-LENGTH=20
-UPPERCASE=true
-LOWERCASE=t
-NUMBER=yes
-SPECIAL=on
+LEN=20
+UPPER=true
+LOWER=t
+NUM=yes
+SPEC=on
 
 # Passphrases
-PASSPHRASE=false
+PHRASE=false
 WORDS=6
-SEPARATOR=:
-CAPITALIZE=true
+SEP=:
+CAP=true
+
+log "Options: ${LEN}, ${UPPER}, ${LOWER}, ${NUM}, ${SPEC}, ${PHRASE}, ${WORDS}, ${SEP}, ${CAP}"
 
 
 ##################################################
 # Set options
 
-if [ "${PASSPHRASE}" == "false" ]; then
+if [ "${PHRASE}" == "false" ]; then
     # Generate a random password
-    OPTS="length=${LENGTH}"
-    [ "${UPPERCASE}" == "false" ] || OPTS="${OPTS}&uppercase"
-    [ "${LOWERCASE}" == "false" ] || OPTS="${OPTS}&lowercase"
-    [ "${NUMBER}" == "false" ] || OPTS="${OPTS}&number"
-    [ "${SPECIAL}" == "false" ] || OPTS="${OPTS}&special"
+    OPTS="length=${LEN}"
+    [ "${UPPER}" == "false" ] || OPTS="${OPTS}&uppercase"
+    [ "${LOWER}" == "false" ] || OPTS="${OPTS}&lowercase"
+    [ "${NUM}" == "false" ] || OPTS="${OPTS}&number"
+    [ "${SPEC}" == "false" ] || OPTS="${OPTS}&special"
 else
     # Generate a random passphrase
-    OPTS="passphrase=1&words=${WORDS}&separator=${SEPARATOR}"
-    [ "${CAPITALIZE}" == "false" ] || OPTS="${OPTS}&capitalize"
+    OPTS="passphrase=1&words=${WORDS}&separator=${SEP}"
+    [ "${CAP}" == "false" ] || OPTS="${OPTS}&capitalize"
 fi
 
 

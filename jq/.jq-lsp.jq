@@ -1,0 +1,11 @@
+def $collectionId: empty;
+def $collections: empty;
+def $folderId: empty;
+def $folders: empty;
+def $icon: empty;
+def $org: empty;
+def $organizationId: empty;
+def $organizations: empty;
+def $recent: empty;
+def $search: empty;
+def $skip: empty;

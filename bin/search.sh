@@ -10,7 +10,7 @@
 
 if [ "${STATE}" == "unlocked" ]; then
     echo '{ "items": '
-    . list_items.sh $@
+    . bin/list_items.sh $@
     echo '}'
 else
     osascript -e 'tell application id "com.runningwithcrayons.Alfred" to run trigger "bw" in workflow "'"${alfred_workflow_bundleid}"'"'

@@ -31,12 +31,17 @@ payload << "\rServiceMethod\x01\f\x00\x01"
 payload << "\x03Seq\x01\x06\x00\x00\x00\x10\xFF\x80\x01"
 payload << "\vFirefox.Tab\x00\x03\x04\x00\x00"
 
-# Send the payload
-socket = UNIXSocket.new("/tmp/alfred-firefox.#{Process.euid}.sock")
-socket.send(payload, 0)
+begin
+  # Send the payload
+  socket = UNIXSocket.new("/tmp/alfred-firefox.#{Process.euid}.sock")
+  socket.send(payload, 0)
 
-# Read the response
-response = socket.recvfrom(3000)
+  # Read the response
+  response = socket.recvfrom(3000)
+rescue StandardError => e
+  warn(e)
+  exit
+end
 
 # Going backwards, get the characters between the second and third SOH
 url = ''

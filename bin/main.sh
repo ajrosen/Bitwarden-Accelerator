@@ -54,6 +54,7 @@ else
 fi
 
 # Actions available regardless of state
+echo ", $(item "View documentation" "homepage" "Visit Bitwarden Accelerator's homepage")"
 echo ", $(item "Configure Workflow" "configure" "Opens in Alfred Preferences (${alfred_workflow_version})")"
 
 echo '] }'

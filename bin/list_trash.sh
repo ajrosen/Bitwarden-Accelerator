@@ -9,7 +9,7 @@
 [ $# == 0 ] && checkTimeout
 
 if [ "${STATE}" != "unlocked" ]; then
-    . main.sh
+    . bin/main.sh
     exit
 fi
 

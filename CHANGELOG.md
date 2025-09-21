@@ -1,3 +1,11 @@
+# 7.0.0
+
+* Manage an item's URIs
+* Move an item to a different vault
+* Add support for Aloha browser
+* Remove SUDO_ASKPASS code from unlock.sh (broken in macOS 26?)
+* Major refactor, moving executables to bin/
+
 ## 6.9.0
 
 * Option to use a randomly generated password when editing an item

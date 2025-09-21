@@ -41,7 +41,7 @@ version:			# make version VERSION=1.2.3
 
 # Copy changed files to repository
 checkin: exec
-	rsync -av --include=info.plist --exclude=.git --exclude=*.plist . ${SRC_DIR}/${GITHUB_REPO}
+	rsync -av --include=info.plist --exclude=.git* --exclude=*.plist --delete . ${SRC_DIR}/${GITHUB_REPO}
 
 # Create .workflow file
 workflow: exec
@@ -50,7 +50,7 @@ workflow: exec
 # Export workflow
 export: workflow
 	rm -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
-	cp -f "${WF_NAME}".alfredworkflow ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
+	mv -f "${WF_NAME}".alfredworkflow ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
 
 all: checkin export
 
