@@ -1,3 +1,8 @@
+## 7.1.0
+
+* Add support for BrowserOS browser
+* Add support for iTerm2 browser
+
 # 7.0.0
 
 * Manage an item's URIs

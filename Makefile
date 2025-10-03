@@ -60,11 +60,11 @@ all: checkin export
 
 # View changes
 changelog:
-	@sed -n '1,/^#/p' CHANGELOG.md | grep -v '^##' | grep . | uniq
+	@sed -n '1,/^#/p' CHANGELOG.md | grep -v '^#' | grep .
 
 # Create new release
 release:
-	sed -n '1,/^#/p' CHANGELOG.md | grep -v '^##' | grep . | uniq | github-release release -t ${GH_TAG}-${WF_VERSION} -n "${WF_NAME} ${WF_VERSION}" -d -
+	sed -n '1,/^#/p' CHANGELOG.md | grep -v '^#' | grep . | github-release release -t ${GH_TAG}-${WF_VERSION} -n "${WF_NAME} ${WF_VERSION}" -d -
 
 # Upload exported workflow
 upload: export

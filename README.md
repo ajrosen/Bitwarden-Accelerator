@@ -72,6 +72,15 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 3. Install the *Bitwarden CLI*<sup>(1)</sup> from the [Bitwarden website](https://bitwarden.com/help/cli/), with `brew install bitwarden-cli`, or with `port -N install bitwarden-cli`.
 4. Install *jq*<sup>(2)</sup> from from the [website](https://jqlang.github.io/jq/download/), with `brew install jq`, or with `port -N install jq`.
 
+Or install as a [Homebrew](https://brew.sh) formula:
+
+```
+brew tap ajrosen/tap
+brew install bitwarden-accelerator
+```
+
+This method ensures the Bitwarden CLI and jq dependencies are met.  However, *uninstalling* the Homebrew formula will **not** uninstall Bitwarden Accelerator.
+
 ---
 
 <a name="options"></a>
@@ -294,6 +303,8 @@ Supported browsers:
 * [Arc](https://arc.net/)
 * [Zen](https://zen-browser.app/)<sup>(3)</sup>
 * [Aloha](https://alohabrowser.app/)
+* [BrowserOS](https://www.browseros.com/)
+* [iTerm2](https://iterm2.com/)
 
 The default behavior when selecting an item depends on its *type*.
 
