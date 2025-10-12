@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2154,2155
+# shellcheck disable=1091,2154,2155
 
 . lib/env.sh
 . lib/status.sh
@@ -8,6 +8,9 @@
 log "login with ${loginMethod}"
 
 OUT='{ "success": false, "message": "Login failed" }'
+
+# Check for new version
+. lib/version.sh
 
 # Make sure server is stopped
 ./bin/stop_server.sh
