@@ -29,7 +29,6 @@ export RESULTS_DIR="${alfred_workflow_cache}"/results
 export STATUS_FILE="${alfred_workflow_cache}"/status
 export SYNC_FILE="${alfred_workflow_cache}"/sync
 export TIMER_FILE="${alfred_workflow_cache}"/timer
-export WORKFLOW_DIR="${alfred_preferences}/workflows/${alfred_workflow_uid}"
 
 mkdir -p "${alfred_workflow_cache}"
 
