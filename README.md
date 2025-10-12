@@ -291,20 +291,33 @@ All items in your vault are shown, sorted by each item's *name*.  If your web br
 
 Supported browsers:
 
-* [Safari](https://www.apple.com/safari/)
-* [Firefox](https://www.mozilla.org/)<sup>(3)</sup>
-* [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)<sup>(3)</sup>
-* [Chrome](https://www.google.com/chrome/)
-* [Edge](https://www.microsoft.com/edge)
-* [Opera](https://www.opera.com/)
-* [Brave](https://brave.com/)
-* [Vivaldi](https://vivaldi.com/)
-* [Ghost](https://ghostbrowser.com/)
-* [Arc](https://arc.net/)
-* [Zen](https://zen-browser.app/)<sup>(3)</sup>
-* [Aloha](https://alohabrowser.app/)
-* [BrowserOS](https://www.browseros.com/)
-* [iTerm2](https://iterm2.com/)
+* WebKit
+	* [Safari](https://www.apple.com/safari/)
+	* [Chrome](https://www.google.com/chrome/)
+	* [Edge](https://www.microsoft.com/edge)
+	* [Opera](https://www.opera.com/opera)
+	* [Opera GX](https://www.opera.com/gx)
+	* [Opera Air](https://www.opera.com/air)
+	* [Brave](https://brave.com/)
+	* [Vivaldi](https://vivaldi.com/)
+	* [Arc](https://arc.net/)
+	* [Orion](https://kagi.com/orion/)
+
+* Firefox<sup>(3)</sup>
+	* [Firefox](https://www.mozilla.org/)
+	* [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/)
+	* [Firefox Nightly](https://www.mozilla.org/firefox/nightly)
+	* [Firefox ESR](https://www.firefox.com/browsers/enterprise/)
+	* [Zen](https://zen-browser.app/)
+
+* Chromium
+	* [Ghost](https://ghostbrowser.com/)
+	* [Aloha](https://alohabrowser.app/)
+	* [BrowserOS](https://www.browseros.com/)
+	* [Helium](https://helium.computer/)
+
+* Miscellaneous
+	* [iTerm2](https://iterm2.com/)
 
 The default behavior when selecting an item depends on its *type*.
 
@@ -447,4 +460,4 @@ When reporting bugs, please include the following information:
 ---
 1. *If the [Bitwarden CLI](https://bitwarden.com/help/cli/) is not installed, Bitwarden Accelerator will ask to install it using [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/).  [Homebrew](https://brew.sh) or [MacPorts](https://ports.macports.org/) must already be installed.*
 2. *macOS 15.1 (Sequoia) includes jq, so it is not neccessary to install separately.*
-3. *Integration with Firefox requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration).*
+3. *Integration with Firefox browsers requires the [Alfred Integration extension](https://addons.mozilla.org/en-US/firefox/addon/alfred-launcher-integration).*
