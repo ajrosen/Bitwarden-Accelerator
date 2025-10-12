@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2154
+# shellcheck disable=1091,2154
 
 . lib/env.sh
 . lib/status.sh
