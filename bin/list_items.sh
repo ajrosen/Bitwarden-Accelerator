@@ -14,7 +14,7 @@ function q() {
     RECENT="${3}"
     SKIP="${4}"
 
-    log "SEARCH = ${1}, ICON = ${2}, SKIP = ${3}"
+    log "SEARCH = ${1}, ICON = ${2}, RECENT = ${3}, SKIP = ${4}"
     log "folderId = ${folderId}, organizationId = ${ORGANIZATION_ID}, collectionId = ${COLLECTION_ID}"
 
     jq \
@@ -62,9 +62,16 @@ fi
 if [ $# == 0 ] && [ "${browserURL}" != "" ]; then
     log "Browser ${browserURL}"
 
-    URL=$(echo "${browserURL}" | awk 'BEGIN { FS="/" } { h = $3 } END { FS="." ;  $0 = h ; print $(NF-1) "." $NF }')
+    # Assume browserURL starts with scheme://
+    URL=$(echo "${browserURL}" \
+	      | cut -d/ -f3 \
+	      | cut -d: -f1 \
+	      | awk -F . '{if (NF>1) {printf("%s.", $(NF-1))} printf("%s", $NF)}')
 
-    q "${URL}" "./icons/${focusedapp}.png" "" "${old_objectId}" >> "${RESULTS_DIR}"/2
+    # Filter search by URIs matching ${URL}
+    q "${URL}" "./icons/${focusedapp}.png" "" "${old_objectId}" \
+      | jq '.[] | [ select(.variables.uris[] | test("'"${URL}"'"; "i")) ] | unique_by(.id)' \
+	   >> "${RESULTS_DIR}"/2
 fi
 
 # List items
