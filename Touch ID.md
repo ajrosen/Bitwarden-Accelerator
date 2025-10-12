@@ -14,9 +14,13 @@ By default, macOS does not use Touch ID for sudo.  Bitwarden Accelerator must ma
 
 <img width="372" alt="configure-sudo" src="https://github.com/user-attachments/assets/b74880ce-337c-46cd-954f-625c55366034" />
 
+If Bitwarden Accelerator fails to configure sudo, you can make the changes manually.
+
 ### pam_tid.so
 
-*pam_tid.so* is the [Pluggable Authentication Module](https://en.wikipedia.org/wiki/Pluggable_Authentication_Module) that allows you to authenticate with Touch ID instead of your system password.  It is enabled in **/etc/pam.d/sudo_local**.
+*pam_tid.so* is the [Pluggable Authentication Module](https://en.wikipedia.org/wiki/Pluggable_Authentication_Module) that allows you to authenticate with Touch ID instead of your system password.
+
+It is enabled by adding this line to **/etc/pam.d/sudo_local**:
 
     auth       sufficient     pam_tid.so
 
@@ -24,10 +28,8 @@ By default, macOS does not use Touch ID for sudo.  Bitwarden Accelerator must ma
 
 Sudo manages active *sessions*.  If you use sudo during an active session you are not asked for your password.  The default session policy is *tty*, which creates a separate session for each terminal that has authenticated.
 
-Each time the workflow is activated a new "terminal" is created.  Therefore, you would need to authenticate every time you invoked Bitwarden Accelerator.
+Each time the workflow is activated a new "terminal" is created.  Therefore, you would need to authenticate every time you invoked Bitwarden Accelerator.  The *global* session policy creates a single session for your login.  This allows Bitwarden Accelerator to require authentication once, for as long as your vault is unlocked.
 
-The *global* session policy creates a single session for your login. This allows Bitwarden Accelerator to require authentication once, for as long as your vault is unlocked.
-
-The *timestamp_type* option is added to **/etc/sudoers.d/sudoers** for your local account only.
+Add this *timestamp_type* option to **/etc/sudoers.d/sudoers** (for your local account only):
 
     Defaults: <your_username>	timestamp_type = global
