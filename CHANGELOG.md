@@ -1,3 +1,10 @@
+## 7.2.0
+
+* Add support for more browsers: Firefox Nightly, Helium, Opera Air, Opera GX, Orion, Zen (rebranded)
+* Address issues when configuring Touch ID (Issue #33)
+* Improvements to active browser tab matching
+* Check for new workflow version when logging in
+
 ## 7.1.0
 
 * Add support for BrowserOS browser
