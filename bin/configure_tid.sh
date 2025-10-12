@@ -1,29 +1,13 @@
 #!/bin/bash
 
-# shellcheck disable=2034,2154
+# shellcheck disable=1091,2034,2154
 
 . lib/env.sh
 
 SUDO_LOCAL=/etc/pam.d/sudo_local
 SUDOERS=/etc/sudoers.d/sudoers
 export SUDO_ASKPASS=./bin/get_password.applescript
-
-
-##################################################
-# Disable Touch ID in the workflow
-
-disable_tid() {
-    # Set pam_tid to false
-    osascript -e 'tell application id "com.runningwithcrayons.Alfred" to set configuration "pam_tid" to value false in workflow "'"${alfred_workflow_bundleid}"'"'
-
-    # Notify the user
-    MSG="Bitwarden Accelerator requires an Admin account to enable Touch ID"
-    MSG+="\n\nTouch ID has been disabled in the workflow"
-
-    osascript -e 'display alert "'"${MSG}"'" as critical'
-
-    exit
-}
+P="Enter your password to change sudo configuration"
 
 
 ##################################################
@@ -32,7 +16,7 @@ disable_tid() {
 check_sudo_local() {
     log "Checking ${SUDO_LOCAL}"
 
-    /usr/bin/grep -qE '^\s*auth\s*sufficient\s*pam_tid.so\s*$' "${SUDO_LOCAL}"
+    /usr/bin/grep -qE '^\s*auth\s+sufficient\s+pam_tid.so\s*$' "${SUDO_LOCAL}"
     return $?
 }
 
@@ -43,7 +27,7 @@ update_sudo_local() {
     # shellcheck disable=2016
     entry='auth	sufficient	pam_tid.so'
 
-    sudo -A -p "Enter your password to change sudo configuration" sh -c "echo ${entry} >> ${SUDO_LOCAL}"
+    /usr/bin/sudo -A -p "${P}" /bin/sh -c "/bin/mkdir -p /etc/pam.d ; /usr/bin/touch ${SUDO_LOCAL} ; echo ${entry} >> ${SUDO_LOCAL}"
 }
 
 
@@ -53,7 +37,7 @@ update_sudo_local() {
 check_sudoers() {
     log "Checking ${SUDOERS}"
 
-    /usr/bin/grep -qE '^\s*Defaults:\s*'"${USER}"'\s*timestamp_type\s*=\s*global\s*$' "${SUDOERS}"
+    /usr/bin/grep -qE '^\s*Defaults:\s+'"${USER}"'\s+timestamp_type\s+=\s+global\s*$' "${SUDOERS}"
     return $?
 }
 
@@ -63,7 +47,7 @@ update_sudoers() {
     # shellcheck disable=2016
     entry='Defaults: ${SUDO_USER} timestamp_type = global'
 
-    sudo -A -p "Enter your password to change sudo configuration" sh -c "echo ${entry} >> ${SUDOERS}"
+    /usr/bin/sudo -A -p "${P}" /bin/sh -c "/bin/mkdir -p /etc/sudoers.d ; /usr/bin/touch ${SUDOERS} ; echo ${entry} >> ${SUDOERS}"
 }
 
 
@@ -74,19 +58,13 @@ check_sudo_local && check_sudoers && exit 0
 
 
 ##################################################
-# Check sudo permissions
-
-sudo -ln > /dev/null || disable_tid
-
-
-##################################################
 # Get confirmation
 
 read -r MSG<<EOF
 ${alfred_workflow_name} needs to change your sudo configuration to enable Touch ID.\n\nClick OK to continue.\n\nSee the documentation for more information.
 EOF
 
-A=$(osascript -e "display alert \"${MSG}\" as critical buttons { \"Cancel\", \"OK\" } default button \"Cancel\"")
+A=$(/usr/bin/osascript -e "display alert \"${MSG}\" as critical buttons { \"Cancel\", \"OK\" } default button \"Cancel\"")
 
 if [ "${A}" == "button returned:Cancel" ]; then exit 1; fi
 
@@ -96,7 +74,7 @@ if [ "${A}" == "button returned:Cancel" ]; then exit 1; fi
 
 log "Changing sudo configuration"
 
-sudo -K
+/usr/bin/sudo -K
 
 check_sudo_local || update_sudo_local
 check_sudo_local || exit 1
@@ -104,6 +82,6 @@ check_sudo_local || exit 1
 check_sudoers || update_sudoers
 check_sudoers || exit 1
 
-sudo -K
+/usr/bin/sudo -K
 
 exit 0
