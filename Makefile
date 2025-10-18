@@ -41,7 +41,7 @@ version:			# make version VERSION=1.2.3
 
 # Copy changed files to repository
 checkin: exec
-	rsync -av --include=info.plist --exclude=.git* --exclude=*.plist --delete . ${SRC_DIR}/${GITHUB_REPO}
+	rsync -av --include=info.plist --exclude=.git* --exclude=*.plist --exclude=doc --delete . ${SRC_DIR}/${GITHUB_REPO}
 
 # Create .workflow file
 workflow: exec
