@@ -1,3 +1,7 @@
+## 7.2.1
+
+* Fix log function in bw.jq (Issue #35)
+
 ## 7.2.0
 
 * Add support for more browsers: Firefox Nightly, Helium, Opera Air, Opera GX, Orion, Zen (rebranded)
