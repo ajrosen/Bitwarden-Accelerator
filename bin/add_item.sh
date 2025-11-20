@@ -10,6 +10,7 @@ URL=$(jq -j .url <<< "${*}")
 SITE=$(cut -d/ -f3 <<< "${URL}")
 
 P='return text returned of (display dialog'
+Q='return (display dialog'
 I='with icon caution'
 T='with title "Add item"'
 
@@ -28,17 +29,28 @@ USERNAME=$(2>&- osascript -e "${CMD}")
 
 # Get password
 GENERATED="$(./bin/generate_password.sh)"
-CMD="${P} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer)"
-PASSWORD=$(2>&- osascript -e "${CMD}")
+CMD="${Q} \"Enter password for ${USERNAME}\" ${I} ${T} default answer \"${GENERATED}\" with hidden answer"
+CMD+=' buttons { "Cancel", "OK", "Copy to Clipboard" } default button "Copy to Clipboard")'
+
+J=$(2>&- osascript -s s -e "${CMD}" | sed 's/^{button returned/{"button"/;s/", text returned:/", "text":/')
+BUTTON=$(jq -j .button <<< "${J}")
+PASSWORD=$(jq -j .text <<< "${J}")
 
 [ "${PASSWORD}" == "" ] && exit
 
 if [ "${PASSWORD}" != "${GENERATED}" ]; then
-    CMD="${P} \"Confirm password for ${USERNAME}\" ${I} ${T} default answer \"\" with hidden answer)"
-    CONFIRM=$(2>&- osascript -e "${CMD}")
+    # Confirm password
+    CMD="${Q} \"Confirm password for ${USERNAME}\" ${I} ${T} default answer \"\" with hidden answer"
+    CMD+=' buttons { "Cancel", "OK", "Copy to Clipboard" } default button "Copy to Clipboard")'
+
+    J=$(2>&- osascript -s s -e "${CMD}" | sed 's/^{button returned/{"button"/;s/", text returned:/", "text":/')
+    BUTTON=$(jq -j .button <<< "${J}")
+    CONFIRM=$(jq -j .text <<< "${J}")
+
+    [ "${CONFIRM}" == "" ] && exit
 
     if [ "${CONFIRM}" != "${PASSWORD}" ]; then
-	echo -n 'Add item,Passwords do not match'
+	echo -n "Add item ${SITE//,/ },Passwords do not match,"
 	exit
     fi
 fi
@@ -57,4 +69,5 @@ PAYLOAD+='} }'
 # Add item
 S=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${API}"/object/item | jq -j .success)
 
-echo -n "Added ${SITE//,/ },Success: ${S}"
+[ "${BUTTON}" == "Copy to Clipboard" ] && CLIPBOARD="${PASSWORD}"
+echo -n "Added ${SITE//,/ },Success: ${S},${CLIPBOARD}"

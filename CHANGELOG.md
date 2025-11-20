@@ -1,3 +1,7 @@
+## 7.3.0
+
+* Add a (default) button to *Add item* to copy the new item's password to the clipboard
+
 ## 7.2.1
 
 * Fix log function in bw.jq (Issue #35)

@@ -800,6 +800,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>57E82782-2922-4484-A00E-D5794DF3885C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B0E99AA7-7282-49EC-8C82-A2FAFD1A5FBB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>58C21CCB-AE65-4CC7-9EF2-D025E20E87CF</key>
 		<array>
 			<dict>
@@ -1455,6 +1468,43 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8330D345-8084-40DC-BF19-ACE3019A3697</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>57E82782-2922-4484-A00E-D5794DF3885C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>5600633D-DC5A-4EF5-802F-4FC66229BC04</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE4026E2-F8C7-4922-897A-7F73A4507DD1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE4026E2-F8C7-4922-897A-7F73A4507DD1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>5600633D-DC5A-4EF5-802F-4FC66229BC04</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -2377,7 +2427,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DE4026E2-F8C7-4922-897A-7F73A4507DD1</string>
+				<string>8330D345-8084-40DC-BF19-ACE3019A3697</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -5953,6 +6003,45 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>clipboard</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>B0E99AA7-7282-49EC-8C82-A2FAFD1A5FBB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:split3}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>field</key>
+					<string>Password</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>57E82782-2922-4484-A00E-D5794DF3885C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>skipqueryencode</key>
@@ -5970,6 +6059,29 @@
 			<string>34933B54-01D6-4E80-96BE-91DE77C0A402</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow "'${alfred_workflow_bundleid}'" with configuration'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BD64EC9B-4297-476B-BC07-93946DDD4221</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -6074,50 +6186,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow "'${alfred_workflow_bundleid}'" with configuration'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>BD64EC9B-4297-476B-BC07-93946DDD4221</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>delimiter</key>
-				<string>,</string>
-				<key>discardemptyarguments</key>
-				<false/>
-				<key>outputas</key>
-				<integer>0</integer>
-				<key>trimarguments</key>
-				<true/>
-				<key>variableprefix</key>
-				<string>split</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.split</string>
-			<key>uid</key>
-			<string>F19CEEF0-54A3-4416-B2B4-3880D26DAE72</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>externaltriggerid</key>
 				<string>pastewithtab</string>
 				<key>passinputasargument</key>
@@ -6204,6 +6272,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>delimiter</key>
+				<string>,</string>
+				<key>discardemptyarguments</key>
+				<false/>
+				<key>outputas</key>
+				<integer>0</integer>
+				<key>trimarguments</key>
+				<true/>
+				<key>variableprefix</key>
+				<string>split</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.split</string>
+			<key>uid</key>
+			<string>F19CEEF0-54A3-4416-B2B4-3880D26DAE72</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string></string>
 				<key>passthroughargument</key>
@@ -6220,6 +6309,38 @@
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>4657F5F2-AFDB-4BDD-A5FC-BFC21B2FE791</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:split3}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>1</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>clipboard</string>
+						<key>uid</key>
+						<string>5600633D-DC5A-4EF5-802F-4FC66229BC04</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>8330D345-8084-40DC-BF19-ACE3019A3697</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -8274,7 +8395,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 7.2.1*</string>
+*Version 7.3.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -8860,6 +8981,15 @@ list_organizations.sh</string>
 			<key>ypos</key>
 			<real>2700</real>
 		</dict>
+		<key>57E82782-2922-4484-A00E-D5794DF3885C</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<real>3310</real>
+			<key>ypos</key>
+			<real>1755</real>
+		</dict>
 		<key>58C21CCB-AE65-4CC7-9EF2-D025E20E87CF</key>
 		<dict>
 			<key>colorindex</key>
@@ -8964,7 +9094,7 @@ lock.sh</string>
 			<key>xpos</key>
 			<real>2875</real>
 			<key>ypos</key>
-			<real>1785</real>
+			<real>1815</real>
 		</dict>
 		<key>6883C6BF-84A6-4FD1-8080-3DB59357962F</key>
 		<dict>
@@ -9208,6 +9338,15 @@ sync_vault.sh</string>
 			<real>695</real>
 			<key>ypos</key>
 			<real>35</real>
+		</dict>
+		<key>8330D345-8084-40DC-BF19-ACE3019A3697</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<real>3130</real>
+			<key>ypos</key>
+			<real>1830</real>
 		</dict>
 		<key>8377138A-5F46-493D-B5C4-6974E2DE0684</key>
 		<dict>
@@ -9521,6 +9660,15 @@ logout.sh</string>
 			<real>1460</real>
 			<key>ypos</key>
 			<real>935</real>
+		</dict>
+		<key>B0E99AA7-7282-49EC-8C82-A2FAFD1A5FBB</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>12</integer>
+			<key>xpos</key>
+			<real>3395</real>
+			<key>ypos</key>
+			<real>1725</real>
 		</dict>
 		<key>B23CCD6B-12D8-416E-B437-0C4359C6A6FD</key>
 		<dict>
@@ -9886,9 +10034,9 @@ list_folders.sh</string>
 			<key>colorindex</key>
 			<integer>8</integer>
 			<key>xpos</key>
-			<real>3125</real>
+			<real>3270</real>
 			<key>ypos</key>
-			<real>1780</real>
+			<real>1810</real>
 		</dict>
 		<key>DE711213-817D-427F-9064-E0670D33C915</key>
 		<dict>
@@ -9935,7 +10083,7 @@ list_folders.sh</string>
 			<key>xpos</key>
 			<real>2965</real>
 			<key>ypos</key>
-			<real>1780</real>
+			<real>1810</real>
 		</dict>
 		<key>E31C62C8-2833-4C04-95AD-1616A0DDC123</key>
 		<dict>
@@ -9991,7 +10139,7 @@ list_folders.sh</string>
 			<key>xpos</key>
 			<real>2805</real>
 			<key>ypos</key>
-			<real>1795</real>
+			<real>1825</real>
 		</dict>
 		<key>F29D0FA1-64E5-4CBB-ACFF-9D46119E4678</key>
 		<dict>
@@ -10098,7 +10246,7 @@ add_item.sh</string>
 			<key>xpos</key>
 			<real>2660</real>
 			<key>ypos</key>
-			<real>1765</real>
+			<real>1795</real>
 		</dict>
 		<key>FF433390-CF9C-49B1-92EB-7A684DC5FED3</key>
 		<dict>
@@ -10612,7 +10760,7 @@ add_item.sh</string>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>7.2.1</string>
+	<string>7.3.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>
