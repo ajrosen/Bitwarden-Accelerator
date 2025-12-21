@@ -3045,11 +3045,9 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>37</integer>
+				<integer>0</integer>
 				<key>hotmod</key>
-				<integer>1310720</integer>
-				<key>hotstring</key>
-				<string>L</string>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -8395,7 +8393,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 7.3.0*</string>
+*Version 7.4.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -10745,22 +10743,106 @@ add_item.sh</string>
 			<key>variable</key>
 			<string>keyword_trash</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Use http, https, and no proxy settings</string>
+			</dict>
+			<key>description</key>
+			<string>Use proxy settings configured here, overriding system settings</string>
+			<key>label</key>
+			<string>Use proxy</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>use_proxy</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>HTTP proxy adress to use</string>
+			<key>label</key>
+			<string>HTTP Proxy</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>bwa_http_proxy</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>HTTPS proxy adress to use</string>
+			<key>label</key>
+			<string>HTTPS Proxy</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>bwa_https_proxy</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Skip proxy for these hosts, seperated with "," (comma)</string>
+			<key>label</key>
+			<string>No Proxy</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>bwa_no_proxy</string>
+		</dict>
 	</array>
 	<key>variables</key>
 	<dict>
 		<key>DEBUG</key>
-		<string>0</string>
+		<string>1</string>
 		<key>HOMEPAGE</key>
 		<string>https://github.com/ajrosen/Bitwarden-Accelerator?tab=readme-ov-file#readme</string>
 		<key>NODE_OPTIONS</key>
 		<string>--no-deprecation</string>
+		<key>no_proxy</key>
+		<string>127.0.0.1,localhost</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>DEBUG</string>
 	</array>
 	<key>version</key>
-	<string>7.3.0</string>
+	<string>7.4.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

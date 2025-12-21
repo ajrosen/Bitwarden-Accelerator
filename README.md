@@ -178,6 +178,17 @@ Keyword used to search deleted items
 
 ---
 
+### Proxy Settings
+
+A checkbox to enable or disable proxy usage. If **Use Proxy** (`use_proxy`) is checked, the following fields will be used to set environment variables for the Bitwarden CLI process when the workflow runs.
+
+- **Use Proxy (`use_proxy`)**: Enable/disable proxy usage for the workflow.
+- **HTTP Proxy**: URL for the HTTP proxy; sets the `http_proxy` environment variable.
+- **HTTPS Proxy**: URL for the HTTPS proxy; sets the `https_proxy` environment variable.
+- **No Proxy**: Comma-separated list of hosts that should bypass the proxy; sets the `no_proxy` environment variable.
+
+Provide proxy URLs in the usual form (for example, `http://proxy.example:3128`). When `use_proxy` is disabled, the corresponding environment variables are not set by the workflow.
+
 <a name="invoking"></a>
 ## Invoking
 

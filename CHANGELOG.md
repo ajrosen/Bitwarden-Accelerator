@@ -1,3 +1,7 @@
+## 7.4.0
+
+* Make proxy settings configurable for the workflow (Issue #36)
+
 ## 7.3.0
 
 * Add a (default) button to *Add item* to copy the new item's password to the clipboard

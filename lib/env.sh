@@ -94,3 +94,15 @@ log() {
 curl() {
     /usr/bin/curl --connect-timeout 3 --max-time 5 "${@}"
 }
+
+if [ "${use_proxy}" == "1" ]; then
+    # Set proxy environment variables
+
+    log "Setting proxy environment variables"
+    log "http_proxy=${bwa_http_proxy}; https_proxy=${bwa_https_proxy}; no_proxy=${bwa_no_proxy}"
+    log "sysenv before: http_proxy=${http_proxy}; https_proxy=${https_proxy}; no_proxy=${no_proxy}"
+
+    export http_proxy="${bwa_http_proxy}"
+    export https_proxy="${bwa_https_proxy}"
+    export no_proxy="${bwa_no_proxy}"
+fi
