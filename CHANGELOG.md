@@ -1,3 +1,14 @@
+## 7.4.0
+
+* Use an optional CURL_OPTS environment variable (#36) (thank you @alexs77)
+* Added a section for environment variables to the README
+* Fix .bwtrash
+* Check if released version is newer than the current version before notifying
+* Add support for every other browser I could find
+  * Firefox: Floorp, Mullvad, Waterfox
+  * Chromium: Blisk, Comet, Epic, Shift, SigmaOS, NAVER Whale
+  * Other: iCab
+
 ## 7.3.0
 
 * Add a (default) button to *Add item* to copy the new item's password to the clipboard

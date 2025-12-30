@@ -1,7 +1,7 @@
 ##################################################
 # Initialize workflow environment
 
-# shellcheck disable=2034,2154
+# shellcheck disable=2034,2086,2154
 
 NOW=$(date +%s)
 
@@ -92,5 +92,5 @@ log() {
 }
 
 curl() {
-    /usr/bin/curl --connect-timeout 3 --max-time 5 "${@}"
+    /usr/bin/curl --connect-timeout 3 --max-time 5 ${CURL_OPTS} "${@}"
 }

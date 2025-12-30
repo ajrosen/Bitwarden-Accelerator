@@ -176,6 +176,33 @@ Keyword used to bring up Bitwarden Accelerator's search menu
 
 Keyword used to search deleted items
 
+### Environment variables
+
+Bitwarden Accelerator uses [environment variables](https://www.alfredapp.com/help/workflows/advanced/variables/#environment) for options that you will probably never need to change.
+
+#### DEBUG
+
+Setting DEBUG to *1* will make Bitwarden Accelerator write messages to a log file in the workflow's [data directory](
+https://www.alfredapp.com/help/workflows/script-environment-variables/).
+
+#### HOMEPAGE
+
+The URL to Bitwarden Accelerator's README.
+
+#### bwhost
+
+The value for the *--hostname* option given to ***bw serve***. The default value is ***localhost***. See [Network](https://github.com/ajrosen/Bitwarden-Accelerator/wiki/Network) for reasons you might need to set this.
+
+#### bwport
+
+The value for the *--port* option given to ***bw serve***. The default value is ***8087***. See [Network](https://github.com/ajrosen/Bitwarden-Accelerator/wiki/Network) for reasons you might need to set this.
+
+#### CURL_OPTS
+
+Additional command-line options given to ***curl***. The value is inserted after `curl --connect-timeout 3 --max-time 5`. See [Network](https://github.com/ajrosen/Bitwarden-Accelerator/wiki/Network) for reasons you might need to set this, and the [curl man page](https://curl.se/docs/manpage.html) for available options.
+
+If you chose to use any environment variables that cURL supports, you would add them as their own entries.
+
 ---
 
 <a name="invoking"></a>
@@ -302,26 +329,36 @@ Supported browsers:
 	* [Edge](https://www.microsoft.com/edge)
 	* [Opera](https://www.opera.com/opera)
 	* [Opera GX](https://www.opera.com/gx)
-	* [Opera Air](https://www.opera.com/air)
-	* [Brave](https://brave.com/)
-	* [Vivaldi](https://vivaldi.com/)
 	* [Arc](https://arc.net/)
+	* [Brave](https://brave.com/)
+	* [Opera Air](https:mark//www.opera.com/air)
 	* [Orion](https://kagi.com/orion/)
+	* [Vivaldi](https://vivaldi.com/)
 
 * Firefox<sup>(3)</sup>
 	* [Firefox](https://www.mozilla.org/)
 	* [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/)
 	* [Firefox Nightly](https://www.mozilla.org/firefox/nightly)
 	* [Firefox ESR](https://www.firefox.com/browsers/enterprise/)
+	* [Floorp](https://floorp.app/)
+	* [Mullvad](https://mullvad.net/en/browser)
+	* [Waterfox](https://www.waterfox.com/)
 	* [Zen](https://zen-browser.app/)
 
 * Chromium
-	* [Ghost](https://ghostbrowser.com/)
 	* [Aloha](https://alohabrowser.app/)
+	* [Blisk](https://blisk.io/)
 	* [BrowserOS](https://www.browseros.com/)
+	* [Comet](https://www.perplexity.ai/comet)
+	* [Epic](https://epicbrowser.com/)
+	* [Ghost](https://ghostbrowser.com/)
 	* [Helium](https://helium.computer/)
+	* [NAVER Whale](https://whale.naver.com/)
+	* [Shift](https://shift.com/)
+	* [SigmaOS](https://sigmaos.com/)
 
 * Miscellaneous
+	* [iCab](https://www.icab.de/)
 	* [iTerm2](https://iterm2.com/)
 
 The default behavior when selecting an item depends on its *type*.
