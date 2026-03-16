@@ -1,3 +1,9 @@
+### 7.4.1
+
+* More browsers
+  * Ulaa
+  * ungoogled chromium
+
 ## 7.4.0
 
 * Use an optional CURL_OPTS environment variable (#36) (thank you @alexs77)
@@ -13,7 +19,7 @@
 
 * Add a (default) button to *Add item* to copy the new item's password to the clipboard
 
-## 7.2.1
+### 7.2.1
 
 * Fix log function in bw.jq (Issue #35)
 
@@ -42,7 +48,7 @@
 * Option to use a randomly generated password when editing an item
 * Fix deleting favicon cache when service is *None*
 
-## 6.8.1
+### 6.8.1
 
 * Update README and configuration dialog.  Lock screen option only locks your vault.
 
@@ -57,7 +63,7 @@
 * Disable Touch ID if user is not in the sudoers file
 * Allow for errors from grep when checking sudo configuration
 
-## 6.6.1
+### 6.6.1
 
 * Check API key for non-printable characters (see https://github.com/ajrosen/Bitwarden-Accelerator/issues/28)
 * Fix loading main menu from search when logged out or vault is locked
@@ -85,11 +91,11 @@
 * Show which Bitwarden server is being used in the Login to Bitwarden title
 * Fix server URL for bitwarden.eu again
 
-## 6.2.2
+### 6.2.2
 
 * Fix server URL for bitwarden.eu
 
-## 6.2.1
+### 6.2.1
 
 * Fix opening an item's URL when there is more than one
 
@@ -101,18 +107,18 @@
 * Look for jq in /usr/bin (for Sequoia 15.1+)
 * Expanded README
 
-## 6.1.3
+### 6.1.3
 
 * Create alfred_workflow_cache directory every time, not just when checking dependencies
 * Don't display notification when not restoring an item from trash
 
-## 6.1.2
+### 6.1.2
 
 * Fix setting default collection
 * Add logging to jq scripts
 * Check for workflow version changes
 
-## 6.1.1
+### 6.1.1
 
 * Fix setting default organization
 * Performance improvements
@@ -133,7 +139,7 @@
 * Performance improvements
 * Bug fixes
 
-## 5.1.1
+### 5.1.1
 
 * Post unlock payload in JSON format
 
@@ -157,12 +163,12 @@
 
 * Add support for Firefox Developer Edition
 
-## 4.1.2
+### 4.1.2
 
 * Hide password and MFA even from debug messages (Issue #10)
 * Always sync vault immediately after unlocking
 
-## 4.1.1
+### 4.1.1
 
 * Fix launch agent label
 
@@ -180,11 +186,11 @@
 
 * Add support for Ghost Browser
 
-## 3.1.2
+### 3.1.2
 
 * Fix JSON output for non-unlocked states
 
-## 3.1.1
+### 3.1.1
 
 * Bug fix in "last item" processing
 
@@ -194,14 +200,14 @@
 * Use SyncInterval for AUTO_ROTATE
 * Include file and line in debug messages
 
-## 3.0.1
+### 3.0.1
 
 * Bug fix: Create ~/Library/LaunchAgents/ if it doesn't exist
 
 # 3.0.0
 
 * Add "automatic field rotation"
-	* If an item is selected twice within 15 seconds, copy the TOTP code to the clipboard instead of the password.
+  * If an item is selected twice within 15 seconds, copy the TOTP code to the clipboard instead of the password.
 * Important bug fix in the path to *bwa-sync* as defined in the Launch Agent
 
 ## 2.1.0
@@ -215,7 +221,7 @@
 
 * New option to install an *auto sync* launch agent, which automatically syncs your vault every *sync interval* minutes
 
-## 1.2.1
+### 1.2.1
 
 * Move .jq to jq
 

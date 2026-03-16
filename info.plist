@@ -489,6 +489,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>F785147B-18EC-4CC3-AC99-8498EFF6EA76</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>7C7AE9D1-F2B7-4D8F-B3AF-6A8F6EABC4A1</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>D055417F-7108-4FC6-98D3-7CAE93CB66A3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -628,6 +640,18 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>54D8AAE2-5E23-4CBF-A6B7-03080CFB4857</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>143F875A-D917-4CC3-8E2C-A0BCC72CA266</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>4DC89F0C-8EC6-45AD-AE58-DF7FFBF8506F</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -3045,6 +3069,20 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
+						<string>org.chromium.Chromium</string>
+						<key>outputlabel</key>
+						<string>Chromium</string>
+						<key>uid</key>
+						<string>7C7AE9D1-F2B7-4D8F-B3AF-6A8F6EABC4A1</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:focusedapp}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
 						<string>com.microsoft.edgemac</string>
 						<key>outputlabel</key>
 						<string>Edge</string>
@@ -3288,6 +3326,20 @@
 						<string>SigmaOS</string>
 						<key>uid</key>
 						<string>316BC0F3-E1D2-4DF5-93F7-205E6EBFDA4B</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:focusedapp}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>com.primeum.Browser</string>
+						<key>outputlabel</key>
+						<string>Ulaa</string>
+						<key>uid</key>
+						<string>4DC89F0C-8EC6-45AD-AE58-DF7FFBF8506F</string>
 					</dict>
 				</array>
 				<key>elselabel</key>
@@ -3917,6 +3969,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>bin/get_icab_url.applescript</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D055417F-7108-4FC6-98D3-7CAE93CB66A3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>tasksettings</key>
 				<dict>
 					<key>out_format</key>
@@ -3956,29 +4031,6 @@
 			<string>8F6443FF-1E88-4720-BBF8-EEFE27B97F68</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>bin/get_icab_url.applescript</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>D055417F-7108-4FC6-98D3-7CAE93CB66A3</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -8717,7 +8769,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 7.4.0*</string>
+*Version 7.4.1*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -9292,7 +9344,7 @@ list_organizations.sh</string>
 			<key>xpos</key>
 			<real>1135</real>
 			<key>ypos</key>
-			<real>400</real>
+			<real>430</real>
 		</dict>
 		<key>56E77F91-00A3-4EFA-B481-647EF0317C71</key>
 		<dict>
@@ -9746,7 +9798,7 @@ sync_vault.sh</string>
 			<key>xpos</key>
 			<real>1310</real>
 			<key>ypos</key>
-			<real>430</real>
+			<real>460</real>
 		</dict>
 		<key>8FD114A8-89C2-4B08-94A9-D6E201A7C2C4</key>
 		<dict>
@@ -11085,13 +11137,16 @@ add_item.sh</string>
 		<string>0</string>
 		<key>HOMEPAGE</key>
 		<string>https://github.com/ajrosen/Bitwarden-Accelerator?tab=readme-ov-file#readme</string>
+		<key>bwport</key>
+		<string>7808</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>DEBUG</string>
+		<string>bwport</string>
 	</array>
 	<key>version</key>
-	<string>7.4.0</string>
+	<string>7.4.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

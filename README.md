@@ -356,6 +356,8 @@ Supported browsers:
 	* [NAVER Whale](https://whale.naver.com/)
 	* [Shift](https://shift.com/)
 	* [SigmaOS](https://sigmaos.com/)
+	* [Ulaa](https://ulaa.com/)
+	* [ungoogled chromium](https://ungoogled-software.github.io/)
 
 * Miscellaneous
 	* [iCab](https://www.icab.de/)
