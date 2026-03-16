@@ -52,4 +52,4 @@ export DATA=$(jq -L jq -j --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}"
 2>&- osascript \
     -e 'set t to (system attribute "DATA")' \
     -e 'set i to "'"${ICON}"'"' \
-    -e 'display dialog t buttons {"OK"} default button "OK" with title "'"${alfred_workflow_name}"'" with icon posix file i' \
+    -e 'display dialog t buttons {"OK"} default button "OK" with title "'"${alfred_workflow_name}"'" with icon posix file i'
