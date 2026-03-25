@@ -16,8 +16,21 @@ OUT='{ "success": false, "message": "Login failed" }'
 ./bin/stop_server.sh
 
 # Configure Bitwarden server
-log "config server ${serverUrl}"
-bw config server "${serverUrl}" >& /dev/null
+[ -f "${SERVER_FILE}" ] && . "${SERVER_FILE}"
+if [ "${serverUrl}" != "${oldServerUrl}" ]; then
+    log "config server ${serverUrl}"
+
+    SCRIPT='tell application id "com.runningwithcrayons.Alfred" to run trigger "notifyConfigure" in workflow "'
+    SCRIPT+="${alfred_workflow_bundleid}"
+    SCRIPT+='" with argument "'
+    SCRIPT+="(${serverUrl})"
+    SCRIPT+='"'
+    osascript -e "${SCRIPT}"
+
+    bw config server "${serverUrl}" >& /dev/null
+
+    echo "oldServerUrl=${serverUrl}" > "${SERVER_FILE}"
+fi
 
 bwuser=${bwuser:-"user@example.com"}
 

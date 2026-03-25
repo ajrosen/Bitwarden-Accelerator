@@ -26,6 +26,7 @@ export DATA_DIR="${alfred_workflow_cache}"/data
 export FAVICONS_DIR="${alfred_workflow_cache}"/favicons
 export FETCH_FILE="${alfred_workflow_cache}"/last_item
 export RESULTS_DIR="${alfred_workflow_cache}"/results
+export SERVER_FILE="${alfred_workflow_cache}"/server
 export STATUS_FILE="${alfred_workflow_cache}"/status
 export SYNC_FILE="${alfred_workflow_cache}"/sync
 export TIMER_FILE="${alfred_workflow_cache}"/timer
