@@ -44,6 +44,7 @@ else
 
     echo ", $(item "Search Vault" "search" "Search your vault")"
     echo ", $(item "Search Folders" "folder" "Show your folders")"
+    echo ", $(item "Search Archive" "archive" "Search your archived items")"
     echo ", $(item "Add item" "add" "Add a new item to your vault")"
     echo ", $(item "Lock Vault" "lock" "Logged in as ${bwuser}")"
     echo ", $(item "Set Default Vault" "organization" "${organization}")"
@@ -55,6 +56,6 @@ fi
 
 # Actions available regardless of state
 echo ", $(item "View documentation" "homepage" "Visit Bitwarden Accelerator's homepage")"
-echo ", $(item "Configure Workflow" "configure" "Opens in Alfred Preferences (${alfred_workflow_version})")"
+echo ", $(item "Configure Workflow (${alfred_workflow_version})" "configure" "Opens in Alfred Preferences")"
 
 echo '] }'

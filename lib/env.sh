@@ -26,6 +26,7 @@ export DATA_DIR="${alfred_workflow_cache}"/data
 export FAVICONS_DIR="${alfred_workflow_cache}"/favicons
 export FETCH_FILE="${alfred_workflow_cache}"/last_item
 export RESULTS_DIR="${alfred_workflow_cache}"/results
+export SERVER_FILE="${alfred_workflow_cache}"/server
 export STATUS_FILE="${alfred_workflow_cache}"/status
 export SYNC_FILE="${alfred_workflow_cache}"/sync
 export TIMER_FILE="${alfred_workflow_cache}"/timer
@@ -70,6 +71,12 @@ cacheVault() {
 	     | jq -L jq -r -f jq/clean.jq \
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
+
+    curl -s "${API}"/list/object/items?archived \
+	 --connect-timeout 3 \
+	 --max-time 5 \
+	| jq -L jq -r -f jq/clean.jq \
+	     > "${DATA_DIR}"/archived
 
     curl -s "${API}"/list/object/items?trash \
 	 --connect-timeout 3 \

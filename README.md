@@ -10,19 +10,18 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 
 ## Table of Contents
 
-* [Key Features](#features)
+* [Key Features](#key-features)
 * [Installing](#installing)
 * [Options](#options)
 * [Invoking](#invoking)
-* [Main Menu](#mainMenu)
-* [Item List](#itemList)
-* [More Menu](#moreMenu)
-* [Managing favorites icons](#faviconsMenu)
+* [Main Menu](#main-menu)
+* [Item List](#item-list)
+* [More Menu](#more-menu)
+* [Managing favorites icons](#managing-favorites-icons)
 * [Reporting Bugs](#bugs)
 
 ---
 
-<a name="features"></a>
 ## Key Features
 
 #### Logging in
@@ -60,6 +59,7 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 #### Miscellaneous
 
 * Download an item's attachments
+* Search your archive, archive and unarchive items
 * Limit searches to a single vault and/or collection to prevent shoulder-surfing
 * View any item in a separate window to copy/paste multiple fields easily
 * View any item's fields within Alfred when using a [Universal Action](https://www.alfredapp.com/universal-actions/)
@@ -68,7 +68,6 @@ Interact with [Bitwarden CLI](https://bitwarden.com/help/cli/).
 
 ---
 
-<a name="installing"></a>
 ## Installing
 
 1. Download the workflow <a href="https://github.com/ajrosen/Bitwarden-Accelerator/releases/latest/download/Bitwarden.Accelerator.alfredworkflow">here</a>
@@ -87,7 +86,6 @@ This method ensures the Bitwarden CLI and jq dependencies are met.  However, *un
 
 ---
 
-<a name="options"></a>
 ## Options
 
 ### Bitwarden user
@@ -136,13 +134,13 @@ How long Bitwarden can be inactive before timing out. *Inactivity* is determined
 
 Sets the timeout value when *Vault timeout* is *Custom*.
 
-### When screen is locked
-
-Lock your vault when the screen is locked.  The default is **true**.
-
 ### Vault timeout action
 
 What Bitwarden will do once the vault timeout is reached.  Choices are **Lock vault** and **Logout**.
+
+### Lock screen
+
+Lock your vault when the screen is locked.  The default is **true**.
 
 ### Bitwarden server
 
@@ -171,6 +169,10 @@ Keyword used to bring up Bitwarden Accelerator's main menu
 ### Search Keyword
 
 Keyword used to bring up Bitwarden Accelerator's search menu
+
+### Archive Keyword
+
+Keyword used to search archived items
 
 ### Trash Keyword
 
@@ -205,7 +207,6 @@ If you chose to use any environment variables that cURL supports, you would add 
 
 ---
 
-<a name="invoking"></a>
 ## Invoking
 
 There are three ways to invoke Bitwarden Accelerator.
@@ -216,14 +217,16 @@ There are three ways to invoke Bitwarden Accelerator.
 
 The default hotkey is ***Control-Command-L***, because the Bitwarden browser extension uses *Shift-Command-L*.  If you wish to change or disable the hotkey, open the workflow in *Alfred Preferences*.  The hotkey trigger is in the top-left corner.
 
-<a name="trash"></a>
+### Archive
+
+Using the Archive Keyword (default: ***.bwarchive) will search archived items.
+
 ### Trash
 
 Using the Trash Keyword (default: ***.bwtrash***) will list any deleted items.  Select an item to restore it.
 
 ---
 
-<a name="mainMenu"></a>
 ## Main Menu
 
 The options you see in the main menu depend on the state of your vault.
@@ -268,6 +271,9 @@ Lists all items in your vault.
 
 Shows a list of all the folders in your vault, then searches your vault for items in the selected folder.
 
+* **Search Archive**
+
+Lists all items in your archive.
 
 * **Add item**
 
@@ -315,12 +321,10 @@ Opens *Alfred Preferences* to the Bitwarden Accelerator configuration screen.
 
 ---
 
-<a name="itemList"></a>
 ## Item List
 
-All items in your vault are shown, sorted by each item's *name*.  If your web browser is the front-most window, items that match the current tab's domain will be listed first.  Favorited items will be listed next, followed by all remaining items.
+All items in your vault or archive are shown, sorted by each item's *name*.  If your web browser is the front-most window, items that match the current tab's domain will be listed first.  Favorited items will be listed next, followed by all remaining items.
 
-<a name="browsers"></a>
 Supported browsers:
 
 * WebKit
@@ -402,7 +406,6 @@ The private key is copied to the clipboard.
 
 ---
 
-<a name="moreMenu"></a>
 ## More Menu
 
 * **Move item to a different folder**
@@ -416,6 +419,10 @@ Move the item to the Vault you select and syncs your vault.  After selecting the
 * **Mark/Unmark Favorite**
 
 Marks or unmarks the item as a *Favorite* and syncs your vault.
+
+* **Archive/Unarchive item**
+
+Moves an item to the archive, or restores it from the archive.
 
 * **Download Attachments**
 
@@ -434,7 +441,6 @@ Deletes the item from your vault.
 You will get a warning that **THIS ACTION CANNOT BE UNDONE**.  This is not actually true; the item is moved to your vault's [***Trash***](#trash).
 
 ---
-<a name="editMenu"></a>
 ## Edit Item Menu
 
 * **Username**
@@ -462,7 +468,6 @@ Change or delete the item's name.
 Manage the item's URIs.  Change or delete an existing URI, or add a new URI.  Match detection for new URIs will be *Default*.
 
 ---
-<a name="faviconsMenu"></a>
 ## Managing favorites icons
 
 The *Managing favorites icons* menu has three options.
@@ -489,7 +494,6 @@ This will open *Alfred Preferences* to the configuration screen.  Bitwarden Acce
 
 ---
 
-<a name="bugs"></a>
 ## Reporting Bugs
 
 When reporting bugs, please include the following information:

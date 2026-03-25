@@ -9,7 +9,7 @@ osa() {
     SCRIPT='tell application id "com.runningwithCrayons.Alfred" to run trigger "version" in workflow "'
     SCRIPT+="${alfred_workflow_bundleid}"
     SCRIPT+='" with argument "'
-    SCRIPT+="${VERS//#[2-9.]/}"
+    SCRIPT+="(${VERS//#[2-9.]/})"
     SCRIPT+='"'
 
     osascript -e "${SCRIPT}"

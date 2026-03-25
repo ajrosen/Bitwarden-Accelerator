@@ -8,6 +8,8 @@ function clean() {
 
 trap clean EXIT
 
+DATA_FILE="${DATA_FILE:-items}"
+
 function q() {
     SEARCH="${1}"
     ICON="${2}"
@@ -30,7 +32,7 @@ function q() {
 	--arg recent "${RECENT}" \
 	--arg skip "${SKIP}" \
 	-r -f jq/list_items.jq \
-	"${DATA_DIR}"/items 2>>"${LOG_FILE}"
+	"${DATA_DIR}"/"${DATA_FILE}" 2>>"${LOG_FILE}"
 }
 
 # Refresh lists

@@ -70,6 +70,7 @@ def alfred(fn; on):
 	organization: orgName(.organizationId; on),
 	attachmentCount: .attachments | length,
 	favorite: (if .favorite then "Unmark" else "Mark" end),
+	archived: (if .archivedDate then "Unarchive" else "Archive" end),
 	objectName: .name,
 	objectId: .id,
 	revisionDate: .revisionDate,
