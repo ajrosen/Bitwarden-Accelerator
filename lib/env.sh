@@ -72,6 +72,12 @@ cacheVault() {
 	     > "${DATA_DIR}"/"${OBJECT}"
     done
 
+    curl -s "${API}"/list/object/items?archived \
+	 --connect-timeout 3 \
+	 --max-time 5 \
+	| jq -L jq -r -f jq/clean.jq \
+	     > "${DATA_DIR}"/archived
+
     curl -s "${API}"/list/object/items?trash \
 	 --connect-timeout 3 \
 	 --max-time 5 \
