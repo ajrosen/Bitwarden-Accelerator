@@ -1,3 +1,8 @@
+# 8.0.0
+
+* Support Bitwarden's new Archive feature
+* Cache Bitwarden server for faster login
+
 ### 7.4.1
 
 * More browsers
