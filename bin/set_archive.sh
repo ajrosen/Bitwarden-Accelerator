@@ -11,10 +11,12 @@ fi
 
 log "archive ${id} ${name}"
 
-curl -s "${API}"/object/item/"${id}" \
+URL="${API}"/object/item/"${id}"
+
+curl -s "${URL}" \
     | jq '.data | . + { archivedDate: (now | todate) }' \
     | curl -s -H 'Content-Type: application/json' -T - "${URL}" \
-    | jq .success
+    > /dev/null
 
 saveSync
 
