@@ -10,7 +10,7 @@ log "login with ${loginMethod}"
 OUT='{ "success": false, "message": "Login failed" }'
 
 # Check for new version
-. lib/version.sh
+./lib/version.sh
 
 # Make sure server is stopped
 ./bin/stop_server.sh

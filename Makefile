@@ -48,9 +48,9 @@ workflow: exec
 	zip -qr9 "${WF_NAME}".alfredworkflow . -x prefs.plist -x '.git/*'
 
 # Export workflow
-export: workflow
-	rm -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
-	mv -f "${WF_NAME}".alfredworkflow ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
+export:
+	@echo "Export workflow to ${SRC_DIR}/${EXPORTS_DIR}/${WF_NAME}.alfredworkflow"
+	@osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow "org.mlfs.corp.bw"'
 
 all: checkin export
 
@@ -67,5 +67,5 @@ release:
 	sed -n '1,/^#/p' CHANGELOG.md | grep -v '^#' | grep . | github-release release -t ${GH_TAG}-${WF_VERSION} -n "${WF_NAME} ${WF_VERSION}" -d -
 
 # Upload exported workflow
-upload: export
+upload:
 	github-release upload -t ${GH_TAG}-${WF_VERSION} -n Bitwarden.Accelerator.alfredworkflow -R -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
