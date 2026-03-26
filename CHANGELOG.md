@@ -1,3 +1,7 @@
+## 8.0.1
+
+* Fix login when a new version of the workflow is available
+
 # 8.0.0
 
 * Support Bitwarden's new Archive feature
