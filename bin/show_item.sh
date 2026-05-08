@@ -46,10 +46,31 @@ ORG=$(jq -j --arg org "${ORG_ID}" '.data.data[] | select(.id == $org) | .name' "
 log "Org = ${ORG}"
 
 # Format item
-export DATA=$(jq -L jq -j --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}")
+DATA=$(jq -L jq -j --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}")
 
-# Display dialog
-2>&- osascript \
-    -e 'set t to (system attribute "DATA")' \
-    -e 'set i to "'"${ICON}"'"' \
-    -e 'display dialog t buttons {"OK"} default button "OK" with title "'"${alfred_workflow_name}"'" with icon posix file i'
+# Display dialog.
+#
+# Do not pass the formatted item text through an environment variable. Non-ASCII
+# text, especially CJK characters, may be decoded incorrectly by AppleScript
+# when read via `system attribute`. Store the text as UTF-8 and pass only paths
+# and metadata as argv.
+TMP_DATA=$(mktemp "${TMPDIR:-/tmp}/bwa-item-data.XXXXXX")
+TMP_SCRIPT=$(mktemp "${TMPDIR:-/tmp}/bwa-item-script.XXXXXX.applescript")
+
+printf '%s' "$DATA" > "$TMP_DATA"
+
+cat > "$TMP_SCRIPT" <<'APPLESCRIPT'
+on run argv
+  set dataPath to item 1 of argv
+  set iconPath to item 2 of argv
+  set dialogTitle to item 3 of argv
+
+  set t to read POSIX file dataPath as «class utf8»
+
+  display dialog t buttons {"OK"} default button "OK" with title dialogTitle with icon POSIX file iconPath
+end run
+APPLESCRIPT
+
+trap 'rm -f "$TMP_DATA" "$TMP_SCRIPT"' EXIT
+
+2>&- osascript "$TMP_SCRIPT" "$TMP_DATA" "$ICON" "$alfred_workflow_name"
