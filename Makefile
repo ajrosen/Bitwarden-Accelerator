@@ -2,7 +2,7 @@
 # Variables
 
 # File locations
-SRC_DIR = ~/GitHub
+SRC_DIR = ~/GitHub/Alfred
 EXPORTS_DIR = Alfred/Exported\ Workflows
 
 # GitHub
