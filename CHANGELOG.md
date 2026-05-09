@@ -1,3 +1,7 @@
+## 8.1.0
+
+* Fix CJK text rendering in item detail dialog (#42)
+
 ## 8.0.1
 
 * Fix login when a new version of the workflow is available
