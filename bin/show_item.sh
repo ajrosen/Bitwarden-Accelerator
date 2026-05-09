@@ -45,11 +45,9 @@ ORG=$(jq -j --arg org "${ORG_ID}" '.data.data[] | select(.id == $org) | .name' "
 
 log "Org = ${ORG}"
 
-# Format item
-export DATA=$(jq -L jq -j --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}")
-
-# Display dialog
-2>&- osascript \
-    -e 'set t to (system attribute "DATA")' \
-    -e 'set i to "'"${ICON}"'"' \
-    -e 'display dialog t buttons {"OK"} default button "OK" with title "'"${alfred_workflow_name}"'" with icon posix file i'
+# Format item and display dialog
+jq -L jq -j --arg org "${ORG}" -f "jq/show_${JQ}.jq" <<< "${ITEM}" \
+   | 2>&- 3<&0 osascript \
+	  -e 'set t to (do shell script "cat 0<&3")' \
+	  -e 'set i to "'"${ICON}"'"' \
+	  -e 'display dialog t buttons {"OK"} default button "OK" with title "'"${alfred_workflow_name}"'" with icon posix file i'
