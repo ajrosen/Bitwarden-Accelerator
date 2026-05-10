@@ -11435,11 +11435,11 @@ add_item.sh</string>
 	<key>variables</key>
 	<dict>
 		<key>DEBUG</key>
-		<string>0</string>
+		<string></string>
 		<key>HOMEPAGE</key>
 		<string>https://github.com/ajrosen/Bitwarden-Accelerator?tab=readme-ov-file#readme</string>
 		<key>bwport</key>
-		<string>7808</string>
+		<string></string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>

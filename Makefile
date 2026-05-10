@@ -3,17 +3,20 @@
 
 # File locations
 SRC_DIR = ~/GitHub/Alfred
-EXPORTS_DIR = Alfred/Exported\ Workflows
+EXPORTS_DIR = Alfred/Exported Workflows
 
 # GitHub
 export GITHUB_REPO = Bitwarden-Accelerator
 
 # Release
+MANIFEST=bin bwa-sync icon.png icons info.plist jq lib sync_agent.plist.template
 GH_TAG = bwa
 
 # Workflow
+WF_DIR = workflow
 WF_NAME := $(shell plutil -extract name raw info.plist)
 WF_VERSION := $(shell plutil -extract version raw info.plist)
+
 VERSION := $(WF_VERSION)
 
 
@@ -22,17 +25,10 @@ VERSION := $(WF_VERSION)
 
 # Benign default
 diff:
-	@diff --color -r -x '*.plist' -x '.*' ${SRC_DIR}/${GITHUB_REPO} . || true
-
-diffall:
-	@diff --color -r ${SRC_DIR}/${GITHUB_REPO} . || true
+	diff --color -x \*.plist -r ${WF_DIR} . | grep -v '^Only in \.:' || true
 
 diffq:
-	@diff --color -qr ${SRC_DIR}/${GITHUB_REPO} . || true
-
-# Make sure executables are executable
-exec:
-	find . \( -name '*.sh' -o -name '*.applescript' -o -name '*.rb' \) -exec chmod -c 755 {} \;
+	diff --color -x \*.plist -qr ${WF_DIR} . | grep -v '^Only in \.:' || true
 
 # Update version
 version:			# make version VERSION=1.2.3
@@ -40,19 +36,18 @@ version:			# make version VERSION=1.2.3
 	sed -i "s:^\*Version $(WF_VERSION)\*</string>:\*Version $(VERSION)\*</string>:" info.plist
 
 # Copy changed files to repository
-checkin: exec
-	rsync -av --include=info.plist --exclude=.git* --exclude=*.plist --exclude=doc --delete . ${SRC_DIR}/${GITHUB_REPO}
+checkin:
+	rsync -aq --exclude=*.plist --include=info.plist ${WF_DIR}/ .
+	find . \( -name '*.sh' -o -name '*.applescript' -o -name '*.rb' \) -exec chmod -c 755 {} \;
+	@$(MAKE) --no-print-directory sanitize
 
-# Create .workflow file
-workflow: exec
-	zip -qr9 "${WF_NAME}".alfredworkflow . -x prefs.plist -x '.git/*'
+# Sanitize files for export
+sanitize:
+	plutil -extract variablesdontexport json -o - info.plist | jq '.[]' | xargs -I % plutil -replace variables.% -string '' info.plist
 
 # Export workflow
-export:
-	@echo "Export workflow to ${SRC_DIR}/${EXPORTS_DIR}/${WF_NAME}.alfredworkflow"
-	@osascript -e 'tell application id "com.runningwithcrayons.Alfred" to reveal workflow "org.mlfs.corp.bw"'
-
-all: checkin export
+export: sanitize
+	zip -qr9 ${SRC_DIR}/"${EXPORTS_DIR}"/"${WF_NAME}".alfredworkflow ${MANIFEST}
 
 
 ##################################################
@@ -68,4 +63,4 @@ release:
 
 # Upload exported workflow
 upload:
-	github-release upload -t ${GH_TAG}-${WF_VERSION} -n Bitwarden.Accelerator.alfredworkflow -R -f ${SRC_DIR}/${EXPORTS_DIR}/"${WF_NAME}".alfredworkflow
+	github-release upload -t ${GH_TAG}-${WF_VERSION} -n Bitwarden.Accelerator.alfredworkflow -R -f ${SRC_DIR}/"${EXPORTS_DIR}"/"${WF_NAME}".alfredworkflow
