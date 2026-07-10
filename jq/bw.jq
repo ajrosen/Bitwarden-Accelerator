@@ -32,8 +32,12 @@ def itemType:
   . | if .type == 1 then "Login"
       elif .type == 2 then "Secure Note" 
       elif .type == 3 then "Card"
+      elif .type == 4 then "Identity"
       elif .type == 5 then "SSH key"
-      else "Identity" end
+      elif .type == 6 then "Bank Account"
+      elif .type == 7 then "Drivers License"
+      elif .type == 8 then "Passport"
+      else "Unknown" end
 ;
 
 # Choose icon for item
@@ -43,6 +47,9 @@ def icon(a):
   elif a.type == 3 then a.card.brand + ".png"
   elif a.type == 4 then "identity.png"
   elif a.type == 5 then "sshkey.png"
+  elif a.type == 6 then "bankaccount.png"
+  elif a.type == 7 then "driverslicense.png"
+  elif a.type == 8 then "passport.png"
   else "identity.png" end
 ;
 
@@ -74,5 +81,8 @@ def common:
   + if .card then field("Type"; "Card"; ":\t\t") else "" end
   + if .identity then field("Type"; "Identity"; ":\t\t") else "" end
   + if .sshKey then field("Type"; "SSH Key"; ":\t\t") else "" end
+  + if .bankaccount then field("Type"; "Bank Account"; ":\t\t") else "" end
+  + if .driverslicense then field("Type"; "Drivers License"; ":\t\t") else "" end
+  + if .passport then field("Type"; "Passport"; ":\t\t") else "" end
   + if .revisionDate then field("Last modified"; .revisionDate; ":\t") else "" end
 ;
