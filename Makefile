@@ -25,10 +25,12 @@ VERSION := $(WF_VERSION)
 
 # Benign default
 diff:
-	diff --color -x \*.plist -r ${WF_DIR} . | grep -v '^Only in \.:' || true
+	@diff --color -x '.??*' -x '*.plist' -r ${WF_DIR} . | grep -v '^Only in \.:' || true
+	@diff --color ${WF_DIR}/info.plist info.plist | grep -v '^Only in \.:' || true
 
 diffq:
-	diff --color -x \*.plist -qr ${WF_DIR} . | grep -v '^Only in \.:' || true
+	@diff --color -x '.??*' -x '*.plist' -qr ${WF_DIR} . | grep -v '^Only in \.:' || true
+	@diff --color -q ${WF_DIR}/info.plist info.plist | grep -v '^Only in \.:' || true
 
 # Update version
 version:			# make version VERSION=1.2.3
@@ -37,7 +39,7 @@ version:			# make version VERSION=1.2.3
 
 # Copy changed files to repository
 checkin:
-	rsync -aq --exclude=*.plist --include=info.plist ${WF_DIR}/ .
+	rsync -aq --exclude=.??* --exclude=*.plist --include=info.plist ${WF_DIR}/ .
 	find . \( -name '*.sh' -o -name '*.applescript' -o -name '*.rb' \) -exec chmod -c 755 {} \;
 	@$(MAKE) --no-print-directory sanitize
 
