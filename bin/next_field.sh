@@ -16,6 +16,12 @@ if [ $((NOW - LAST_FETCH)) -lt "${AUTO_ROTATE}" ] && [ "${objectId}" == "${old_o
 
 	    field="TOTP"
 	fi
+
+	if [ "${old_field}" == "TOTP" ]; then
+	    log "Rotate TOTP -> Password"
+
+	    field="Password"
+	fi
     fi
 fi
 
