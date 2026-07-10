@@ -1,3 +1,10 @@
+## 8.2.0
+
+* Add *Generate password* option
+* Add support for Aside browser
+* Add support for Bank Account, Drivers License, and Passport item types
+* Auto-rotate from TOTP back to Password when using the Shift modifier
+
 ## 8.1.0
 
 * Fix CJK text rendering in item detail dialog (#42)
