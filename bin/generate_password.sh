@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=1091
+# shellcheck disable=1091,2181
 
 . lib/env.sh
 
@@ -57,4 +57,9 @@ fi
 ##################################################
 # Generate password or passphrase
 
-curl -s "${API}/generate?${OPTS}" | jq -r .data.data
+P=$(curl -s "${API}/generate?${OPTS}")
+if [ "${P}" == "" ]; then
+    bw generate -u -l -n -s --length 20
+else
+    jq -r .data.data <<< "${P}"
+fi

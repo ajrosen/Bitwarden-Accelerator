@@ -55,6 +55,7 @@ else
 fi
 
 # Actions available regardless of state
+echo ", $(item "Generate password" "generate" "Generate a random password")"
 echo ", $(item "View documentation" "homepage" "Visit Bitwarden Accelerator's homepage")"
 echo ", $(item "Configure Workflow (${alfred_workflow_version})" "configure" "Opens in Alfred Preferences")"
 
