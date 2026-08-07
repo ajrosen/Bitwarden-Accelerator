@@ -414,7 +414,7 @@ Copy a login item's password to the clipboard.  Use these modifiers to copy othe
 
 *Automatic field rotation*
 
-When selecting the *same* login item within *Sync Interval* seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.
+When selecting the *same* login item within *Sync Interval* seconds, and the *password* was the last field copied, the *TOTP code* will be copied to the clipboard instead of the password.  Using the *Shift* modifier applies the same rule in reverse.  If the *TOTP code* was the last field copied, the *password* will be copied to the clipboard.
 
 * **Secure notes**
 

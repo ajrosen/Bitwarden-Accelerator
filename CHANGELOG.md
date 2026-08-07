@@ -1,3 +1,7 @@
+## 8.2.1
+
+* Use "move" API to move items to a different vault, with create/delete as a fallback
+
 ## 8.2.0
 
 * Add *Generate password* option
