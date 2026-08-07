@@ -13,7 +13,6 @@ osa() {
     SCRIPT+='"'
 
     osascript -e "${SCRIPT}"
-    exit 0
 }
 
 # Get released version
