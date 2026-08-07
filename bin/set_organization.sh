@@ -4,7 +4,32 @@
 
 . lib/env.sh
 
-log "set_organization ${objectId} ${organizationId} ${collectionId}"
+##################################################
+# Move
+
+log "move ${objectId} ${organizationId} ${collectionId}"
+
+URL="${API}"/move/"${objectId}"/"${organizationId}"
+
+# Build payload
+PAYLOAD='[ "'"${collectionId}"'" ]'
+
+# Move item to organization
+R=$(curl -s -H 'Content-Type: application/json' -d "${PAYLOAD}" "${URL}")
+
+S=$(jq -r .success <<< "${R}")
+
+if [ "${S}" == "true" ]; then
+    saveSync
+    echo "${S}"
+    exit
+fi
+
+
+##################################################
+# Create/delete
+
+log "create/delete ${objectId} ${organizationId} ${collectionId}"
 
 URL="${API}"/object/item/"${objectId}"
 
