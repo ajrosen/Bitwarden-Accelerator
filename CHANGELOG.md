@@ -1,3 +1,7 @@
+## 8.2.2
+
+* Fix logging in when a new version of the workflow is available
+
 ## 8.2.1
 
 * Use "move" API to move items to a different vault, with create/delete as a fallback
