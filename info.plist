@@ -727,6 +727,21 @@
 				<false/>
 			</dict>
 		</array>
+		<key>300F08A9-068B-45D3-9513-F9EC19C366F9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1332E42A-7D77-469B-92F3-B107F7D67CC7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>259278D9-D73B-4098-B6DC-6CA9B480E2F5</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>314502FA-72DD-4966-9DDF-8D237C763CEC</key>
 		<array>
 			<dict>
@@ -1903,6 +1918,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>7436F0D3-BB27-42BB-8A44-637DA72ED286</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>93600CB5-8F4B-421B-8E82-F60E60541E40</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>300F08A9-068B-45D3-9513-F9EC19C366F9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -3471,6 +3499,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>unlock</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>1332E42A-7D77-469B-92F3-B107F7D67CC7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3623,6 +3670,38 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>806FA3CA-CC67-463D-9C4E-0898FC11E5F0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:unlockAfterLogin}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>1</string>
+						<key>outputlabel</key>
+						<string>Unlock</string>
+						<key>uid</key>
+						<string>259278D9-D73B-4098-B6DC-6CA9B480E2F5</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>300F08A9-068B-45D3-9513-F9EC19C366F9</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -9111,7 +9190,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 8.2.2*</string>
+*Version 8.3.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -9220,6 +9299,15 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<real>2660</real>
 			<key>ypos</key>
 			<real>2360</real>
+		</dict>
+		<key>1332E42A-7D77-469B-92F3-B107F7D67CC7</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<real>3245</real>
+			<key>ypos</key>
+			<real>15</real>
 		</dict>
 		<key>143F875A-D917-4CC3-8E2C-A0BCC72CA266</key>
 		<dict>
@@ -9439,6 +9527,15 @@ list_organizations.sh</string>
 			<real>1455</real>
 			<key>ypos</key>
 			<real>1830</real>
+		</dict>
+		<key>300F08A9-068B-45D3-9513-F9EC19C366F9</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>3120</real>
+			<key>ypos</key>
+			<real>50</real>
 		</dict>
 		<key>314502FA-72DD-4966-9DDF-8D237C763CEC</key>
 		<dict>
@@ -11212,6 +11309,25 @@ add_item.sh</string>
 				<key>required</key>
 				<false/>
 				<key>text</key>
+				<string>Unlock after login</string>
+			</dict>
+			<key>description</key>
+			<string>Prompt to unlock your vault immediately after logging in</string>
+			<key>label</key>
+			<string>Unlock</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>unlockAfterLogin</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
 				<string>Unlock your vault with Touch ID</string>
 			</dict>
 			<key>description</key>
@@ -11584,7 +11700,7 @@ add_item.sh</string>
 		<string>bwport</string>
 	</array>
 	<key>version</key>
-	<string>8.2.2</string>
+	<string>8.3.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>

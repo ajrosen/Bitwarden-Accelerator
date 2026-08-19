@@ -112,6 +112,10 @@ These are the *Client ID* and *Client Secret* used for *API Key* logins.  They a
 
 Choose *Authenticator app*, *YubiKey OTP*, or *Email*.  *FIDO2* and *Duo* are not supported by the CLI.  This is ignored when using the *API Key* login method.  See [Two-step Login Methods](https://bitwarden.com/help/setup-two-step-login/) for more information.
 
+### Unlock
+
+Enabling this will prompt you to unlock your vault immediately after logging into Bitwarden, without invoking the workflow a second time.
+
 ### Touch ID
 
 You can unlock your vault with Touch ID instead of entering your master password.  It does this by using *sudo* to store and retrieve your password in a secure location.  See [Using Touch ID](https://github.com/ajrosen/Bitwarden-Accelerator/wiki/Touch-ID) for details.

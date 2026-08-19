@@ -1,3 +1,7 @@
+## 8.3.0
+
+* Add option to unlock vault after logging into Bitwarden
+
 ## 8.2.2
 
 * Fix logging in when a new version of the workflow is available

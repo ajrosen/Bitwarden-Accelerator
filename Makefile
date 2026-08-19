@@ -9,7 +9,7 @@ EXPORTS_DIR = Alfred/Exported Workflows
 export GITHUB_REPO = Bitwarden-Accelerator
 
 # Release
-MANIFEST=bin bwa-sync icon.png icons info.plist jq lib sync_agent.plist.template
+MANIFEST=bin bwa-sync icon.png icons info.plist jq lib sync_agent.plist.template README.md CHANGELOG.md Makefile
 GH_TAG = bwa
 
 # Workflow
