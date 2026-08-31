@@ -1,7 +1,11 @@
 # Remove sensitive data
+if .data then
 . | del(.data.data[].login.password)
   | del(.data.data[].login.totp)
   | del(.data.data[].passwordHistory)
   | del(.data.data[].card.number)
   | del(.data.data[].card.code)
   | del(.data.data[].sshKey.privateKey)
+else
+  empty
+end
