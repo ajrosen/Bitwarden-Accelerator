@@ -10,7 +10,7 @@ on run u
     set m to first item of u
 
     if (m = "0") then			-- Authenticator app
-	set t to "Enter the 6 digit verification code from  your authenticator app"
+	set t to "Enter the 6 digit verification code from your authenticator app"
     end
 
     if (m = "1") then			-- Email
