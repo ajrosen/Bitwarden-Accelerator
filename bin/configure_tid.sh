@@ -37,7 +37,9 @@ update_sudo_local() {
 check_sudoers() {
     log "Checking ${SUDOERS}"
 
-    /usr/bin/grep -qE '^\s*Defaults:\s+'"${USER}"'\s+timestamp_type\s+=\s+global\s*$' "${SUDOERS}"
+    SUDOER=$(/usr/bin/id -urn)
+
+    /usr/bin/grep -qE '^\s*Defaults:\s+'"${SUDOER}"'\s+timestamp_type\s+=\s+global\s*$' "${SUDOERS}"
     return $?
 }
 
