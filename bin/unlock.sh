@@ -35,13 +35,21 @@ fi
 
 ##################################################
 # Unlock
+#
+# The password is sent to `bw serve`'s /unlock endpoint via curl's stdin
+# (--data @-) instead of as a -d/--data command-line argument, so it never
+# appears in this process's argv and is not visible to other local
+# processes via `ps`. The JSON body itself is built with `jq -Rs`, which
+# reads the raw password from stdin too, so jq's argv is never touched
+# either. This also fixes JSON-escaping for passwords containing quotes
+# or backslashes, which the previous string-interpolated payload mishandled.
 
 # Try JSON payload
-RESPONSE=$(curl -s -H 'Content-Type: application/json' -d '{"password": "'"${p}"'"}' "${API}"/unlock)
+RESPONSE=$(printf '%s' "${p}" | jq -Rsc '{password: .}' | curl -s -H 'Content-Type: application/json' --data @- "${API}"/unlock)
 
 # Try key=value payload
 if [ "$(jq -j '.success' <<< "${RESPONSE}")" != "true" ]; then
-    RESPONSE=$(curl -s -d "password=${p}" "${API}"/unlock)
+    RESPONSE=$(printf '%s' "${p}" | curl -s --data-urlencode "password@-" "${API}"/unlock)
 fi
 
 ##################################################
