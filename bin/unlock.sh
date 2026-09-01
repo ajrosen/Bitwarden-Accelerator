@@ -6,7 +6,7 @@
 
 log "unlock"
 
-export p=""
+export P=""
 
 TID=1
 
@@ -20,36 +20,29 @@ if [ "${pam_tid}" == 1 ]; then
     TID=$?
 
     if [ ${TID} == 0 ]; then
-	p=$(sudo -H sh -c 'cd ; cat bwpass.${SUDO_USER}')
+	P=$(sudo -H sh -c 'cd ; cat bwpass.${SUDO_USER}')
     fi
 fi
 
 # Maybe prompt for password
-if [ "${p}" == "" ]; then
-    p=$(2>&- ./bin/get_password.applescript "Enter Master password for ${bwuser}")
+if [ "${P}" == "" ]; then
+    P=$(2>&- ./bin/get_password.applescript "Enter Master password for ${bwuser}")
 fi
 
 # Exit if no password
-[ "${p}" == "" ] && exit
+[ "${P}" == "" ] && exit
 
 
 ##################################################
 # Unlock
-#
-# The password is sent to `bw serve`'s /unlock endpoint via curl's stdin
-# (--data @-) instead of as a -d/--data command-line argument, so it never
-# appears in this process's argv and is not visible to other local
-# processes via `ps`. The JSON body itself is built with `jq -Rs`, which
-# reads the raw password from stdin too, so jq's argv is never touched
-# either. This also fixes JSON-escaping for passwords containing quotes
-# or backslashes, which the previous string-interpolated payload mishandled.
 
 # Try JSON payload
-RESPONSE=$(printf '%s' "${p}" | jq -Rsc '{password: .}' | curl -s -H 'Content-Type: application/json' --data @- "${API}"/unlock)
+export J=$(jq -Rnc '{ password: env.P }')
+RESPONSE=$(curl -s --variable %J --expand-json '{{J}}' "${API}"/unlock)
 
 # Try key=value payload
 if [ "$(jq -j '.success' <<< "${RESPONSE}")" != "true" ]; then
-    RESPONSE=$(printf '%s' "${p}" | curl -s --data-urlencode "password@-" "${API}"/unlock)
+    RESPONSE=$(curl -s --variable %P --expand-data 'password={{P}}' "${API}"/unlock)
 fi
 
 ##################################################
