@@ -93,9 +93,25 @@ saveSync() {
 }
 
 log() {
-    [ "${DEBUG}" != 1 ] && return
+    case "${DEBUG}" in
 
-    echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+	1)
+	    echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+	;;
+
+	2)
+	    >&2 echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}"
+	;;
+
+	3)
+	    echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}" >> "${LOG_FILE}"
+	    >&2 echo "$(date): [$(basename "${BASH_SOURCE[1]}"):${BASH_LINENO[0]}] ${*}"
+	;;
+
+	*)
+	    return
+    esac
+
 }
 
 curl() {
