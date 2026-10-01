@@ -11687,6 +11687,8 @@ add_item.sh</string>
 	</array>
 	<key>variables</key>
 	<dict>
+		<key>BW_PATH</key>
+		<string></string>
 		<key>DEBUG</key>
 		<string></string>
 		<key>HOMEPAGE</key>
@@ -11696,6 +11698,7 @@ add_item.sh</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>BW_PATH</string>
 		<string>DEBUG</string>
 		<string>bwport</string>
 	</array>

@@ -6,6 +6,17 @@
 
 log "check_environment"
 
+# BW_PATH selects a specific bw instead of searching the usual locations, e.g. one
+# installed by a version manager or pinned to an older release. The link is
+# refreshed on every run so changing the variable takes effect immediately.
+if [ -n "${BW_PATH}" ]; then
+    if [ -x "${BW_PATH}" ]; then
+	ln -sf "${BW_PATH}" "${alfred_workflow_cache}/bw"
+    else
+	log "BW_PATH ${BW_PATH} is not executable, searching the usual locations"
+    fi
+fi
+
 # Check dependencies
 [ -x "${alfred_workflow_cache}/bw" ] || ./bin/install_dependency.sh "Bitwarden CLI" "bitwarden-cli" "bw"
 [ -x "${alfred_workflow_cache}/jq" ] || [ -x "/usr/bin/jq" ] || ./bin/install_dependency.sh "JQ" "jq" "jq"

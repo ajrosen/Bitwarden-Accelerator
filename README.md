@@ -190,6 +190,10 @@ Keyword used to search deleted items
 
 Bitwarden Accelerator uses [environment variables](https://www.alfredapp.com/help/workflows/advanced/variables/#environment) for options that you will probably never need to change.
 
+#### BW_PATH
+
+Full path to the ***bw*** executable to use, for example one installed by a version manager such as mise or asdf, or a release pinned to an older version. When it is empty (the default), Bitwarden Accelerator searches the usual locations, including Homebrew and MacPorts. If the path is not executable, the setting is ignored and the usual locations are searched.
+
 #### DEBUG
 
 Setting DEBUG to *1* will make Bitwarden Accelerator write messages to a log file in the workflow's [data directory](
