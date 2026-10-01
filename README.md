@@ -158,6 +158,8 @@ The Bitwarden server hosting your vault.  The default is *bitwarden.com*, the US
 
 Full path to the ***bw*** executable to use, for example one installed by a version manager such as mise or asdf, or a release pinned to an older version. A leading *~* is expanded to your home folder. When it is empty (the default), Bitwarden Accelerator searches the usual locations, including Homebrew and MacPorts. If the path is not executable, the setting is ignored and the usual locations are searched.
 
+Alfred runs workflows with a minimal *PATH*. A ***bw*** installed through npm is a script that runs ***node*** from *PATH*, so pointing this option straight at it fails with `node: not found`. Point it at a small wrapper script instead, one that adds your Node.js directory to *PATH* and then runs ***bw***.
+
 ### Downloads Folder
 
 Where to save attachments downloaded from your vault.  The default is your Downloads folder.  If you leave this blank, Bitwarden Accelerator will ask you to choose a folder each time.
