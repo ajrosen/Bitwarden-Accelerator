@@ -11522,6 +11522,27 @@ add_item.sh</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>/opt/homebrew/bin/bw</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Full path to the bw executable. Leave empty to search the usual locations, including Homebrew and MacPorts.</string>
+			<key>label</key>
+			<string>Bitwarden CLI path</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BW_PATH</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>~/Downloads</string>
 				<key>filtermode</key>
 				<integer>1</integer>
@@ -11687,8 +11708,6 @@ add_item.sh</string>
 	</array>
 	<key>variables</key>
 	<dict>
-		<key>BW_PATH</key>
-		<string></string>
 		<key>DEBUG</key>
 		<string></string>
 		<key>HOMEPAGE</key>
@@ -11698,7 +11717,6 @@ add_item.sh</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
-		<string>BW_PATH</string>
 		<string>DEBUG</string>
 		<string>bwport</string>
 	</array>

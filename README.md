@@ -154,6 +154,10 @@ Lock your vault when the screen is locked.  The default is **true**.
 
 The Bitwarden server hosting your vault.  The default is *bitwarden.com*, the US server.
 
+### Bitwarden CLI path
+
+Full path to the ***bw*** executable to use, for example one installed by a version manager such as mise or asdf, or a release pinned to an older version. A leading *~* is expanded to your home folder. When it is empty (the default), Bitwarden Accelerator searches the usual locations, including Homebrew and MacPorts. If the path is not executable, the setting is ignored and the usual locations are searched.
+
 ### Downloads Folder
 
 Where to save attachments downloaded from your vault.  The default is your Downloads folder.  If you leave this blank, Bitwarden Accelerator will ask you to choose a folder each time.
@@ -189,10 +193,6 @@ Keyword used to search deleted items
 ### Environment variables
 
 Bitwarden Accelerator uses [environment variables](https://www.alfredapp.com/help/workflows/advanced/variables/#environment) for options that you will probably never need to change.
-
-#### BW_PATH
-
-Full path to the ***bw*** executable to use, for example one installed by a version manager such as mise or asdf, or a release pinned to an older version. When it is empty (the default), Bitwarden Accelerator searches the usual locations, including Homebrew and MacPorts. If the path is not executable, the setting is ignored and the usual locations are searched.
 
 #### DEBUG
 
