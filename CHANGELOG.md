@@ -1,3 +1,20 @@
+## 8.4.0
+
+* Security fixes
+  * Pass master password to `bw serve` using environment variables (#45)
+  * Make sure the user's real ID is used in `/etc/sudoers.d/sudoers`
+  * Remove bwpass file if it seems empty
+  * Explicitly export a minimal PATH (`/bin:/usr/bin:/usr/sbin`)
+* Add `BWA_PATH` environment variable for dependencies (#46)
+* Check if `.data` exists in `clean.jq` so we don't throw an error
+* Be smarter about caching the status file by being dumber; if the file doesn't exist, or is empty, populate it
+* Give `bw serve` three seconds to start, and alert if it doesn't
+* Additional debug options
+  * 1: Send messages to log file (existing behavior)
+  * 2: Send messages to Alfred's debugger
+  * 3: Send messages to log file *and* Alfred's debugger
+* Fix hostname check in `get_iterm2_url.applescript`
+
 ## 8.3.0
 
 * Add option to unlock vault after logging into Bitwarden

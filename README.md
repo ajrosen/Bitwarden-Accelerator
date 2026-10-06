@@ -86,7 +86,7 @@ brew tap ajrosen/tap
 brew install bitwarden-accelerator
 ```
 
-This method ensures the Bitwarden CLI and jq dependencies are met.  However, *uninstalling* the Homebrew formula will **not** uninstall Bitwarden Accelerator.
+This method ensures the Bitwarden CLI and jq dependencies are met.  However, *uninstalling* the Homebrew formula will **not** uninstall the Bitwarden Accelerator workflow.
 
 ---
 
@@ -192,12 +192,15 @@ Bitwarden Accelerator uses [environment variables](https://www.alfredapp.com/hel
 
 #### DEBUG
 
-Setting DEBUG to *1* will make Bitwarden Accelerator write messages to a log file in the workflow's [data directory](
-https://www.alfredapp.com/help/workflows/script-environment-variables/).
+Setting DEBUG to *1* will make Bitwarden Accelerator write messages to a log file in the workflow's [data directory](https://www.alfredapp.com/help/workflows/script-environment-variables/).
 
-#### HOMEPAGE
+Setting DEBUG to *2* will make Bitwarden Accelerator write messages [Alfred's debugger](https://www.alfredapp.com/help/workflows/utilities/debug/).
 
-The URL to Bitwarden Accelerator's README.
+Setting DEBUG to *3* will make Bitwarden Accelerator write messages to both locations.
+
+#### BWA_PATH
+
+Set this if any of Bitwarden Accelerator's dependencies are installed in a location *not* checked by the workflow.  The format is the same as the `$PATH` variable — a list of directories separated by colons (`:`).
 
 #### bwhost
 
@@ -212,6 +215,10 @@ The value for the *--port* option given to ***bw serve***. The default value is 
 Additional command-line options given to ***curl***. The value is inserted after `curl --connect-timeout 3 --max-time 5`. See [Network](https://github.com/ajrosen/Bitwarden-Accelerator/wiki/Network) for reasons you might need to set this, and the [curl man page](https://curl.se/docs/manpage.html) for available options.
 
 If you chose to use any environment variables that cURL supports, you would add them as their own entries.
+
+#### HOMEPAGE
+
+The URL to Bitwarden Accelerator's README.
 
 ---
 

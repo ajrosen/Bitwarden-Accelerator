@@ -731,6 +731,18 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>35B3FA19-0788-4AD5-AA52-307CB34AC1A4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>F2A11C30-08E0-4F87-9252-BD7A73A4F8A9</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>1332E42A-7D77-469B-92F3-B107F7D67CC7</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -2792,6 +2804,18 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>FCE840A1-C6E1-4A26-861B-9AA9824085AB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>4743DA32-56CA-4772-BAE3-F7A945CF9729</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>D216312C-377E-402F-BBC4-4C91C6D62E37</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -3055,6 +3079,27 @@
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
 			<string>F7BE8BB5-6184-4BDC-B402-15CEEF529D42</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>35B3FA19-0788-4AD5-AA52-307CB34AC1A4</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3499,25 +3544,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>unlock</string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>1332E42A-7D77-469B-92F3-B107F7D67CC7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3602,6 +3628,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>unlock</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>1332E42A-7D77-469B-92F3-B107F7D67CC7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -3655,29 +3700,22 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<true/>
-				<key>skipvarencode</key>
-				<true/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{var:HOMEPAGE}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>806FA3CA-CC67-463D-9C4E-0898FC11E5F0</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>Server failed to start</string>
+						<key>outputlabel</key>
+						<string>Failure</string>
+						<key>uid</key>
+						<string>F2A11C30-08E0-4F87-9252-BD7A73A4F8A9</string>
+					</dict>
 					<dict>
 						<key>inputstring</key>
 						<string>{var:unlockAfterLogin}</string>
@@ -3708,6 +3746,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<true/>
+				<key>skipvarencode</key>
+				<true/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{var:HOMEPAGE}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>806FA3CA-CC67-463D-9C4E-0898FC11E5F0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -3715,33 +3774,14 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>{query}</string>
+				<string>Cannot unlock a vault that is not locked</string>
 				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
+				<string>Bitwarden Accelerator</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>473F7AAC-4331-42F9-B47C-702EBE2C690D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>externaltriggerid</key>
-				<string>syncAgent</string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>C520F809-BEAF-4021-9C22-923FA86A7D12</string>
+			<string>FCE840A1-C6E1-4A26-861B-9AA9824085AB</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -3811,6 +3851,63 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string>archive</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>8E8794EC-8D4E-462F-AE37-0C545AAE8CF7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>473F7AAC-4331-42F9-B47C-702EBE2C690D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>syncAgent</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>C520F809-BEAF-4021-9C22-923FA86A7D12</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -3834,38 +3931,22 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.transform</string>
-			<key>uid</key>
-			<string>D216312C-377E-402F-BBC4-4C91C6D62E37</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>archive</string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>8E8794EC-8D4E-462F-AE37-0C545AAE8CF7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>notlocked</string>
+						<key>outputlabel</key>
+						<string>not locked</string>
+						<key>uid</key>
+						<string>4743DA32-56CA-4772-BAE3-F7A945CF9729</string>
+					</dict>
 					<dict>
 						<key>inputstring</key>
 						<string></string>
@@ -3896,6 +3977,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Wait for installation to complete then restart workflow</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>767C472F-175C-4C50-B2AB-2998B51BC44C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>{var:bwuser}</string>
 				<key>passthroughargument</key>
@@ -3918,51 +4020,15 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Wait for installation to complete then restart workflow</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.utility.transform</string>
 			<key>uid</key>
-			<string>767C472F-175C-4C50-B2AB-2998B51BC44C</string>
+			<string>D216312C-377E-402F-BBC4-4C91C6D62E37</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string></string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string>bin/lock.sh</string>
-				<key>type</key>
-				<integer>8</integer>
-			</dict>
-			<key>inboundconfig</key>
-			<dict>
-				<key>externalid</key>
-				<string>lock</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>5EE9B462-AD9F-431E-856C-65E4B1956B3A</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -4019,6 +4085,34 @@
 			<string>F785147B-18EC-4CC3-AC99-8498EFF6EA76</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>bin/lock.sh</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>inboundconfig</key>
+			<dict>
+				<key>externalid</key>
+				<string>lock</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5EE9B462-AD9F-431E-856C-65E4B1956B3A</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -9190,7 +9284,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 * (Optional) Automatically sync vault in the background using a macOS Launch Agent
 
 ---
-*Version 8.3.0*</string>
+*Version 8.4.0*</string>
 	<key>uidata</key>
 	<dict>
 		<key>01015AFB-7C54-440D-9165-C4E2F49925D9</key>
@@ -9307,7 +9401,7 @@ Start this workflow with the *bw* keyword or the *Cmd-Ctrl-L* hotkey.
 			<key>xpos</key>
 			<real>3245</real>
 			<key>ypos</key>
-			<real>15</real>
+			<real>30</real>
 		</dict>
 		<key>143F875A-D917-4CC3-8E2C-A0BCC72CA266</key>
 		<dict>
@@ -9535,7 +9629,7 @@ list_organizations.sh</string>
 			<key>xpos</key>
 			<real>3120</real>
 			<key>ypos</key>
-			<real>50</real>
+			<real>35</real>
 		</dict>
 		<key>314502FA-72DD-4966-9DDF-8D237C763CEC</key>
 		<dict>
@@ -9561,6 +9655,13 @@ list_organizations.sh</string>
 			<real>235</real>
 			<key>ypos</key>
 			<real>1805</real>
+		</dict>
+		<key>35B3FA19-0788-4AD5-AA52-307CB34AC1A4</key>
+		<dict>
+			<key>xpos</key>
+			<real>3395</real>
+			<key>ypos</key>
+			<real>15</real>
 		</dict>
 		<key>35F408B4-8B0B-43B4-8D50-0C2BF5D02FCE</key>
 		<dict>
@@ -9712,9 +9813,9 @@ list_organizations.sh</string>
 			<key>colorindex</key>
 			<integer>4</integer>
 			<key>xpos</key>
-			<real>3225</real>
+			<real>3375</real>
 			<key>ypos</key>
-			<real>155</real>
+			<real>205</real>
 		</dict>
 		<key>476EC6B2-CA76-4BAD-8A75-7249B68B1AC3</key>
 		<dict>
@@ -9905,9 +10006,9 @@ list_organizations.sh</string>
 			<string>self.lock
 lock.sh</string>
 			<key>xpos</key>
-			<real>3055</real>
+			<real>3205</real>
 			<key>ypos</key>
-			<real>250</real>
+			<real>300</real>
 		</dict>
 		<key>5F52587A-1361-45FC-B121-9ECC8B419CB1</key>
 		<dict>
@@ -10397,7 +10498,7 @@ sync_vault.sh</string>
 			<key>xpos</key>
 			<real>2810</real>
 			<key>ypos</key>
-			<real>170</real>
+			<real>205</real>
 		</dict>
 		<key>9B3ADDF8-FFDE-4342-9B77-7D155DA25579</key>
 		<dict>
@@ -10744,9 +10845,9 @@ list_collections.sh</string>
 			<key>colorindex</key>
 			<integer>8</integer>
 			<key>xpos</key>
-			<real>3385</real>
+			<real>3535</real>
 			<key>ypos</key>
-			<real>155</real>
+			<real>205</real>
 		</dict>
 		<key>C582CFB5-777F-49F0-9366-67635CECAD7C</key>
 		<dict>
@@ -10843,9 +10944,9 @@ list_collections.sh</string>
 			<key>colorindex</key>
 			<integer>4</integer>
 			<key>xpos</key>
-			<real>3045</real>
+			<real>3195</real>
 			<key>ypos</key>
-			<real>185</real>
+			<real>235</real>
 		</dict>
 		<key>D3DA7BBF-27FA-45B1-BEF3-3D44464D7ACD</key>
 		<dict>
@@ -10973,7 +11074,7 @@ list_folders.sh</string>
 			<key>xpos</key>
 			<real>2690</real>
 			<key>ypos</key>
-			<real>200</real>
+			<real>235</real>
 		</dict>
 		<key>E1F62AB1-3C36-420B-A3F7-8C9C69AE2608</key>
 		<dict>
@@ -11029,7 +11130,7 @@ list_folders.sh</string>
 			<key>xpos</key>
 			<real>2960</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>210</real>
 		</dict>
 		<key>F19CEEF0-54A3-4416-B2B4-3880D26DAE72</key>
 		<dict>
@@ -11105,6 +11206,15 @@ list_folders.sh</string>
 			<real>3010</real>
 			<key>ypos</key>
 			<real>1190</real>
+		</dict>
+		<key>FCE840A1-C6E1-4A26-861B-9AA9824085AB</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<real>3065</real>
+			<key>ypos</key>
+			<real>145</real>
 		</dict>
 		<key>FD160350-60B4-4CAE-8C29-9E165A47851B</key>
 		<dict>
@@ -11687,6 +11797,8 @@ add_item.sh</string>
 	</array>
 	<key>variables</key>
 	<dict>
+		<key>BWA_PATH</key>
+		<string></string>
 		<key>DEBUG</key>
 		<string></string>
 		<key>HOMEPAGE</key>
@@ -11697,10 +11809,11 @@ add_item.sh</string>
 	<key>variablesdontexport</key>
 	<array>
 		<string>DEBUG</string>
+		<string>BWA_PATH</string>
 		<string>bwport</string>
 	</array>
 	<key>version</key>
-	<string>8.3.0</string>
+	<string>8.4.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ajrosen/Bitwarden-Accelerator</string>
 </dict>
