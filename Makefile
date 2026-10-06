@@ -10,6 +10,7 @@ export GITHUB_REPO = Bitwarden-Accelerator
 
 # Release
 MANIFEST=bin bwa-sync icon.png icons info.plist jq lib sync_agent.plist.template README.md CHANGELOG.md Makefile
+ SOURCES=bin doc bwa-sync icon.png icons jq lib sync_agent.plist.template README.md CHANGELOG.md Makefile workflow/
 GH_TAG = bwa
 
 # Workflow
@@ -54,6 +55,10 @@ export: sanitize
 
 ##################################################
 # Targets to run in repository directory
+
+# Copy changed files to workflow directory
+install:
+	rsync -a --exclude info.plist ${MANIFEST} workflow/
 
 # View changes
 changelog:
