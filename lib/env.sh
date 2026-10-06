@@ -3,11 +3,12 @@
 
 # shellcheck disable=2034,2086,2154
 
+export PATH="${alfred_workflow_cache}":/bin:/usr/bin:/usr/sbin
+
 NOW=$(date +%s)
 
 # Workflow
 alfred_workflow_cache=${alfred_workflow_cache:-"."}
-export PATH="${alfred_workflow_cache}":${PATH}
 LOG_FILE="${alfred_workflow_cache}"/"${alfred_workflow_bundleid}".log
 
 SyncTime=${SyncTime:-30}
