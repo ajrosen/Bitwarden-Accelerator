@@ -35,9 +35,9 @@ update_sudo_local() {
 # timestamp_type must be "global"
 
 check_sudoers() {
-    log "Checking ${SUDOERS}"
-
     SUDOER=$(/usr/bin/id -urn)
+
+    log "Checking ${SUDOERS} for ${SUDOER}"
 
     /usr/bin/grep -qE '^\s*Defaults:\s+'"${SUDOER}"'\s+timestamp_type\s+=\s+global\s*$' "${SUDOERS}"
     return $?
