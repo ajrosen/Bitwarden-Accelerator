@@ -21,6 +21,9 @@ if [ "${pam_tid}" == 1 ]; then
 
     if [ ${TID} == 0 ]; then
 	P=$(sudo -H sh -c 'cd ; cat bwpass.${SUDO_USER}')
+
+	# Delete the bwpass file if it's empty
+	[ "${P}" == "" ] && sudo -H sh -c 'cd ; rm -f bwpass.${SUDO_USER}'
     fi
 fi
 
@@ -54,7 +57,7 @@ if [ "${pam_tid}" == 1 ] && [ ${TID} == 0 ]; then
 	sudo -H sh -c 'cd ; rm -f bwpass.${SUDO_USER}'
     else
 	# Master password was correct.  Store it in the cache.
-	sudo -H --preserve-env=p sh -c 'cd ; umask 077 ; echo "${p}" > bwpass.${SUDO_USER}'
+	sudo -H --preserve-env=P sh -c 'cd ; umask 077 ; echo "${P}" > bwpass.${SUDO_USER}'
     fi
 fi
 
