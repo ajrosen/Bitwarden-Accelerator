@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2154,2181
+# shellcheck disable=2068,2154,2181
 
 alfred_workflow_cache=${alfred_workflow_cache:-"."}
 
@@ -32,10 +32,27 @@ install () {
 
 # Create local symlink
 mklink () {
-    for D in /usr/bin /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin /run/current-system/sw/bin; do
-	if [ -x "${D}/${EXE}" ]; then
-	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
+    IFS=:
 
+    for D in ${BWA_PATH} /usr/bin /usr/local/bin /opt/{homebrew,local}/bin /usr/local/Cellar/"${PKG}"/*/bin /opt/homebrew/Cellar/"${PKG}"/*/bin /run/current-system/sw/bin; do
+	if [ -x "${D}/${EXE}" ]; then
+	    # Check for shebang
+	    read -r magic < "${D}/${EXE}"
+	    if [[ "${magic}" =~ ^#! ]]; then
+		# Get interpreter
+		I=${magic/#\#!/}
+		I=${I/% */}
+
+		# Check for #!/usr/bin/env
+		[ "${I}" == "/usr/bin/env" ] && I=$(cut -d' ' -f2 <<< "${magic}")
+		[ "${I}" == "#!/usr/bin/env" ] && break
+
+		# Check interpreter
+		[ -x "${I}" ] || [ -x "${alfred_workflow_cache}/${I}" ] || ./bin/install_dependency.sh "${I}" "${I}" "${I}"
+		[ $? == 0 ] || exit 2
+	    fi
+
+	    log "ln -sf ${D}/${EXE} ${alfred_workflow_cache}"
 	    ln -sf "${D}/${EXE}" "${alfred_workflow_cache}"
 	    break
 	fi
@@ -67,4 +84,7 @@ elif [ "${PORT}" != "" ]; then
 fi
 
 # Once more, with feeling
-[ -x "${alfred_workflow_cache}/${EXE}" ] || echo -n "cancel"
+[ -x "${alfred_workflow_cache}/${EXE}" ] && exit
+
+echo -n "cancel"
+exit 1
