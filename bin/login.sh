@@ -46,6 +46,7 @@ case "${loginMethod}" in
 
 	# shellcheck disable=2086
 	OUT=$(bw --response --nointeraction login "${USER}" --passwordenv PASS ${CODE})
+	unset PASS
 	;;
 
     "api_key")
